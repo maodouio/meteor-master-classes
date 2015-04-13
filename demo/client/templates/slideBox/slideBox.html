@@ -1,0 +1,24 @@
+<template name="slideBox">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Slide Box</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionSlideBox}}
+        {{#ionSlide class="light-bg"}}
+          <h3>Slide 1</h3>
+        {{/ionSlide}}
+        {{#ionSlide class="dark-bg"}}
+          <h3>Slide 2</h3>
+        {{/ionSlide}}
+        {{#ionSlide class="positive-bg"}}
+          <h3>Slide 3</h3>
+        {{/ionSlide}}
+      {{/ionSlideBox}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
