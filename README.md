@@ -36,6 +36,8 @@ li@MacbookAir ~/Github/meteor-master-classes/hello$ meteor
 li@MacbookAir ~/Github/meteor-master-classes/hello$ cd ..
 li@MacbookAir ~/Github/meteor-master-classes$ ls
 README.md	hello
+li@MacbookAir ~/Github/meteor-master-classes$ git add hello/
+li@MacbookAir ~/Github/meteor-master-classes$ git commit -a -m "Add hello repo"
 li@MacbookAir ~/Github/meteor-master-classes$ git push 
 fatal: The current branch limingth has no upstream branch.
 To push the current branch and set the remote as upstream, use
