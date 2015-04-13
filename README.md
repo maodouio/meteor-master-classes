@@ -1,6 +1,12 @@
 # meteor-master-classes
 First meteor master classes 
 
+## Add good resourses
+* https://github.com/limingth/meteor-master-classes/wiki
+
+## Ask a question
+* https://github.com/limingth/meteor-master-classes/issues 
+
 ## How to create your own branch
 ```
 li@MacbookAir ~/Github$ git clone https://github.com/limingth/meteor-master-classes
