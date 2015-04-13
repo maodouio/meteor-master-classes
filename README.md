@@ -1,6 +1,7 @@
 # meteor-master-classes
 First meteor master classes 
 
+## How to create your own branch
 ```
 li@MacbookAir ~/Github$ git clone https://github.com/limingth/meteor-master-classes
 Cloning into 'meteor-master-classes'...
