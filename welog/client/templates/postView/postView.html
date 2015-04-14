@@ -1,0 +1,79 @@
+<template name="postView">
+  {{#contentFor "headerButtonLeft"}}
+
+    {{>ionNavBackButton text=" " icon="ios-list-outline" path="lists"}}
+
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{userName authorId}}</h1>
+  {{/contentFor}}
+
+  {{#if isMyPost}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" onclick="Router.go('/editPost/' + '{{_id}}')">Edit</button>
+  {{/contentFor}}
+  {{/if}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="list card">
+
+        {{#ionItem buttonRight=true avatar=true}}
+          {{#if authorId}}
+            <img src="{{get_avatar_url_from_post this}}">
+          {{else}}
+            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+          {{/if}}
+
+          <h2>{{title}}</h2>
+          <p>
+            {{humanizedTime time}}
+          </p>
+        {{/ionItem}}
+
+        {{#ionItem class="item-body"}}
+          {{#each sections}}
+            {{#if isTypeText type}}
+               <textarea readonly data-id={{time}} type='text' rows='4' class='in-display-mode' label-type=''>{{text}}</textarea>
+            {{/if}}
+            {{#if isTypePic type}}
+              <div class="list card">
+                <div class="item item-image">
+                  <img class="full-image" src="{{pic}}"/>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+          <p>
+            <a href="#" class="subdued">{{numLikes}} Like</a>
+            <a href="#" class="subdued">5 Comments</a>
+          </p>
+        {{/ionItem}}
+
+        {{#if currentUser}}
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#" id="like-button">
+              {{#if isLiked}}
+                <i class="icon ion-ios-heart"></i>
+                Liked
+              {{else}}
+                <i class="icon ion-ios-heart-outline"></i>
+                Like
+              {{/if}}
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-chatbox"></i>
+              Comment
+            </a>
+            <a class="tab-item" href="#" data-ion-modal="sharePost">
+              <i class="icon ion-share"></i>
+              Share
+            </a>
+          </div>
+        {{/if}}
+
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

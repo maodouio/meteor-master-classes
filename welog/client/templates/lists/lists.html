@@ -1,0 +1,51 @@
+<template name="lists">
+
+  {{#contentFor "headerButtonLeft"}}
+  {{/contentFor}}
+  
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Welog</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" id="showProfileMenu">
+      {{#if currentUser}}
+        Hi, {{currentUser.username}} <i class="icon ion-ios-person"></i>
+      {{else}}
+        <i class="icon ion-ios-person-outline"></i>
+      {{/if}}
+    </button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+        {{#each posts}}
+          <div class="viewpost" data-id="{{_id}}">
+            {{#ionItem buttonRight=true avatar=true}}
+              {{#with getuser}}
+
+                {{#if emails.length}}
+                  <img src="{{get_avatar_url this}}">
+                {{else}}
+                  <img src="{{getUserPictureOrDefault}}">
+                {{/if}}
+
+                <h2>{{../title}}</h2>
+                <p>
+                  {{username}} &nbsp; {{humanizedTime ../time}}
+                </p>
+
+              {{/with}}
+            
+              <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
+
+            {{/ionItem}}
+          </div>
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
