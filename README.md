@@ -11,6 +11,9 @@ First meteor master classes
 * https://github.com/dalequi/meteor-meteoric-boilerplate
 * https://github.com/dalequi/meteor-meteoric-boilerplate/tree/master/client/templates
 
+## Your demo can refer to 
+* http://welog-limingth.meteor.com
+
 ## How to create your own branch
 ```
 li@MacbookAir ~/Github$ git clone https://github.com/limingth/meteor-master-classes
