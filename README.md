@@ -7,6 +7,10 @@ First meteor master classes
 ## Ask a question
 * https://github.com/limingth/meteor-master-classes/issues 
 
+## An example of how to cut out demo code
+* https://github.com/dalequi/meteor-meteoric-boilerplate
+* https://github.com/dalequi/meteor-meteoric-boilerplate/tree/master/client/templates
+
 ## How to create your own branch
 ```
 li@MacbookAir ~/Github$ git clone https://github.com/limingth/meteor-master-classes
