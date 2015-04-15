@@ -1,0 +1,39 @@
+<template name="lists">
+<!--{{#contentFor "headerButtonLeft"}}-->
+    <!--{{>ionNavBackButton path="index"}}-->
+        <!--{{/contentFor}}-->
+	{{#contentFor "headerTitle"}}
+      <h1 class="title">Lists</h1>
+	{{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+      <!--<button class="button button-clear" onclick="alert('TODO')">Edit</button>-->
+
+      <button class="button button-clear" id="showProfileMenu">
+				{{#if currentUser}}
+            Hi, {{currentUser.username}} <i class="icon ion-ios-person"></i>
+				{{else}}
+            <i class="icon ion-ios-person-outline"></i>
+				{{/if}}
+      </button>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+			{{#ionList}}
+
+				{{#each posts}}
+
+					{{#ionItem buttonRight=true avatar=true class="item-post"}}
+
+              <h2>{{title}}</h2>
+
+              <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
+
+					{{/ionItem}}
+
+				{{/each}}
+
+			{{/ionList}}
+		{{/ionContent}}
+	{{/ionView}}
+</template>
