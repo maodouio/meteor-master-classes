@@ -5,5 +5,12 @@ Template.lists.helpers({
       times.push(n);
     });
     return times;
-  }
+  },
+  posts: function () {
+    // body...
+    return Posts.find();
+  },
+  email: function () {
+    return Meteor.user().emails[0].address;
+  },
 });
