@@ -28,8 +28,6 @@
 * 增加路由 postView
   - both/router.js
   - this.route('postView');
-* 右上角显示 Edit 按钮
-  - client/templates/postView/postView.js
 * 修改 simple schema
   - both/collections.js
 
@@ -41,3 +39,17 @@
 * 增加 addPost js
   - client/templates/addPost/addPost.js
   - Posts.insert(newPost);
+
+### 修改 Post 页面
+* 增加 editPost 目录
+  - client/templates/editPost
+* 增加 editPost template
+  - client/templates/editPost/editPost.html
+* 修改 postView，右上角显示 Edit 按钮
+  - client/templates/postView/postView.js
+* 增加路由 editPost
+  - both/router.js
+  - this.route('editPost');
+* 增加 editPost.js
+  - client/templates/addPost/editPost.js
+  - Posts.update({_id: this._id}, {$set: updateObj});
