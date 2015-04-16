@@ -53,3 +53,11 @@
 * 增加 editPost.js
   - client/templates/addPost/editPost.js
   - Posts.update({_id: this._id}, {$set: updateObj});
+
+### 用户头像使用 avatar
+* 增加 bengott:avatar 支持
+  - meteor add bengott:avatar
+* lists 增加函数 get_avatar_url
+  - client/templates/lists/lists.js
+* postView 增加函数 get_avatar_url_from_post
+  - client/templates/postView/postView.js
