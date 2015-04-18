@@ -22,18 +22,25 @@
       {{#ionList}}
 
         {{#each posts}}
+          <div class="viewpost" data-id="{{_id}}">
+            {{#ionItem buttonRight=true avatar=true}}
 
-          {{#ionItem buttonRight=true avatar=true}}
-
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+            {{#with getuser}}
+                {{#if emails.length}}
+                  <img src="{{get_avatar_url this}}">
+                {{else}}
+                  <img src="{{getUserPictureOrDefault}}">
+                {{/if}}
+            {{/with}}
+                
             <h2>{{title}}</h2>
             <p>
               {{body}}
             </p>
             <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
 
-          {{/ionItem}}
-
+            {{/ionItem}}
+          </div>
         {{/each}}
 
       {{/ionList}}

@@ -40,4 +40,27 @@ Router.map(function() {
   this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
   this.route('userAccounts');
+
+  this.route('addPost');
+
+  this.route('postView', {
+    path: '/postView/:_id',
+
+    data: function() {
+      return Posts.findOne(this.params._id);
+    }
+  });
+
+  this.route('editPost', {
+    path: '/editPost/:_id',
+    subscriptions: function() {
+      Meteor.subscribe('post', this.params._id);
+    },
+    data: function() {
+      return Posts.findOne(this.params._id);
+    }
+  });
+
 });
+
+
