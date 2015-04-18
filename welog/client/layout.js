@@ -5,7 +5,7 @@ Template.layout.events({
 		t.ActionSheetButtons = [];
 		if (Meteor.user() != null) {
 			t.ActionSheetButtons.push({
-				actionId: 'addPost',
+				actionId: 'postAdd',
 				text: 'New Post <i class="icon ion-ios-compose"></i>'
 			});
 			t.ActionSheetButtons.push({
@@ -26,13 +26,13 @@ Template.layout.events({
 			buttonClicked: function(index) {
 				var _ref;
 				switch ((_ref = t.ActionSheetButtons[index]) != null ? _ref.actionId : void 0) {
-					case 'addPost':
-						Router.go('addPost');
+					case 'postAdd':
+						Router.go('postAdd');
 						break;
 					case 'logout':
 						Meteor.logout(function() {
 							toastr.success('Logged out');
-							return Router.go('lists');
+							return Router.go('postList');
 						});
 						break;
 					case 'login':

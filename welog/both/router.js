@@ -12,8 +12,25 @@ Meteor.startup(function () {
 });
 
 
-Router.route('/',{name:'index',template:'lists'})
-Router.route('/lists',{name:'lists'})
+Router.route('/',{name:'index',template:'postList'})
+
+Router.route('/postList',{name:'postList'})
+
+Router.route('/posts/:_id',{
+  name:'postView',
+  data: function () {
+    return Posts.findOne({_id: this.params._id});
+  }
+})
+Router.route('/postAdd',{name:'postAdd'})
+Router.route('/postUpdate/:_id',{
+  name:'postUpdate',
+  data: function () {
+    return Posts.findOne({_id: this.params._id});
+  }
+})
+
+
 Router.route('userAccounts');
 
 

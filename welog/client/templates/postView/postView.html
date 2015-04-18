@@ -1,0 +1,31 @@
+<template name="postView">
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton text=" "}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+      <h1 class="title">Post</h1>
+  {{/contentFor}}
+
+  <!--{{#if isMyPost}}-->
+    {{#contentFor "headerButtonRight"}}
+        <button class="button button-clear" onclick="Router.go('/postUpdate/' + '{{_id}}')">Edit</button>
+    {{/contentFor}}
+  <!--{{/if}}-->
+
+  {{#ionView}}
+    {{#ionContent}}
+
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h2>{{title}}</h2>
+                <p>
+                    {{body}}
+                </p>
+            </div>
+        </div>
+
+    {{/ionContent}}
+  {{/ionView}}
+</template>

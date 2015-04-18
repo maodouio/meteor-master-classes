@@ -1,4 +1,4 @@
-Template.lists.helpers({
+Template.postList.helpers({
   times: function () {
     var times = [];
     _(20).times(function(n){
@@ -15,9 +15,14 @@ Template.lists.helpers({
   }
 });
 
-Template.lists.events({
+Template.postList.events({
   'click .item-post': function() {
-    alert('click')
-    //return Router.go("/postView/" + this._id);
+    //alert('click')
+    console.log(this)
+    return Router.go("/posts/" + this._id);
+  },
+  'click h2': function() {
+    console.log(this)
+
   }
 });

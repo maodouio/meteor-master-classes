@@ -1,4 +1,4 @@
-<template name="lists">
+<template name="postList">
 <!--{{#contentFor "headerButtonLeft"}}-->
     <!--{{>ionNavBackButton path="index"}}-->
         <!--{{/contentFor}}-->
@@ -22,14 +22,12 @@
 			{{#ionList}}
 
 				{{#each posts}}
+            <div class="item item-post item-avatar item-icon-right" data-id="{{_id}}">
+		            <h2>{{title}}</h2>
 
-					{{#ionItem buttonRight=true avatar=true class="item-post"}}
+	            {{> ionIcon icon="chevron-right"}}
 
-              <h2>{{title}}</h2>
-
-              <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
-
-					{{/ionItem}}
+            </div>
 
 				{{/each}}
 

@@ -1,0 +1,19 @@
+<template name="postUpdate">
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton text=" "  }}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+      <h1 class="title">Update Post</h1>
+  {{/contentFor}}
+
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      {{> quickForm collection="Posts" doc=this id="postUpdateForm" type="update" template="ionic"}}
+
+    {{/ionContent}}
+  {{/ionView}}
+</template>
