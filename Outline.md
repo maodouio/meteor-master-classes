@@ -1,4 +1,4 @@
-## 《Meteor 全栈开发在线师徒班》
+## 《Meteor全栈开发在线师徒班》
 
 ### 预习基础
 * 《Discover Meteor 中文版》
@@ -8,7 +8,7 @@
 * 视频学习《Meteor开发者交流日-Kevin技术讲座》
   - http://www.youku.com/playlist_show/id_23545469.html
   
-### 理论内容大纲
+### 理论内容
 * Tools
   - Meteor
   - Chrome
@@ -56,7 +56,7 @@
   - meteor up/mup/mup.json
   - how to deploy to aliyun/amazon EC2
 
-### 实验内容大纲
+### 实验内容
 * Task-1: 清理 meteoric/demo 代码, 得到一个干净的空 App
   - 建立开发环境
   - 分析模板代码
