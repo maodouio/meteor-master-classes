@@ -2,23 +2,23 @@
 
 Posts.attachSchema new SimpleSchema
   title:
-    type: String,
-    max: 200,
+    type: String
+    max: 200
     autoform:
       'label-type': 'stacked'
 
   body:
-    type: String,
+    type: String
     autoform:
-      rows: 10,
+      rows: 10
       'label-type': 'stacked'
 
   authorId:
-    type: String,
-    optional: false,
+    type: String
+    optional: false
     autoValue: ->
       if this.isSet
-        return;
+        return
       if this.isInsert
         return Meteor.userId()
       else

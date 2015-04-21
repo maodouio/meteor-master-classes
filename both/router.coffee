@@ -3,6 +3,7 @@ Router.configure
 
 Router.route '/',
   template: 'lists'
+  name: 'lists'
   subscriptions: -> Meteor.subscribe 'posts'
 
 Router.route '/userAccounts'
