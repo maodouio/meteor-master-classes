@@ -7,7 +7,6 @@ Template.lists.helpers
     'https://randomuser.me/api/portraits/thumb/men/1.jpg'
   get_avatar_url: (usr) ->
     Avatar.getUrl usr
-  email: -> Meteor.user().emails[0].address
 
 Template.lists.events
   'click .viewpost': ->

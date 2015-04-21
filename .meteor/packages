@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 accounts-password
 fourseven:scss
 iron:router
@@ -22,3 +20,4 @@ useraccounts:ionic
 bengott:avatar
 msavin:mongol
 coffeescript
+reywood:publish-composite

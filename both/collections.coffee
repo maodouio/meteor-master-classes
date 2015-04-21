@@ -13,12 +13,6 @@ Posts.attachSchema new SimpleSchema
       rows: 10,
       'label-type': 'stacked'
 
-  published:
-    type: Boolean,
-    defaultValue: true,
-    autoform:
-      type: 'toggle'
-
   authorId:
     type: String,
     optional: false,

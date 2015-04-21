@@ -6,7 +6,6 @@ Template.editPost.events
     updateObj = 
       title: title
       body: body
-      published: true
 
     Posts.update {_id: @_id}, {$set: updateObj}
     Router.go "/postView/#{@_id}"

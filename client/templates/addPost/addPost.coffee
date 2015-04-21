@@ -8,7 +8,6 @@ Template.addPost.events
     newPost =
       title: title
       body: body
-      published: true
 
     console.log newPost
     postId = Posts.insert newPost
