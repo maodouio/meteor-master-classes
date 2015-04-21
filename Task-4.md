@@ -6,8 +6,12 @@
   - 可以简化设计为一个post可以是发一段文字，允许附带一张照片
 
 ## 任务验收
-* 用户添加 post，可以允许用户附带一张照片
-* 用户点击 submit，直接通过 quickForm 来完成数据库添加操作
+* 直接通过 quickForm 来完成 insert 到数据库的添加操作
+  - 用户点击 submit，无需使用 insert 函数调用
+* 允许用户在发 post 时，附带一张照片
+  - 用户添加 post，则需要手工编写 拍照按钮 和 submit按钮 的代码
+* 如果用户忘记拍照，则允许用户 Edit 编辑 post
+  - 没有拍照的帖子可以点击 拍照按钮 上传一张照片
 
 ## 检查点 
 
@@ -36,7 +40,7 @@
 * 修改 addPost Template
   - client/templates/addPost/addPost.html
   - {{#autoForm collection="Posts" id="edit-form" type="insert"}}
-  - <a class="button icon ion-android-camera">+</a>
+  - \<a class="button icon ion-android-camera"\>+\</a\>
   - 参考 http://autoform.meteor.com/qfdetails
 * 增加点击照相按钮的消息处理
   - client/templates/addPost/addPost.js 
@@ -49,7 +53,7 @@
 * 修改 postView 的照片显示功能
   - client/templates/postView/postView.js 
   - 增加 {{#if pic_is_taken}} 的 helper 支持
-  - 使用 <img class="full-image" src="{{pic}}"/> 显示图片
+  - 使用 \<img class="full-image" src="{{pic}}"/\> 显示图片
 * 增加Edit功能的支持
   - client/templates/editPost/editPost.js 
   - client/templates/editPost/editPost.html
