@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 accounts-password
 fourseven:scss
 iron:router
@@ -21,3 +19,5 @@ meteoric:autoform-ionic
 useraccounts:ionic
 bengott:avatar
 msavin:mongol
+reywood:publish-composite
+meteoric:camera

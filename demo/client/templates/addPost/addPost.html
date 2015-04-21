@@ -11,6 +11,7 @@
   {{#ionView}}
     {{#ionContent}}
 
+<!--
       <div >
         <label type='stacked' class='item item-input item-stacked-label'>
           <span class='input-label'>Title</span>
@@ -25,8 +26,40 @@
       <div class="button-bar">
         <a class="button icon ion-android-send button-positive">Submit</a>
       </div>
-      
+-->
+<!--
+      <div class="button-bar">
+        <a class="button icon ion-android-camera">+</a>
+      </div>
+
+    {{> quickForm collection="Posts" doc=post id="edit-form" type="insert" fields="title,body,pic,published" buttonContent="Submit"}} 
+-->
+
+      {{#autoForm collection="Posts" id="edit-form" type="insert"}}
+        {{> afQuickField name='title'}}
+        {{> afQuickField name='body'}}
+
+        {{#if pic_is_taken}}
+          {{#with picture}}
+          <div class="list card">
+            <div class="item item-image">
+              <img class="full-image" src="{{this}}"/>
+            </div>
+          </div>
+          {{/with}}
+        {{else}}
+          <div class="button-bar">
+            <a class="button icon ion-android-camera">+</a>
+          </div>      
+        {{/if}}
+
+        <div class="button-bar">
+          <a class="button icon ion-android-send button-positive">Submit</a>
+        </div>
+      {{/autoForm}}
+
     {{/ionContent}}
   {{/ionView}}
-  
+
+
 </template>

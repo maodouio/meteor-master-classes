@@ -8,20 +8,23 @@ Template.lists.helpers({
   },
   posts: function () {
     // body...
-    return Posts.find();
+    return Posts.find({}, {limit:10, sort:{time: -1}});
   },
   email: function () {
     return Meteor.user().emails[0].address;
   },
+  username: function () {
+    return Meteor.user().username;
+  },
   getuser: function () {
-    console.log('getuser', this);
+//    console.log('getuser', this);
     return Meteor.users.findOne({_id: this.authorId});
   },
   getUserPictureOrDefault: function () {
     return 'https://randomuser.me/api/portraits/thumb/men/1.jpg';
   },
   get_avatar_url: function (usr) {
-    console.log('usr is ', usr);
+//    console.log('usr is ', usr);
     return Avatar.getUrl(usr);
   },
 });

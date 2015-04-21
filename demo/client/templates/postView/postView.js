@@ -28,6 +28,11 @@ Template.postView.helpers({
     });
     return Avatar.getUrl(usr);
   },
+  pic_is_taken: function (argument) {
+    if (this.pic)
+      return true;
+    return false;
+  }
 });
 
 // ---

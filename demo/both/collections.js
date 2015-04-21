@@ -1,5 +1,7 @@
 Posts = new Mongo.Collection('posts');
 
+console.log('out collection is running');
+
 Posts.attachSchema(new SimpleSchema({
   title: {
     type: String,
@@ -11,9 +13,13 @@ Posts.attachSchema(new SimpleSchema({
   body: {
     type: String,
     autoform: {
-      rows: 10,
+      rows: 6,
       'label-type': 'stacked'
     }
+  },
+  pic: {
+    type: String,
+    optional: true 
   },
   published: {
     type: Boolean,

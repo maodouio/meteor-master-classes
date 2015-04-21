@@ -1,3 +1,7 @@
+
+console.log('client layout is running');
+
+
 Template.layout.events({
   'click #showProfileMenu': function(event, t) {
     //alert('show profile clicked');

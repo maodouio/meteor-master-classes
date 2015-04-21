@@ -19,9 +19,19 @@
         </label>
         <label type='stacked' class='item item-input item-stacked-label'>
           <span class='input-label'>Body</span>
-          <input type='text' label-type='stacked' name='body' required value={{body}} />
+          <textarea rows='6' label-type='stacked' name='body' required value={{body}}></textarea>
         </label>
       </div>
+
+      {{#if pic_is_taken}}
+        <div class="item item-image">
+          <img class="full-image" src="{{get_pic}}"/>
+        </div>
+      {{else}}
+        <div class="button-bar">
+          <a class="button icon ion-android-camera">+</a>
+        </div>      
+      {{/if}}  
 
       <div class="button-bar">
         <a class="button icon ion-android-send button-positive">Submit</a>
