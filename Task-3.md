@@ -4,7 +4,7 @@
 * 取消 autopublish 和 insecure 改用 pub/sub 机制
   - 参考 http://zh.discovermeteor.com/chapters/publications-and-subscriptions/
 * 设定用户对 post 的权限，例如只允许用户编辑和删除自己的帖子
-  - Allow Deny
+  - Allow/Deny
   - 测试权限
 
 ## 任务验收
@@ -30,22 +30,24 @@
 * 添加 reywood:publish-composite
   - meteor add reywood:publish-composite
 * 添加 Posts 数据发布
+  - server/publish.js
   - Meteor.publishComposite('Posts')
 * 添加单个 post 数据发布
   - Meteor.publishComposite('post')
 
 ### Client端增加 subscription
 * 增加 lists 的 router subscription
+  - both/router.js 
   - this.route('lists', {subscriptions:Meteor.subscribe('Posts');});
 * 增加 postView 的 router subscription
   - this.route('postView', {subscriptions: function() { Meteor.subscribe('post', this.params._id);});
 
 ### Server端添加权限管理
 * 增加 Posts 的 insert 权限
+  - server/permissions.js 
   - Posts.allow({'insert'});
 * 增加 Posts 的 update 权限
   - 'update': return userId === doc.authorId;
-
 
 
 
