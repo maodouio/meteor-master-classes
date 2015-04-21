@@ -10,6 +10,9 @@
 ## 任务验收
 * 新创建用户，要求填写 username 
 * 客户端可以看到 hi, {{username}}，取代 hi, {{email}}
+* 登录用户可以创建新的 post
+* 登录用户可以修改自己创建的 post
+* 其他浏览功能都与之前采用 autopublish/insecure 方式下的一样
 
 ## 检查点 
 
