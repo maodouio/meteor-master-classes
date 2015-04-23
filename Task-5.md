@@ -29,6 +29,10 @@
 * 使用 mup 部署
   - mup setup
   - mup deploy
+* 安装 SSHPASS
+  - Installing SSHPASS
+  - https://gist.github.com/arunoda/7790979
+  - brew install https://raw.github.com/eugeneoden/homebrew/eca9de1/Library/Formula/sshpass.rb
 
 ### 生成手机app
 * iOS app
@@ -48,3 +52,9 @@
   - meteor add-platform android
   - meteor run android
   - meteor run android-device --mobile-server http://128.199.72.206/
+* How to submit your Android app to Play Store
+  - https://github.com/meteor/meteor/wiki/How-to-submit-your-Android-app-to-Play-Store
+  - meteor build ~/build-output-directory --server=your-desired-app-hostname.meteor.com
+  - keytool -genkey -alias your-app-name -keyalg RSA -keysize 2048 -validity 10000
+  - jarsigner -digestalg SHA1 unaligned.apk your-app-name
+  - ~/.meteor/android_bundle/android-sdk/build-tools/20.0.0/zipalign 4 unaligned.apk production.apk
