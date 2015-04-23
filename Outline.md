@@ -87,6 +87,11 @@
   - 使用 mup 部署在国内的阿里云主机或者AWS上
   - 生成可以在iPhone/Android手机上安装的app
 
-### 国外视频学习资源
+### 国外学习资源
+#### 电子书
+* Your First Meteor Application
+  - http://meteortips.com/book/
+  - 这本书是以leaderboard的例子代码为线索，介绍了meteor的基础知识，适合作为入门教程。
+#### 视频网站
 * https://www.eventedmind.com/
 * https://www.youtube.com/playlist?list=PLKfAG4yMwKkRT4SVt_j04AnZSKcdYPFgx
