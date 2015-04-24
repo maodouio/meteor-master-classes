@@ -58,8 +58,7 @@
 
 ### 实验内容
 * Task-1: 清理 meteoric/demo 代码, 得到一个干净的空 App
-  - 建立开发环境
-  - 分析模板代码
+  - 建立开发环境，分析模板代码
   - 掌握 client/templates/ 下面每个目录的作用
   - 清理代码
   - 修改路由，将 / 指向 lists
@@ -89,9 +88,10 @@
 
 ### 国外学习资源
 #### 电子书
-* Your First Meteor Application
+*《Your First Meteor Application》
   - http://meteortips.com/book/
   - 这本书是以leaderboard的例子代码为线索，介绍了meteor的基础知识，适合作为入门教程。
+
 #### 视频网站
 * https://www.eventedmind.com/
 * https://www.youtube.com/playlist?list=PLKfAG4yMwKkRT4SVt_j04AnZSKcdYPFgx
