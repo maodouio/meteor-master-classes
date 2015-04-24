@@ -5,7 +5,7 @@ Template.addPost.helpers
 Template.addPost.events
   'click a.ion-android-send': (ev, t) ->
     title = (t.find 'input[name=title]')?.value
-    body = (t.find 'input[name=body]')?.value
+    body = (t.find 'textarea[name=body]')?.value
     
     newPost =
       title: title
