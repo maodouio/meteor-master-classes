@@ -1,18 +1,14 @@
 # meteor-master-classes
 First meteor master classes 
 
-## Add good resourses
-* https://github.com/limingth/meteor-master-classes/wiki
+## What you will learn
+* https://github.com/maodouio/meteor-master-classes/blob/master/Outline.md
 
-## Ask a question
-* https://github.com/limingth/meteor-master-classes/issues 
+## How to add good resourses
+* https://github.com/maodouio/meteor-master-classes/wiki
 
-## An example of how to cut out demo code
-* https://github.com/dalequi/meteor-meteoric-boilerplate
-* https://github.com/dalequi/meteor-meteoric-boilerplate/tree/master/client/templates
-
-## Your demo can refer to 
-* http://welog-limingth.meteor.com
+## How to ask a question
+* https://github.com/maodouio/meteor-master-classes/issues 
 
 ## How to create your own branch
 ```
@@ -64,3 +60,10 @@ To https://github.com/limingth/meteor-master-classes
 Branch limingth set up to track remote branch limingth from origin.
 li@MacbookAir ~/Github/meteor-master-classes$ 
 ```
+
+## An example of how to cut out demo code
+* https://github.com/dalequi/meteor-meteoric-boilerplate
+* https://github.com/dalequi/meteor-meteoric-boilerplate/tree/master/client/templates
+
+## Your demo can refer to 
+* http://welog-limingth.meteor.com
