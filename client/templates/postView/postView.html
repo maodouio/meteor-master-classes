@@ -26,10 +26,14 @@
             <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
           {{/if}}
 
-          <h2>题目：{{title}}</h2>
-          <p>
-            内容：{{body}}
-          </p>
+          <h2>{{title}}</h2>
+          <p>{{body}}</p>
+
+        {{#if pic_is_taken}}
+        <div class="item item-image">
+          <img class="full-image" src="{{pic}}"/>
+        </div>
+        {{/if}}
         {{/ionItem}}
 
       </div>

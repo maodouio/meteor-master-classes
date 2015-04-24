@@ -8,9 +8,10 @@ Template.postView.helpers
     currentUser = Meteor.users.findOne(authorId)
     currentUser?.username
 
-  isMyPost: ->
-    Meteor.user()?._id == @authorId
+  isMyPost: -> Meteor.user()?._id == @authorId
   
   get_avatar_url_from_post:  (post) ->
     usr = Meteor.users.findOne({_id: post.authorId})
     Avatar.getUrl(usr)
+
+  pic_is_taken: -> !!@pic

@@ -13,6 +13,10 @@ Posts.attachSchema new SimpleSchema
       rows: 10
       'label-type': 'stacked'
 
+  pic:
+    type: String
+    optional: true
+  
   authorId:
     type: String
     optional: false
