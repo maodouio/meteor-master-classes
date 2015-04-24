@@ -12,7 +12,40 @@
 	{{#ionView}}
 		{{#ionContent}}
 
-			{{> quickForm collection="Posts" id="postAddForm" type="insert" template="ionic"}}
+			{{! > quickForm
+				collection="Posts"
+				id="postAddForm"
+				type="insert"
+				template="ionic"
+				omitFields="authorId"
+			}}
+
+			{{#autoForm
+				collection="Posts"
+				id="postAddForm"
+				type="insert"
+				template="ionic"}}
+
+						{{> afQuickField name='title' template="ionic"}}
+						{{> afQuickField name='body' rows=6 template="ionic"}}
+
+          <!--<div class="item item-image">-->
+					<!--</div>-->
+
+					<div class="item">
+
+              <img src={{image}} class="full-image">
+
+              <div class="button-bar">
+                  <a class="button button-middle icon-left ion-camera takePicture">拍照</a>
+                  <!--<a class="button selectPicture">从相册选</a>-->
+              </div>
+					</div>
+
+
+          <button type="submit" class="button button-block">添加</button>
+
+			{{/autoForm}}
 
 
 		{{/ionContent}}

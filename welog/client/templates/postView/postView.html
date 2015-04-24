@@ -8,11 +8,11 @@
       <h1 class="title">Post</h1>
   {{/contentFor}}
 
-  <!--{{#if isMyPost}}-->
+  {{#if isMyPost}}
     {{#contentFor "headerButtonRight"}}
         <button class="button button-clear" onclick="Router.go('/postUpdate/' + '{{_id}}')">Edit</button>
     {{/contentFor}}
-  <!--{{/if}}-->
+  {{/if}}
 
   {{#ionView}}
     {{#ionContent}}
@@ -23,8 +23,25 @@
                 <p>
                     {{body}}
                 </p>
+
+                <img src={{image.url}} class="full-image">
+
             </div>
         </div>
+
+        <div class="padding">
+          {{#if isMyPost}}
+
+            {{> quickRemoveButton
+              class="button button-block button-outline button-positive"
+              collection="Posts"
+              _id=this._id
+              beforeRemove=beforeRemove
+            }}
+
+          {{/if}}
+        </div>
+
 
     {{/ionContent}}
   {{/ionView}}

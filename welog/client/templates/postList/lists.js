@@ -1,3 +1,6 @@
+
+Meteor.subscribe("posts");//todo move to router
+
 Template.postList.helpers({
   times: function () {
     var times = [];
@@ -12,7 +15,12 @@ Template.postList.helpers({
         time: -1
       }
     });
+  },
+  userDisplay:function(){
+    return Meteor.user().username || Meteor.user().emails[0].address
+
   }
+
 });
 
 Template.postList.events({

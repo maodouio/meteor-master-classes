@@ -12,7 +12,32 @@
   {{#ionView}}
     {{#ionContent}}
 
-      {{> quickForm collection="Posts" doc=this id="postUpdateForm" type="update" template="ionic"}}
+      {{! > quickForm
+        collection="Posts"
+        doc=this id="postUpdateForm"
+        type="update"
+        template="ionic"
+        omitFields="authorId"
+      }}
+
+      {{#autoForm
+        collection="Posts"
+        doc=this
+        id="postUpdateForm"
+        type="update"
+        template="ionic"}}
+
+        {{> afQuickField name='title' template="ionic"  }}
+        {{> afQuickField name='body' rows=6 template="ionic" }}
+
+        <div class="item">
+            <img src={{image.url}} class="full-image">
+        </div>
+
+          <button type="submit" class="button button-block">保存</button>
+
+      {{/autoForm}}
+
 
     {{/ionContent}}
   {{/ionView}}

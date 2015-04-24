@@ -10,7 +10,7 @@
 
       <button class="button button-clear" id="showProfileMenu">
 				{{#if currentUser}}
-            Hi, {{currentUser.username}} <i class="icon ion-ios-person"></i>
+					{{userDisplay}}
 				{{else}}
             <i class="icon ion-ios-person-outline"></i>
 				{{/if}}
