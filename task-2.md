@@ -1,10 +1,11 @@
-## 任务描述
+## 任务2描述
+在任务1完成meteoric-boilerplate的基础上，实现并掌握通过Meteor对后台数据库的增删改查操作。
 * 显示 Posts 列表
 * 显示 Post View
 * 新增 Post 页面
 * 修改 Post 页面
 
-## 任务验收
+## 任务2验收
 * 提交自己的代码到 meteor-master-classes 自己的 branch 下，并部署到 http://welog-xxx.meteor.com
 * 参考 http://welog-limingth.meteor.com
 
@@ -54,7 +55,7 @@
   - client/templates/addPost/editPost.js
   - Posts.update({_id: this._id}, {$set: updateObj});
 
-### 用户头像使用 avatar
+### 用户头像使用 avatar （选作）
 * 增加 bengott:avatar 支持
   - meteor add bengott:avatar
 * lists 增加函数 get_avatar_url
