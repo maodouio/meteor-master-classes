@@ -1,10 +1,11 @@
-## 任务描述
+## 任务5描述
+把项目代码最后部署到自己的服务器，并生成iOS/Android app可供下载，是Meteor项目提交前的最后一个环节。在这个任务中，我们将学会并掌握这两个技能。
 * 使用 mup 部署在国内的阿里云主机或者AWS上
   - 参考 https://github.com/arunoda/meteor-up
 * 生成可以在iPhone/Android手机上安装的app
   - 参考 https://www.meteor.com/try/7
 
-## 任务验收
+## 任务5验收
 * 可以通过 ip 地址来访问网站
   - http://128.199.72.206/
 * 可以在手机上下载安装app
