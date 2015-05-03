@@ -1,7 +1,12 @@
-## 任务描述
+## Welog 项目实践
+本项目是为配合《毛豆网Meteor在线师徒班》的教学而开展的项目实践。共分为5次实验课（task-1~5），通过对从meteoric框架到实现welog（轻量级微博系统），基本覆盖了Meteor开发移动app的关键技术点，学员可以通过这5个任务的完成掌握Meteor开发技术。
+
+* 项目参考 https://github.com/kevingzhang/welog
+
+## 任务1描述
 * 清理 meteoric/demo 代码, 得到一个干净的空 App
 
-## 任务验收
+## 任务1验收
 * 提交自己的代码到 meteor-master-classes 自己的 branch 下，并部署到 http://welog-xxx.meteor.com
 * 参考 http://welog-limingth.meteor.com
 
