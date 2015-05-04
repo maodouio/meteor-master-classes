@@ -1,0 +1,27 @@
+<template name="popup">
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Popup</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="padding">
+        <button class="button button-block button-stable" data-action="showPopup">
+          Show Popup
+        </button>
+        <button class="button button-block button-stable" data-action="showConfirm">
+          Show Confirm
+        </button>
+        <button class="button button-block button-stable" data-action="showAlert">
+          Show Alert
+        </button>
+        <button class="button button-block button-stable" data-action="showPrompt">
+          Show Prompt
+        </button>
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
