@@ -7,6 +7,6 @@ Template.lists.helpers({
     return times;
   },
   posts: function() {
-    return Posts.find({}, {limit:10, sort:{time: -1}});
-  },
+    return Posts.find();
+  }
 });
