@@ -21,5 +21,19 @@ Posts.attachSchema(new SimpleSchema({
     autoform: {
       type: 'toggle'
     }
+  },
+  authorId: {
+    type: String,
+    optional: false,
+    autoValue: function() {
+      if (this.isSet)
+        return;
+
+      if (this.isInsert) {
+        return Meteor.userId();
+      } else {
+        this.unset();
+      }
+    }
   }
 }));

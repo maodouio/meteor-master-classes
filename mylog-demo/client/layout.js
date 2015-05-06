@@ -25,6 +25,9 @@ Template.layout.events({
       buttonClicked: function(index) {
         var _ref;
         switch ((_ref = t.ActionSheetButtons[index]) != null ? _ref.actionId : void 0) {
+          case 'addPost':
+            Router.go('addPost');
+            break;
           case 'logout':
             Meteor.logout(function() {
               toastr.success('Logged out');

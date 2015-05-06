@@ -10,9 +10,9 @@
   {{#contentFor "headerButtonRight"}}
     <button class="button button-clear" id="showProfileMenu">
       {{#if currentUser}}
-        Hello, {{username}} <i class="icon icon-ios-person"></i>
+        Hello, {{username}} <i class="icon ion-ios-person"></i>
       {{else}}
-        <i class="icon icon-ios-person-outline"></i>
+        <i class="icon ion-ios-person-outline"></i>
       {{/if}}
 
     </button>
@@ -23,18 +23,23 @@
       {{#ionList}}
 
         {{#each posts}}
+          <div class="viewpost" data-id="{{_id}}">
+            {{#ionItem buttonRight=true avatar=true}}
+            {{#with getuser}}
+              {{#if emails.length}}
+                <img src="{{get_avatar_url this}}">
+              {{else}}
+                <img src="{{getUserPictureOrDefault}}">
+              {{/if}}
+            {{/with}}
 
-          {{#ionItem buttonRight=true avatar=true}}
-
-            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
             <h2>{{title}}</h2>
-            <p>
-              {{body}}
-            </p>
-            <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
-
+             <p>
+               {{body}}
+             </p>
+             <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
           {{/ionItem}}
-
+          </div>
         {{/each}}
 
       {{/ionList}}

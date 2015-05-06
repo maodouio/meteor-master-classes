@@ -21,6 +21,22 @@ Router.map(function() {
       Meteor.subscribe('Posts');
     }
   });
+  this.route('addPost');
+  this.route('postView', {
+    path: '/postView/:_id',
+    data: function() {
+      return Posts.findOne(this.params._id);
+    }
+  });
+  this.route('editPost', {
+    path: '/editPost/:_id',
+    subscriptions: function() {
+      Meteor.subscribe('post', this.params._id);
+    },
+    data: function() {
+      return Posts.findOne(this.params._id);
+    }
+  })
   /*
   this.route('actionSheet');
   this.route('backdrop');
