@@ -1,0 +1,34 @@
+<template name="postView">
+  {{#contentFor "headerButtonLeft"}}
+
+    {{>ionNavBackButton text="" icon="chevron-left" path="lists"}}
+
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{title}}</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" onclick="Router.go('/editPost/' + '{{_id}}')">Edit</button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="list card">
+
+        {{#ionItem buttonRight=true avatar=true}}
+          <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+
+          <h2>{{title}}</h2>
+
+        {{/ionItem}}
+
+        <h5>
+          {{body}}
+        </h5>
+
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
