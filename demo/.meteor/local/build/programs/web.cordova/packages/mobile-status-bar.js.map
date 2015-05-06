@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"sources":["mobile-status-bar/mobile-status-bar.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uB;AACA,0C;AACA,0B;AACA,kC;AACA,kD;AACA,C","file":"/packages/mobile-status-bar.js","sourcesContent":["if (window.StatusBar) {\n  window.StatusBar.overlaysWebView(false);\n  window.StatusBar.show();\n  window.StatusBar.styleDefault();\n  window.StatusBar.backgroundColorByName('white');\n}\n\n"]}

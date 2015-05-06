@@ -1,0 +1,45 @@
+/* Imports for global scope */
+
+Router = Package['iron:router'].Router;
+RouteController = Package['iron:router'].RouteController;
+Fake = Package['anti:fake'].Fake;
+CollectionHooks = Package['matb33:collection-hooks'].CollectionHooks;
+Platform = Package['meteoric:ionic'].Platform;
+IonActionSheet = Package['meteoric:ionic'].IonActionSheet;
+IonBackdrop = Package['meteoric:ionic'].IonBackdrop;
+IonHeaderBar = Package['meteoric:ionic'].IonHeaderBar;
+IonKeyboard = Package['meteoric:ionic'].IonKeyboard;
+IonLoading = Package['meteoric:ionic'].IonLoading;
+IonModal = Package['meteoric:ionic'].IonModal;
+IonNavigation = Package['meteoric:ionic'].IonNavigation;
+IonPopover = Package['meteoric:ionic'].IonPopover;
+IonPopup = Package['meteoric:ionic'].IonPopup;
+IonSideMenu = Package['meteoric:ionic'].IonSideMenu;
+Meteor = Package.meteor.Meteor;
+WebApp = Package.webapp.WebApp;
+main = Package.webapp.main;
+WebAppInternals = Package.webapp.WebAppInternals;
+Log = Package.logging.Log;
+Tracker = Package.deps.Tracker;
+Deps = Package.deps.Deps;
+DDP = Package.livedata.DDP;
+DDPServer = Package.livedata.DDPServer;
+MongoInternals = Package.mongo.MongoInternals;
+Mongo = Package.mongo.Mongo;
+Blaze = Package.ui.Blaze;
+UI = Package.ui.UI;
+Handlebars = Package.ui.Handlebars;
+Spacebars = Package.spacebars.Spacebars;
+check = Package.check.check;
+Match = Package.check.Match;
+_ = Package.underscore._;
+Random = Package.random.Random;
+EJSON = Package.ejson.EJSON;
+Accounts = Package['accounts-base'].Accounts;
+Iron = Package['iron:core'].Iron;
+SimpleSchema = Package['aldeed:simple-schema'].SimpleSchema;
+MongoObject = Package['aldeed:simple-schema'].MongoObject;
+AccountsTemplates = Package['useraccounts:core'].AccountsTemplates;
+HTML = Package.htmljs.HTML;
+T9n = Package['softwarerero:accounts-t9n'].T9n;
+

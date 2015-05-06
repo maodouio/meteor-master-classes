@@ -1,0 +1,458 @@
+{
+  "format": "javascript-image-pre1",
+  "arch": "os.osx.x86_64",
+  "load": [
+    {
+      "sourceMap": "packages/underscore.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/underscore.js"
+    },
+    {
+      "node_modules": "npm/meteor/node_modules",
+      "sourceMap": "packages/meteor.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteor.js"
+    },
+    {
+      "sourceMap": "packages/reload.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/reload.js"
+    },
+    {
+      "sourceMap": "packages/json.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/json.js"
+    },
+    {
+      "sourceMap": "packages/base64.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/base64.js"
+    },
+    {
+      "sourceMap": "packages/ejson.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/ejson.js"
+    },
+    {
+      "node_modules": "npm/logging/node_modules",
+      "sourceMap": "packages/logging.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/logging.js"
+    },
+    {
+      "sourceMap": "packages/routepolicy.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/routepolicy.js"
+    },
+    {
+      "sourceMap": "packages/tracker.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/tracker.js"
+    },
+    {
+      "sourceMap": "packages/deps.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/deps.js"
+    },
+    {
+      "sourceMap": "packages/htmljs.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/htmljs.js"
+    },
+    {
+      "sourceMap": "packages/html-tools.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/html-tools.js"
+    },
+    {
+      "sourceMap": "packages/blaze-tools.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/blaze-tools.js"
+    },
+    {
+      "sourceMap": "packages/spacebars-compiler.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/spacebars-compiler.js"
+    },
+    {
+      "sourceMap": "packages/jquery.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/jquery.js"
+    },
+    {
+      "sourceMap": "packages/id-map.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/id-map.js"
+    },
+    {
+      "sourceMap": "packages/ordered-dict.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/ordered-dict.js"
+    },
+    {
+      "sourceMap": "packages/random.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/random.js"
+    },
+    {
+      "sourceMap": "packages/geojson-utils.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/geojson-utils.js"
+    },
+    {
+      "sourceMap": "packages/minimongo.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/minimongo.js"
+    },
+    {
+      "sourceMap": "packages/observe-sequence.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/observe-sequence.js"
+    },
+    {
+      "sourceMap": "packages/reactive-var.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/reactive-var.js"
+    },
+    {
+      "sourceMap": "packages/blaze.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/blaze.js"
+    },
+    {
+      "sourceMap": "packages/templating.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/templating.js"
+    },
+    {
+      "sourceMap": "packages/spacebars.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/spacebars.js"
+    },
+    {
+      "sourceMap": "packages/ui.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/ui.js"
+    },
+    {
+      "sourceMap": "packages/boilerplate-generator.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/boilerplate-generator.js",
+      "assets": {
+        "boilerplate_web.browser.html": "assets/packages/boilerplate-generator/boilerplate_web.browser.html",
+        "boilerplate_web.cordova.html": "assets/packages/boilerplate-generator/boilerplate_web.cordova.html"
+      }
+    },
+    {
+      "sourceMap": "packages/webapp-hashing.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/webapp-hashing.js"
+    },
+    {
+      "node_modules": "npm/webapp/node_modules",
+      "sourceMap": "packages/webapp.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/webapp.js"
+    },
+    {
+      "sourceMap": "packages/check.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/check.js"
+    },
+    {
+      "sourceMap": "packages/retry.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/retry.js"
+    },
+    {
+      "sourceMap": "packages/autopublish.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/autopublish.js"
+    },
+    {
+      "sourceMap": "packages/callback-hook.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/callback-hook.js"
+    },
+    {
+      "node_modules": "npm/ddp/node_modules",
+      "sourceMap": "packages/ddp.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/ddp.js"
+    },
+    {
+      "sourceMap": "packages/binary-heap.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/binary-heap.js"
+    },
+    {
+      "sourceMap": "packages/insecure.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/insecure.js"
+    },
+    {
+      "node_modules": "npm/mongo/node_modules",
+      "sourceMap": "packages/mongo.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/mongo.js"
+    },
+    {
+      "sourceMap": "packages/autoupdate.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/autoupdate.js"
+    },
+    {
+      "sourceMap": "packages/meteor-platform.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteor-platform.js"
+    },
+    {
+      "node_modules": "npm/npm-bcrypt/node_modules",
+      "sourceMap": "packages/npm-bcrypt.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/npm-bcrypt.js"
+    },
+    {
+      "sourceMap": "packages/accounts-base.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-base.js"
+    },
+    {
+      "sourceMap": "packages/sha.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/sha.js"
+    },
+    {
+      "sourceMap": "packages/srp.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/srp.js"
+    },
+    {
+      "node_modules": "npm/email/node_modules",
+      "sourceMap": "packages/email.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/email.js"
+    },
+    {
+      "sourceMap": "packages/accounts-password.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/accounts-password.js"
+    },
+    {
+      "sourceMap": "packages/fourseven_scss.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/fourseven_scss.js"
+    },
+    {
+      "sourceMap": "packages/iron_core.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_core.js"
+    },
+    {
+      "sourceMap": "packages/iron_dynamic-template.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_dynamic-template.js",
+      "assets": {
+        "dynamic_template.html": "assets/packages/iron_dynamic-template/dynamic_template.html"
+      }
+    },
+    {
+      "sourceMap": "packages/iron_layout.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_layout.js",
+      "assets": {
+        "default_layout.html": "assets/packages/iron_layout/default_layout.html"
+      }
+    },
+    {
+      "sourceMap": "packages/iron_url.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_url.js"
+    },
+    {
+      "sourceMap": "packages/iron_middleware-stack.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_middleware-stack.js"
+    },
+    {
+      "sourceMap": "packages/iron_location.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_location.js"
+    },
+    {
+      "sourceMap": "packages/reactive-dict.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/reactive-dict.js"
+    },
+    {
+      "sourceMap": "packages/iron_controller.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_controller.js"
+    },
+    {
+      "node_modules": "npm/iron_router/node_modules",
+      "sourceMap": "packages/iron_router.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/iron_router.js",
+      "assets": {
+        "lib/templates.html": "assets/packages/iron_router/lib/templates.html"
+      }
+    },
+    {
+      "sourceMap": "packages/coffeescript.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/coffeescript.js"
+    },
+    {
+      "sourceMap": "packages/wizonesolutions_underscore-string.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/wizonesolutions_underscore-string.js"
+    },
+    {
+      "sourceMap": "packages/zimme_iron-router-active.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/zimme_iron-router-active.js"
+    },
+    {
+      "sourceMap": "packages/anti_fake.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/anti_fake.js"
+    },
+    {
+      "sourceMap": "packages/matb33_collection-hooks.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/matb33_collection-hooks.js"
+    },
+    {
+      "node_modules": "npm/aldeed_simple-schema/node_modules",
+      "sourceMap": "packages/aldeed_simple-schema.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/aldeed_simple-schema.js"
+    },
+    {
+      "sourceMap": "packages/aldeed_collection2.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/aldeed_collection2.js"
+    },
+    {
+      "sourceMap": "packages/aldeed_autoform.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/aldeed_autoform.js"
+    },
+    {
+      "sourceMap": "packages/meteoric_ionic-sass.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteoric_ionic-sass.js",
+      "assets": {
+        "stylesheets/_action-sheet.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_action-sheet.scss",
+        "stylesheets/_animations.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_animations.scss",
+        "stylesheets/_backdrop.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_backdrop.scss",
+        "stylesheets/_badge.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_badge.scss",
+        "stylesheets/_bar.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_bar.scss",
+        "stylesheets/_button-bar.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_button-bar.scss",
+        "stylesheets/_button.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_button.scss",
+        "stylesheets/_checkbox.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_checkbox.scss",
+        "stylesheets/_form.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_form.scss",
+        "stylesheets/_grid.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_grid.scss",
+        "stylesheets/_items.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_items.scss",
+        "stylesheets/_list.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_list.scss",
+        "stylesheets/_loading.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_loading.scss",
+        "stylesheets/_menu.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_menu.scss",
+        "stylesheets/_mixins.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_mixins.scss",
+        "stylesheets/_modal.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_modal.scss",
+        "stylesheets/_platform.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_platform.scss",
+        "stylesheets/_popover.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_popover.scss",
+        "stylesheets/_popup.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_popup.scss",
+        "stylesheets/_progress.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_progress.scss",
+        "stylesheets/_radio.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_radio.scss",
+        "stylesheets/_range.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_range.scss",
+        "stylesheets/_reset.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_reset.scss",
+        "stylesheets/_scaffolding.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_scaffolding.scss",
+        "stylesheets/_select.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_select.scss",
+        "stylesheets/_slide-box.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_slide-box.scss",
+        "stylesheets/_tabs.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_tabs.scss",
+        "stylesheets/_toggle.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_toggle.scss",
+        "stylesheets/_transitions.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_transitions.scss",
+        "stylesheets/_type.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_type.scss",
+        "stylesheets/_util.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_util.scss",
+        "stylesheets/_variables.scss": "assets/packages/meteoric_ionic-sass/stylesheets/_variables.scss",
+        "_ionic.scss": "assets/packages/meteoric_ionic-sass/_ionic.scss"
+      }
+    },
+    {
+      "sourceMap": "packages/meteoric_ionicons-sass.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteoric_ionicons-sass.js",
+      "assets": {
+        "stylesheets/_ionicons-animation.scss": "assets/packages/meteoric_ionicons-sass/stylesheets/_ionicons-animation.scss",
+        "stylesheets/_ionicons-font.scss": "assets/packages/meteoric_ionicons-sass/stylesheets/_ionicons-font.scss",
+        "stylesheets/_ionicons-icons.scss": "assets/packages/meteoric_ionicons-sass/stylesheets/_ionicons-icons.scss",
+        "stylesheets/_ionicons-variables.scss": "assets/packages/meteoric_ionicons-sass/stylesheets/_ionicons-variables.scss",
+        "_ionicons.scss": "assets/packages/meteoric_ionicons-sass/_ionicons.scss"
+      }
+    },
+    {
+      "sourceMap": "packages/meteoric_ionic.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteoric_ionic.js"
+    },
+    {
+      "sourceMap": "packages/meteoric_autoform-ionic.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteoric_autoform-ionic.js"
+    },
+    {
+      "sourceMap": "packages/url.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/url.js"
+    },
+    {
+      "node_modules": "npm/http/node_modules",
+      "sourceMap": "packages/http.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/http.js"
+    },
+    {
+      "sourceMap": "packages/useraccounts_core.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/useraccounts_core.js"
+    },
+    {
+      "sourceMap": "packages/softwarerero_accounts-t9n.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/softwarerero_accounts-t9n.js"
+    },
+    {
+      "sourceMap": "packages/useraccounts_ionic.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/useraccounts_ionic.js"
+    },
+    {
+      "sourceMap": "packages/session.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/session.js"
+    },
+    {
+      "sourceMap": "packages/livedata.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/livedata.js"
+    },
+    {
+      "path": "packages/global-imports.js"
+    },
+    {
+      "path": "app/both/collections.js"
+    },
+    {
+      "path": "app/both/router.js"
+    },
+    {
+      "path": "app/server/seeds.js"
+    },
+    {
+      "sourceMap": "packages/service-configuration.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/service-configuration.js"
+    }
+  ]
+}

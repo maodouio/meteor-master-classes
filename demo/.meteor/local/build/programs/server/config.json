@@ -1,0 +1,7 @@
+{
+  "meteorRelease": "METEOR@1.1.0.2",
+  "clientPaths": {
+    "web.browser": "../web.browser/program.json",
+    "web.cordova": "../web.cordova/program.json"
+  }
+}
