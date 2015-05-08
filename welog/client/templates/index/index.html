@@ -1,0 +1,20 @@
+<template name="index">
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Meteor 流星 🌠 welog</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+
+        {{#ionItem path="lists" iconLeft=true iconRight=true}}
+          {{> ionIcon icon="ios-checkmark" class="positive"}}
+          欢迎访问，请点击进入welog！
+          {{> ionIcon icon="ios-arrow-right"}}
+        {{/ionItem}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

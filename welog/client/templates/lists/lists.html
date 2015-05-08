@@ -1,0 +1,38 @@
+<template name="lists">
+ <!--  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}} -->
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">列表</h1>
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" id="showProfileMenu">{{#if currentUser}}
+        你好, {{currentUser.username}} <i class="icon ion-ios-person"></i>
+      {{else}}
+        <i class="icon ion-ios-person-outline"></i>
+      {{/if}}</button>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+        {{#each times}}
+
+          {{#ionItem buttonRight=true avatar=true}}
+
+            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+            <h2>毛豆网 李大师 张大使 郭大侠</h2>
+            <p>
+              内容内容内容内容内容内容内容内容内容内容
+            </p>
+            <button class="button button-positive">{{> ionIcon icon="ios-telephone"}}</button>
+
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
