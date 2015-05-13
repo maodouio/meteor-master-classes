@@ -27,11 +27,17 @@
           {{/if}}
 
           <h2>title:{{title}}</h2>
-          <p>
-            content:{{body}}
-          </p>
+
         {{/ionItem}}
 
+        {{#if pic_is_taken}}
+        <div class='item item-image'>
+          <img class='full-image' src='{{pic}}'/>
+        </div>
+        {{/if}}
+         <h5>
+            content:{{body}}
+          </h5>
       </div>
     {{/ionContent}}
   {{/ionView}}

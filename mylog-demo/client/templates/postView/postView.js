@@ -26,4 +26,7 @@ Template.postView.helpers({
     });
     return Avatar.getUrl(usr);
   },
+  pic_is_taken: function (argument) {
+    return this.pic;
+  }
 });

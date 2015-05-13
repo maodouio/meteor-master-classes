@@ -11,7 +11,7 @@ Posts.attachSchema(new SimpleSchema({
   body: {
     type: String,
     autoform: {
-      rows: 10,
+      rows: 6,
       'label-type': 'stacked'
     }
   },
@@ -21,6 +21,10 @@ Posts.attachSchema(new SimpleSchema({
     autoform: {
       type: 'toggle'
     }
+  },
+  pic: {
+    type: String,
+    optional: true
   },
   authorId: {
     type: String,

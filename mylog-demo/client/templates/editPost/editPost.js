@@ -8,7 +8,7 @@ Template.editPost.events({
   'click a.ion-android-send': function(e, t) {
     var postId, title, body;
     title = (_ref = t.find('input[name=title]')) != null ? _ref.value : void 0;
-    body = (_ref = t.find('input[name=body]')) != null ? _ref.value : void 0;
+    body = (_ref = t.find('textarea[name=body]')) != null ? _ref.value : void 0;
     console.log(title + body);
 
     updateObj = {
