@@ -7,10 +7,13 @@ Template.lists.helpers({
     return times;
   },
   posts: function() {
-    return Posts.find();
+    return Posts.find({}, {limit:10, sort:{time: -1}});
   },
   email: function() {
     return Meteor.user().emails[0].address;
+  },
+  username: function() {
+    return Meteor.user().username;
   },
   getuser: function() {
     return Meteor.users.findOne({_id: this.authorId});

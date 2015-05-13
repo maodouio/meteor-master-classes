@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-  if (Posts.find({}).count() >= 0) {
+  if (Posts.find({}).count() === 0) {
     Posts.remove({});
     return;
     console.log('clear posts');

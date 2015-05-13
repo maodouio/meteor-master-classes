@@ -17,13 +17,15 @@ Router.map(function() {
   this.route('lists', {
     path: '/',
     subscriptions: function() {
-      console.log('Posts subscribed in router lists')
       Meteor.subscribe('Posts');
     }
   });
   this.route('addPost');
   this.route('postView', {
     path: '/postView/:_id',
+    subscriptions: function() {
+      Meteor.subscribe('post', this.params._id);
+    },
     data: function() {
       return Posts.findOne(this.params._id);
     }
