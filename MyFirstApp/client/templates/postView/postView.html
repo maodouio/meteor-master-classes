@@ -1,0 +1,38 @@
+<template name="postView">
+  {{#contentFor "headerButtonLeft"}}
+
+    {{>ionNavBackButton text=" " icon="ios-list-outline" path="lists"}}
+
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">{{title}}</h1>
+  {{/contentFor}}
+
+  {{#if isMyPost}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" onclick="Router.go('/editPost/' + '{{_id}}')">Edit</button>
+  {{/contentFor}}
+  {{/if}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="list card">
+
+        {{#ionItem buttonRight=true avatar=true}}
+          {{#if authorId}}
+            <img src="{{get_avatar_url_from_post this}}">
+          {{else}}
+            <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+          {{/if}}
+
+          <h2>题目：{{title}}</h2>
+          <p>
+            内容：{{body}}
+          </p>
+        {{/ionItem}}
+
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

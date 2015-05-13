@@ -1,0 +1,33 @@
+<template name="editPost">
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="lists"}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Edit Post</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+
+      <div >
+        <label type='stacked' class='item item-input item-stacked-label'>
+          <span class='input-label'>Title</span>
+          <input type='text' label-type='stacked' name='title' required value={{title}} />
+        </label>
+        <label type='stacked' class='item item-input item-stacked-label'>
+          <span class='input-label'>Body</span>
+          <input type='text' label-type='stacked' name='body' required value={{body}} />
+        </label>
+      </div>
+
+      <div class="button-bar">
+        <a class="button icon ion-android-send button-positive">Submit</a>
+      </div>
+      
+    {{/ionContent}}
+  {{/ionView}}
+  
+</template>
