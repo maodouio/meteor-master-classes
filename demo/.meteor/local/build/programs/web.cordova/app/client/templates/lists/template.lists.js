@@ -20,12 +20,8 @@ Template["lists"] = new Template("Template.lists", (function() {
       }, "\n      ", Blaze.If(function() {
         return Spacebars.call(view.lookup("currentUser"));
       }, function() {
-        return [ "\n        Hi,\n        ", Blaze.Each(function() {
-          return Spacebars.call(Spacebars.dot(view.lookup("currentUser"), "emails"));
-        }, function() {
-          return [ "\n          ", Blaze.View("lookup:..address", function() {
-            return Spacebars.mustache(Spacebars.dot(view.lookup("."), "address"));
-          }), "\n        " ];
+        return [ "\n        Hi, ", Blaze.View("lookup:username", function() {
+          return Spacebars.mustache(view.lookup("username"));
         }), "\n        ", HTML.I({
           "class": "icon ion-ios-person"
         }), "\n      " ];

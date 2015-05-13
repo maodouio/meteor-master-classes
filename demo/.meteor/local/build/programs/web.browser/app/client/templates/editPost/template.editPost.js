@@ -8,7 +8,8 @@ Template["editPost"] = new Template("Template.editPost", (function() {
     return Spacebars.include(view.lookupTemplate("contentFor"), function() {
       return [ "\n    ", Blaze._TemplateWith(function() {
         return {
-          path: Spacebars.call("lists")
+          text: Spacebars.call(" "),
+          path: Spacebars.call("index")
         };
       }, function() {
         return Spacebars.include(view.lookupTemplate("ionNavBackButton"));
@@ -29,7 +30,8 @@ Template["editPost"] = new Template("Template.editPost", (function() {
           collection: Spacebars.call("Posts"),
           id: Spacebars.call("edit-form"),
           doc: Spacebars.call(view.lookup(".")),
-          type: Spacebars.call("update")
+          type: Spacebars.call("update"),
+          autosave: Spacebars.call("true")
         };
       }, function() {
         return Spacebars.include(view.lookupTemplate("autoForm"), function() {
@@ -47,7 +49,24 @@ Template["editPost"] = new Template("Template.editPost", (function() {
             };
           }, function() {
             return Spacebars.include(view.lookupTemplate("afQuickField"));
-          }), "\n\n        ", HTML.DIV({
+          }), "\n        ", Blaze.If(function() {
+            return Spacebars.call(view.lookup("pic_is_taken"));
+          }, function() {
+            return [ "\n        ", HTML.DIV({
+              "class": "item item-image"
+            }, "\n          ", HTML.IMG({
+              "class": "full-image",
+              src: function() {
+                return Spacebars.mustache(view.lookup("get_pic"));
+              }
+            }), "\n        "), "\n      " ];
+          }, function() {
+            return [ "\n        ", HTML.DIV({
+              "class": "button-bar"
+            }, "\n          ", HTML.A({
+              "class": "button icon ion-android-camera"
+            }, "+"), "\n        "), "      \n      " ];
+          }), "\n      \n        ", HTML.DIV({
             "class": "button-bar"
           }, "\n          ", HTML.A({
             "class": "button icon ion-android-send button-positive"

@@ -25,7 +25,6 @@ var Template = Package.templating.Template;
 var _ = Package.underscore._;
 var Router = Package['iron:router'].Router;
 var RouteController = Package['iron:router'].RouteController;
-var _s = Package['wizonesolutions:underscore-string']._s;
 var Blaze = Package.blaze.Blaze;
 var UI = Package.blaze.UI;
 var Handlebars = Package.blaze.Handlebars;
@@ -56,7 +55,7 @@ isActive = function(type, inverse) {
   if (inverse) {
     name = name + 'Not';
   }
-  name = name + 'Active' + _.capitalize(type);
+  name = name + 'Active' + s.capitalize(type);
   return function(view) {
     var className, controller, isPath, pattern, regex, test, _ref;
     if (!(view instanceof Spacebars.kw)) {

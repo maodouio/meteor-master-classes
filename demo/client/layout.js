@@ -24,8 +24,7 @@ Template.layout.events({
             break;
           case 'logout':
             Meteor.logout(function() {
-              toastr.success('Logged out');
-              return Router.go('lists');
+              return Router.go('index');
             });
             break;
           default:

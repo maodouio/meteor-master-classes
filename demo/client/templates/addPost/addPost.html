@@ -1,6 +1,6 @@
 <template name="addPost">
   {{#contentFor "headerButtonLeft"}}
-    {{>ionNavBackButton text="" icon="chevron-left" path="lists"}}
+    {{>ionNavBackButton text=" " icon="chevron-left" path="index"}}
   {{/contentFor}}
 
   {{#contentFor "headerTitle"}}
@@ -13,6 +13,20 @@
       {{#autoForm collection="Posts" id="add-form" type="insert"}}
         {{> afQuickField id='title' name='title'}}
         {{> afQuickField id='body' name='body'}}
+
+        {{#if pic_is_taken}}
+          {{#with picture}}
+          <div class="list card">
+            <div class="item item-image">
+              <img class="full-image" src="{{this}}"/>
+            </div>
+          </div>
+          {{/with}}
+        {{else}}
+          <div class="button-bar">
+            <a class="button icon ion-android-camera">+</a>
+          </div>      
+        {{/if}}
 
         <div class="button-bar">
           <a class="button icon ion-android-send button-positive">Submit</a>

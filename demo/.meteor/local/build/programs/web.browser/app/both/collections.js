@@ -21,6 +21,27 @@ Posts.attachSchema(new SimpleSchema({
     autoform: {
       type: 'toggle'
     }
+  },
+  pic: {
+    type: String,
+    autoform: {
+      rows: 10,
+      'label-type': 'stacked'
+    }
+  },
+  authorId: {
+    type: String,
+    optional: false,
+    autoValue: function () {
+      if (this.isSet) {
+        return;
+      }
+      if (this.isInsert) {
+        return Meteor.user()._id;
+      } else {
+        this.unset();
+      }
+    }
   }
 }));
 

@@ -1,7 +1,7 @@
 <template name="postView">
   {{#contentFor "headerButtonLeft"}}
 
-    {{>ionNavBackButton text="" icon="chevron-left" path="lists"}}
+    {{>ionNavBackButton text="" icon="chevron-left" path="index"}}
 
   {{/contentFor}}
 
@@ -9,9 +9,11 @@
     <h1 class="title">{{title}}</h1>
   {{/contentFor}}
 
+  {{#if isMyPost}}
   {{#contentFor "headerButtonRight"}}
     <button class="button button-clear" onclick="Router.go('/editPost/' + '{{_id}}')">Edit</button>
   {{/contentFor}}
+  {{/if}}
 
   {{#ionView}}
     {{#ionContent}}
@@ -27,6 +29,11 @@
         <h5>
           {{body}}
         </h5>
+        {{#if pic_is_taken}}
+        <div class="item item-image">
+          <img class="full-image" src="{{pic}}"/>
+        </div>
+        {{/if}}
 
       </div>
     {{/ionContent}}

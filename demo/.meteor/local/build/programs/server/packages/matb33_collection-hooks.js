@@ -12,7 +12,7 @@ var LocalCollection = Package.minimongo.LocalCollection;
 var Minimongo = Package.minimongo.Minimongo;
 
 /* Package-scope variables */
-var CollectionHooks, docIds;
+var CollectionHooks;
 
 (function () {
 
@@ -36,37 +36,37 @@ var directOp = function (func) {                                                
   return directEnv.withValue(true, func);                                                                            // 12
 };                                                                                                                   // 13
                                                                                                                      // 14
-function getUserId() {                                                                                               // 15
-  var userId;                                                                                                        // 16
-                                                                                                                     // 17
-  if (Meteor.isClient) {                                                                                             // 18
-    Tracker.nonreactive(function () {                                                                                // 19
-      userId = Meteor.userId && Meteor.userId();                                                                     // 20
-    });                                                                                                              // 21
-  }                                                                                                                  // 22
-                                                                                                                     // 23
-  if (Meteor.isServer) {                                                                                             // 24
-    try {                                                                                                            // 25
-      // Will throw an error unless within method call.                                                              // 26
-      // Attempt to recover gracefully by catching:                                                                  // 27
+CollectionHooks = {                                                                                                  // 15
+  defaults: {                                                                                                        // 16
+    before: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}},                                   // 17
+    after: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}},                                    // 18
+    all: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}}                                       // 19
+  }                                                                                                                  // 20
+};                                                                                                                   // 21
+                                                                                                                     // 22
+CollectionHooks.getUserId = function () {                                                                            // 23
+  var userId;                                                                                                        // 24
+                                                                                                                     // 25
+  if (Meteor.isClient) {                                                                                             // 26
+    Tracker.nonreactive(function () {                                                                                // 27
       userId = Meteor.userId && Meteor.userId();                                                                     // 28
-    } catch (e) {}                                                                                                   // 29
-                                                                                                                     // 30
-    if (!userId) {                                                                                                   // 31
-      // Get the userId if we are in a publish function.                                                             // 32
-      userId = publishUserId.get();                                                                                  // 33
-    }                                                                                                                // 34
-  }                                                                                                                  // 35
-                                                                                                                     // 36
-  return userId;                                                                                                     // 37
-}                                                                                                                    // 38
-                                                                                                                     // 39
-CollectionHooks = {                                                                                                  // 40
-  defaults: {                                                                                                        // 41
-    before: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}},                                   // 42
-    after: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}},                                    // 43
-    all: { insert: {}, update: {}, remove: {}, find: {}, findOne: {}, all: {}}                                       // 44
-  }                                                                                                                  // 45
+    });                                                                                                              // 29
+  }                                                                                                                  // 30
+                                                                                                                     // 31
+  if (Meteor.isServer) {                                                                                             // 32
+    try {                                                                                                            // 33
+      // Will throw an error unless within method call.                                                              // 34
+      // Attempt to recover gracefully by catching:                                                                  // 35
+      userId = Meteor.userId && Meteor.userId();                                                                     // 36
+    } catch (e) {}                                                                                                   // 37
+                                                                                                                     // 38
+    if (!userId) {                                                                                                   // 39
+      // Get the userId if we are in a publish function.                                                             // 40
+      userId = publishUserId.get();                                                                                  // 41
+    }                                                                                                                // 42
+  }                                                                                                                  // 43
+                                                                                                                     // 44
+  return userId;                                                                                                     // 45
 };                                                                                                                   // 46
                                                                                                                      // 47
 CollectionHooks.extendCollectionInstance = function (self, constructor) {                                            // 48
@@ -125,7 +125,7 @@ CollectionHooks.extendCollectionInstance = function (self, constructor) {       
       }                                                                                                              // 101
                                                                                                                      // 102
       return advice.call(this,                                                                                       // 103
-        getUserId(),                                                                                                 // 104
+        CollectionHooks.getUserId(),                                                                                 // 104
         _super,                                                                                                      // 105
         self,                                                                                                        // 106
         self._hookAspects[method] || {},                                                                             // 107
@@ -335,7 +335,7 @@ CollectionHooks.defineAdvice("update", function (userId, _super, instance, aspec
   var ctx = {context: self, _super: _super, args: args};                                                             // 3
   var callback = _.last(args);                                                                                       // 4
   var async = _.isFunction(callback);                                                                                // 5
-  var docs, docsIds, fields, abort, prev = {};                                                                       // 6
+  var docs, docIds, fields, abort, prev = {};                                                                        // 6
   var collection = _.has(self, "_collection") ? self._collection : self;                                             // 7
                                                                                                                      // 8
   // args[0] : selector                                                                                              // 9

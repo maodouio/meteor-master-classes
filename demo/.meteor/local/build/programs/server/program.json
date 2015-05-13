@@ -165,11 +165,6 @@
       "path": "packages/retry.js"
     },
     {
-      "sourceMap": "packages/autopublish.js.map",
-      "sourceMapRoot": "packages",
-      "path": "packages/autopublish.js"
-    },
-    {
       "sourceMap": "packages/callback-hook.js.map",
       "sourceMapRoot": "packages",
       "path": "packages/callback-hook.js"
@@ -184,11 +179,6 @@
       "sourceMap": "packages/binary-heap.js.map",
       "sourceMapRoot": "packages",
       "path": "packages/binary-heap.js"
-    },
-    {
-      "sourceMap": "packages/insecure.js.map",
-      "sourceMapRoot": "packages",
-      "path": "packages/insecure.js"
     },
     {
       "node_modules": "npm/mongo/node_modules",
@@ -304,9 +294,9 @@
       "path": "packages/coffeescript.js"
     },
     {
-      "sourceMap": "packages/wizonesolutions_underscore-string.js.map",
+      "sourceMap": "packages/underscorestring_underscore.string.js.map",
       "sourceMapRoot": "packages",
-      "path": "packages/wizonesolutions_underscore-string.js"
+      "path": "packages/underscorestring_underscore.string.js"
     },
     {
       "sourceMap": "packages/zimme_iron-router-active.js.map",
@@ -433,6 +423,16 @@
       "path": "packages/session.js"
     },
     {
+      "sourceMap": "packages/less.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/less.js"
+    },
+    {
+      "sourceMap": "packages/meteoric_camera.js.map",
+      "sourceMapRoot": "packages",
+      "path": "packages/meteoric_camera.js"
+    },
+    {
       "sourceMap": "packages/livedata.js.map",
       "sourceMapRoot": "packages",
       "path": "packages/livedata.js"
@@ -445,6 +445,12 @@
     },
     {
       "path": "app/both/router.js"
+    },
+    {
+      "path": "app/server/permissions.js"
+    },
+    {
+      "path": "app/server/publish.js"
     },
     {
       "path": "app/server/seeds.js"

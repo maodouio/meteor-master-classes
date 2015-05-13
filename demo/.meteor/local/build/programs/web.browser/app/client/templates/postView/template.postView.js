@@ -10,7 +10,7 @@ Template["postView"] = new Template("Template.postView", (function() {
         return {
           text: Spacebars.call(""),
           icon: Spacebars.call("chevron-left"),
-          path: Spacebars.call("lists")
+          path: Spacebars.call("index")
         };
       }, function() {
         return Spacebars.include(view.lookupTemplate("ionNavBackButton"));
@@ -26,17 +26,21 @@ Template["postView"] = new Template("Template.postView", (function() {
         return Spacebars.mustache(view.lookup("title"));
       })), "\n  " ];
     });
-  }), "\n\n  ", Blaze._TemplateWith(function() {
-    return "headerButtonRight";
+  }), "\n\n  ", Blaze.If(function() {
+    return Spacebars.call(view.lookup("isMyPost"));
   }, function() {
-    return Spacebars.include(view.lookupTemplate("contentFor"), function() {
-      return [ "\n    ", HTML.BUTTON({
-        "class": "button button-clear",
-        onclick: function() {
-          return [ "Router.go('/editPost/' + '", Spacebars.mustache(view.lookup("_id")), "')" ];
-        }
-      }, "Edit"), "\n  " ];
-    });
+    return [ "\n  ", Blaze._TemplateWith(function() {
+      return "headerButtonRight";
+    }, function() {
+      return Spacebars.include(view.lookupTemplate("contentFor"), function() {
+        return [ "\n    ", HTML.BUTTON({
+          "class": "button button-clear",
+          onclick: function() {
+            return [ "Router.go('/editPost/' + '", Spacebars.mustache(view.lookup("_id")), "')" ];
+          }
+        }, "Edit"), "\n  " ];
+      });
+    }), "\n  " ];
   }), "\n\n  ", Spacebars.include(view.lookupTemplate("ionView"), function() {
     return [ "\n    ", Spacebars.include(view.lookupTemplate("ionContent"), function() {
       return [ "\n      ", HTML.DIV({
@@ -56,7 +60,18 @@ Template["postView"] = new Template("Template.postView", (function() {
         });
       }), "\n\n        ", HTML.H5("\n          ", Blaze.View("lookup:body", function() {
         return Spacebars.mustache(view.lookup("body"));
-      }), "\n        "), "\n\n      "), "\n    " ];
+      }), "\n        "), "\n        ", Blaze.If(function() {
+        return Spacebars.call(view.lookup("pic_is_taken"));
+      }, function() {
+        return [ "\n        ", HTML.DIV({
+          "class": "item item-image"
+        }, "\n          ", HTML.IMG({
+          "class": "full-image",
+          src: function() {
+            return Spacebars.mustache(view.lookup("pic"));
+          }
+        }), "\n        "), "\n        " ];
+      }), "\n\n      "), "\n    " ];
     }), "\n  " ];
   }) ];
 }));

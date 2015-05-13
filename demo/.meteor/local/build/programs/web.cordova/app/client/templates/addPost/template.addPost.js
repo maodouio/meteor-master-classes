@@ -8,9 +8,9 @@ Template["addPost"] = new Template("Template.addPost", (function() {
     return Spacebars.include(view.lookupTemplate("contentFor"), function() {
       return [ "\n    ", Blaze._TemplateWith(function() {
         return {
-          text: Spacebars.call(""),
+          text: Spacebars.call(" "),
           icon: Spacebars.call("chevron-left"),
-          path: Spacebars.call("lists")
+          path: Spacebars.call("index")
         };
       }, function() {
         return Spacebars.include(view.lookupTemplate("ionNavBackButton"));
@@ -48,6 +48,29 @@ Template["addPost"] = new Template("Template.addPost", (function() {
             };
           }, function() {
             return Spacebars.include(view.lookupTemplate("afQuickField"));
+          }), "\n\n        ", Blaze.If(function() {
+            return Spacebars.call(view.lookup("pic_is_taken"));
+          }, function() {
+            return [ "\n          ", Spacebars.With(function() {
+              return Spacebars.call(view.lookup("picture"));
+            }, function() {
+              return [ "\n          ", HTML.DIV({
+                "class": "list card"
+              }, "\n            ", HTML.DIV({
+                "class": "item item-image"
+              }, "\n              ", HTML.IMG({
+                "class": "full-image",
+                src: function() {
+                  return Spacebars.mustache(view.lookup("."));
+                }
+              }), "\n            "), "\n          "), "\n          " ];
+            }), "\n        " ];
+          }, function() {
+            return [ "\n          ", HTML.DIV({
+              "class": "button-bar"
+            }, "\n            ", HTML.A({
+              "class": "button icon ion-android-camera"
+            }, "+"), "\n          "), "      \n        " ];
           }), "\n\n        ", HTML.DIV({
             "class": "button-bar"
           }, "\n          ", HTML.A({

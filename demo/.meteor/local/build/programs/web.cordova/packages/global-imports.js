@@ -16,6 +16,7 @@ IonNavigation = Package['meteoric:ionic'].IonNavigation;
 IonPopover = Package['meteoric:ionic'].IonPopover;
 IonPopup = Package['meteoric:ionic'].IonPopup;
 IonSideMenu = Package['meteoric:ionic'].IonSideMenu;
+MeteoricCamera = Package['meteoric:camera'].MeteoricCamera;
 Meteor = Package.meteor.Meteor;
 WebApp = Package.webapp.WebApp;
 Log = Package.logging.Log;

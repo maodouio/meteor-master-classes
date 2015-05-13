@@ -325,657 +325,744 @@ STATE_PAT = {                                                                   
     resetPwd: Match.Optional(String),                                                                                // 11
     signIn: Match.Optional(String),                                                                                  // 12
     signUp: Match.Optional(String),                                                                                  // 13
-};                                                                                                                   // 14
-                                                                                                                     // 15
-ERRORS_PAT = {                                                                                                       // 16
-    mustBeLoggedIn: Match.Optional(String),                                                                          // 17
-    pwdMismatch: Match.Optional(String),                                                                             // 18
-};                                                                                                                   // 19
-                                                                                                                     // 20
-INFO_PAT = {                                                                                                         // 21
-    emailSent: Match.Optional(String),                                                                               // 22
-    emailVerified: Match.Optional(String),                                                                           // 23
-    pwdChanged: Match.Optional(String),                                                                              // 24
-    pwdReset: Match.Optional(String),                                                                                // 25
-    pwdSet: Match.Optional(String),                                                                                  // 26
-    signUpVerifyEmail: Match.Optional(String),                                                                       // 27
-};                                                                                                                   // 28
-                                                                                                                     // 29
-INPUT_ICONS_PAT = {                                                                                                  // 30
-    isValidating: Match.Optional(String),                                                                            // 31
-    hasError: Match.Optional(String),                                                                                // 32
-    hasSuccess: Match.Optional(String),                                                                              // 33
-};                                                                                                                   // 34
-                                                                                                                     // 35
-ObjWithStringValues = Match.Where(function (x) {                                                                     // 36
-    check(x, Object);                                                                                                // 37
-    _.each(_.values(x), function(value){                                                                             // 38
-        check(value, String);                                                                                        // 39
-    });                                                                                                              // 40
-    return true;                                                                                                     // 41
-});                                                                                                                  // 42
-                                                                                                                     // 43
-TEXTS_PAT = {                                                                                                        // 44
-    button: Match.Optional(STATE_PAT),                                                                               // 45
-    errors: Match.Optional(ERRORS_PAT),                                                                              // 46
-    navSignIn: Match.Optional(String),                                                                               // 47
-    navSignOut: Match.Optional(String),                                                                              // 48
-    info: Match.Optional(INFO_PAT),                                                                                  // 49
-    inputIcons: Match.Optional(INPUT_ICONS_PAT),                                                                     // 50
-    optionalField: Match.Optional(String),                                                                           // 51
-    pwdLink_pre: Match.Optional(String),                                                                             // 52
-    pwdLink_link: Match.Optional(String),                                                                            // 53
-    pwdLink_suff: Match.Optional(String),                                                                            // 54
-    sep: Match.Optional(String),                                                                                     // 55
-    signInLink_pre: Match.Optional(String),                                                                          // 56
-    signInLink_link: Match.Optional(String),                                                                         // 57
-    signInLink_suff: Match.Optional(String),                                                                         // 58
-    signUpLink_pre: Match.Optional(String),                                                                          // 59
-    signUpLink_link: Match.Optional(String),                                                                         // 60
-    signUpLink_suff: Match.Optional(String),                                                                         // 61
-    socialAdd: Match.Optional(String),                                                                               // 62
-    socialConfigure: Match.Optional(String),                                                                         // 63
-    socialIcons: Match.Optional(ObjWithStringValues),                                                                // 64
-    socialRemove: Match.Optional(String),                                                                            // 65
-    socialSignIn: Match.Optional(String),                                                                            // 66
-    socialSignUp: Match.Optional(String),                                                                            // 67
-    socialWith: Match.Optional(String),                                                                              // 68
-    termsPreamble: Match.Optional(String),                                                                           // 69
-    termsPrivacy: Match.Optional(String),                                                                            // 70
-    termsAnd: Match.Optional(String),                                                                                // 71
-    termsTerms: Match.Optional(String),                                                                              // 72
-    title: Match.Optional(STATE_PAT),                                                                                // 73
-};                                                                                                                   // 74
-                                                                                                                     // 75
-// Configuration pattern to be checked with check                                                                    // 76
-CONFIG_PAT = {                                                                                                       // 77
-    // Behaviour                                                                                                     // 78
-    confirmPassword: Match.Optional(Boolean),                                                                        // 79
-    defaultState: Match.Optional(String),                                                                            // 80
-    enablePasswordChange: Match.Optional(Boolean),                                                                   // 81
-    enforceEmailVerification: Match.Optional(Boolean),                                                               // 82
-    forbidClientAccountCreation: Match.Optional(Boolean),                                                            // 83
-    lowercaseUsername: Match.Optional(Boolean),                                                                      // 84
-    overrideLoginErrors: Match.Optional(Boolean),                                                                    // 85
-    sendVerificationEmail: Match.Optional(Boolean),                                                                  // 86
-    socialLoginStyle: Match.Optional(Match.OneOf("popup", "redirect")),                                              // 87
-                                                                                                                     // 88
-    // Appearance                                                                                                    // 89
-    defaultLayout: Match.Optional(String),                                                                           // 90
-    showAddRemoveServices: Match.Optional(Boolean),                                                                  // 91
-    showForgotPasswordLink: Match.Optional(Boolean),                                                                 // 92
-    showLabels: Match.Optional(Boolean),                                                                             // 93
-    showPlaceholders: Match.Optional(Boolean),                                                                       // 94
-    hideSignInLink: Match.Optional(Boolean),                                                                         // 95
-    hideSignUpLink: Match.Optional(Boolean),                                                                         // 96
+    verifyEmail: Match.Optional(String),                                                                             // 14
+    resendVerificationEmail: Match.Optional(String),                                                                 // 15
+};                                                                                                                   // 16
+                                                                                                                     // 17
+ERRORS_PAT = {                                                                                                       // 18
+    accountsCreationDisabled: Match.Optional(String),                                                                // 19
+    cannotRemoveService: Match.Optional(String),                                                                     // 20
+    captchaVerification: Match.Optional(String),                                                                     // 21
+    loginForbidden: Match.Optional(String),                                                                          // 22
+    mustBeLoggedIn: Match.Optional(String),                                                                          // 23
+    pwdMismatch: Match.Optional(String),                                                                             // 24
+    validationErrors: Match.Optional(String),                                                                        // 25
+    verifyEmailFirst: Match.Optional(String),                                                                        // 26
+};                                                                                                                   // 27
+                                                                                                                     // 28
+INFO_PAT = {                                                                                                         // 29
+    emailSent: Match.Optional(String),                                                                               // 30
+    emailVerified: Match.Optional(String),                                                                           // 31
+    pwdChanged: Match.Optional(String),                                                                              // 32
+    pwdReset: Match.Optional(String),                                                                                // 33
+    pwdSet: Match.Optional(String),                                                                                  // 34
+    signUpVerifyEmail: Match.Optional(String),                                                                       // 35
+    verificationEmailSent: Match.Optional(String),                                                                   // 36
+};                                                                                                                   // 37
+                                                                                                                     // 38
+INPUT_ICONS_PAT = {                                                                                                  // 39
+    hasError: Match.Optional(String),                                                                                // 40
+    hasSuccess: Match.Optional(String),                                                                              // 41
+    isValidating: Match.Optional(String),                                                                            // 42
+};                                                                                                                   // 43
+                                                                                                                     // 44
+ObjWithStringValues = Match.Where(function (x) {                                                                     // 45
+    check(x, Object);                                                                                                // 46
+    _.each(_.values(x), function(value){                                                                             // 47
+        check(value, String);                                                                                        // 48
+    });                                                                                                              // 49
+    return true;                                                                                                     // 50
+});                                                                                                                  // 51
+                                                                                                                     // 52
+TEXTS_PAT = {                                                                                                        // 53
+    button: Match.Optional(STATE_PAT),                                                                               // 54
+    errors: Match.Optional(ERRORS_PAT),                                                                              // 55
+    info: Match.Optional(INFO_PAT),                                                                                  // 56
+    inputIcons: Match.Optional(INPUT_ICONS_PAT),                                                                     // 57
+    navSignIn: Match.Optional(String),                                                                               // 58
+    navSignOut: Match.Optional(String),                                                                              // 59
+    optionalField: Match.Optional(String),                                                                           // 60
+    pwdLink_link: Match.Optional(String),                                                                            // 61
+    pwdLink_pre: Match.Optional(String),                                                                             // 62
+    pwdLink_suff: Match.Optional(String),                                                                            // 63
+    sep: Match.Optional(String),                                                                                     // 64
+    signInLink_link: Match.Optional(String),                                                                         // 65
+    signInLink_pre: Match.Optional(String),                                                                          // 66
+    signInLink_suff: Match.Optional(String),                                                                         // 67
+    signUpLink_link: Match.Optional(String),                                                                         // 68
+    signUpLink_pre: Match.Optional(String),                                                                          // 69
+    signUpLink_suff: Match.Optional(String),                                                                         // 70
+    socialAdd: Match.Optional(String),                                                                               // 71
+    socialConfigure: Match.Optional(String),                                                                         // 72
+    socialIcons: Match.Optional(ObjWithStringValues),                                                                // 73
+    socialRemove: Match.Optional(String),                                                                            // 74
+    socialSignIn: Match.Optional(String),                                                                            // 75
+    socialSignUp: Match.Optional(String),                                                                            // 76
+    socialWith: Match.Optional(String),                                                                              // 77
+    termsAnd: Match.Optional(String),                                                                                // 78
+    termsPreamble: Match.Optional(String),                                                                           // 79
+    termsPrivacy: Match.Optional(String),                                                                            // 80
+    termsTerms: Match.Optional(String),                                                                              // 81
+    title: Match.Optional(STATE_PAT),                                                                                // 82
+};                                                                                                                   // 83
+                                                                                                                     // 84
+// Configuration pattern to be checked with check                                                                    // 85
+CONFIG_PAT = {                                                                                                       // 86
+    // Behaviour                                                                                                     // 87
+    confirmPassword: Match.Optional(Boolean),                                                                        // 88
+    defaultState: Match.Optional(String),                                                                            // 89
+    enablePasswordChange: Match.Optional(Boolean),                                                                   // 90
+    enforceEmailVerification: Match.Optional(Boolean),                                                               // 91
+    forbidClientAccountCreation: Match.Optional(Boolean),                                                            // 92
+    lowercaseUsername: Match.Optional(Boolean),                                                                      // 93
+    overrideLoginErrors: Match.Optional(Boolean),                                                                    // 94
+    sendVerificationEmail: Match.Optional(Boolean),                                                                  // 95
+    socialLoginStyle: Match.Optional(Match.OneOf("popup", "redirect")),                                              // 96
                                                                                                                      // 97
-    // Client-side Validation                                                                                        // 98
-    continuousValidation: Match.Optional(Boolean),                                                                   // 99
-    negativeFeedback: Match.Optional(Boolean),                                                                       // 100
-    negativeValidation: Match.Optional(Boolean),                                                                     // 101
-    positiveValidation: Match.Optional(Boolean),                                                                     // 102
-    positiveFeedback: Match.Optional(Boolean),                                                                       // 103
-    showValidating: Match.Optional(Boolean),                                                                         // 104
-                                                                                                                     // 105
-    // Privacy Policy and Terms of Use                                                                               // 106
-    privacyUrl: Match.Optional(String),                                                                              // 107
-    termsUrl: Match.Optional(String),                                                                                // 108
-                                                                                                                     // 109
-    // Redirects                                                                                                     // 110
-    homeRoutePath: Match.Optional(String),                                                                           // 111
-    redirectTimeout: Match.Optional(Number),                                                                         // 112
-                                                                                                                     // 113
-    // Hooks                                                                                                         // 114
-    onSubmitHook: Match.Optional(Function),                                                                          // 115
-    onLogoutHook: Match.Optional(Function),                                                                          // 116
-                                                                                                                     // 117
-    texts: Match.Optional(TEXTS_PAT),                                                                                // 118
+    // Appearance                                                                                                    // 98
+    defaultLayout: Match.Optional(String),                                                                           // 99
+    hideSignInLink: Match.Optional(Boolean),                                                                         // 100
+    hideSignUpLink: Match.Optional(Boolean),                                                                         // 101
+    showAddRemoveServices: Match.Optional(Boolean),                                                                  // 102
+    showForgotPasswordLink: Match.Optional(Boolean),                                                                 // 103
+    showResendVerificationEmailLink: Match.Optional(Boolean),                                                        // 104
+    showLabels: Match.Optional(Boolean),                                                                             // 105
+    showPlaceholders: Match.Optional(Boolean),                                                                       // 106
+                                                                                                                     // 107
+    // Client-side Validation                                                                                        // 108
+    continuousValidation: Match.Optional(Boolean),                                                                   // 109
+    negativeFeedback: Match.Optional(Boolean),                                                                       // 110
+    negativeValidation: Match.Optional(Boolean),                                                                     // 111
+    positiveFeedback: Match.Optional(Boolean),                                                                       // 112
+    positiveValidation: Match.Optional(Boolean),                                                                     // 113
+    showValidating: Match.Optional(Boolean),                                                                         // 114
+                                                                                                                     // 115
+    // Privacy Policy and Terms of Use                                                                               // 116
+    privacyUrl: Match.Optional(String),                                                                              // 117
+    termsUrl: Match.Optional(String),                                                                                // 118
                                                                                                                      // 119
-    //reCaptcha config                                                                                               // 120
-    reCaptcha: Match.Optional({                                                                                      // 121
-        siteKey: Match.Optional(String),                                                                             // 122
-        secretKey: Match.Optional(String),                                                                           // 123
-        theme: Match.Optional(Match.OneOf("dark", "light")),                                                         // 124
-        data_type: Match.Optional(Match.OneOf("audio", "image")),                                                    // 125
-    }),                                                                                                              // 126
+    // Redirects                                                                                                     // 120
+    homeRoutePath: Match.Optional(String),                                                                           // 121
+    redirectTimeout: Match.Optional(Number),                                                                         // 122
+                                                                                                                     // 123
+    // Hooks                                                                                                         // 124
+    onLogoutHook: Match.Optional(Function),                                                                          // 125
+    onSubmitHook: Match.Optional(Function),                                                                          // 126
                                                                                                                      // 127
-    showReCaptcha: Match.Optional(Boolean),                                                                          // 128
-};                                                                                                                   // 129
-                                                                                                                     // 130
-                                                                                                                     // 131
-FIELD_SUB_PAT = {                                                                                                    // 132
-    "default": Match.Optional(String),                                                                               // 133
-    changePwd: Match.Optional(String),                                                                               // 134
-    enrollAccount: Match.Optional(String),                                                                           // 135
-    forgotPwd: Match.Optional(String),                                                                               // 136
-    resetPwd: Match.Optional(String),                                                                                // 137
-    signIn: Match.Optional(String),                                                                                  // 138
-    signUp: Match.Optional(String),                                                                                  // 139
-};                                                                                                                   // 140
+    texts: Match.Optional(TEXTS_PAT),                                                                                // 128
+                                                                                                                     // 129
+    //reCaptcha config                                                                                               // 130
+    reCaptcha: Match.Optional({                                                                                      // 131
+        data_type: Match.Optional(Match.OneOf("audio", "image")),                                                    // 132
+        secretKey: Match.Optional(String),                                                                           // 133
+        siteKey: Match.Optional(String),                                                                             // 134
+        theme: Match.Optional(Match.OneOf("dark", "light")),                                                         // 135
+    }),                                                                                                              // 136
+                                                                                                                     // 137
+    showReCaptcha: Match.Optional(Boolean),                                                                          // 138
+};                                                                                                                   // 139
+                                                                                                                     // 140
                                                                                                                      // 141
-                                                                                                                     // 142
-// Field pattern                                                                                                     // 143
-FIELD_PAT = {                                                                                                        // 144
-    _id: String,                                                                                                     // 145
-    type: String,                                                                                                    // 146
-    required: Match.Optional(Boolean),                                                                               // 147
-    displayName: Match.Optional(Match.OneOf(String, FIELD_SUB_PAT)),                                                 // 148
-    placeholder: Match.Optional(Match.OneOf(String, FIELD_SUB_PAT)),                                                 // 149
-    select: Match.Optional([{text: String, value: Match.Any}]),                                                      // 150
-    minLength: Match.Optional(Match.Integer),                                                                        // 151
-    maxLength: Match.Optional(Match.Integer),                                                                        // 152
-    re: Match.Optional(RegExp),                                                                                      // 153
-    func: Match.Optional(Match.Where(_.isFunction)),                                                                 // 154
-    errStr: Match.Optional(String),                                                                                  // 155
-                                                                                                                     // 156
-    // Client-side Validation                                                                                        // 157
-    continuousValidation: Match.Optional(Boolean),                                                                   // 158
-    negativeFeedback: Match.Optional(Boolean),                                                                       // 159
-    negativeValidation: Match.Optional(Boolean),                                                                     // 160
-    positiveValidation: Match.Optional(Boolean),                                                                     // 161
-    positiveFeedback: Match.Optional(Boolean),                                                                       // 162
-                                                                                                                     // 163
-    // Transforms                                                                                                    // 164
-    trim: Match.Optional(Boolean),                                                                                   // 165
-    lowercase: Match.Optional(Boolean),                                                                              // 166
-    uppercase: Match.Optional(Boolean),                                                                              // 167
-    transform: Match.Optional(Match.Where(_.isFunction)),                                                            // 168
-                                                                                                                     // 169
-    // Custom options                                                                                                // 170
-    options: Match.Optional(Object),                                                                                 // 171
-    template: Match.Optional(String),                                                                                // 172
-};                                                                                                                   // 173
-                                                                                                                     // 174
-// Route configuration pattern to be checked with check                                                              // 175
-var ROUTE_PAT = {                                                                                                    // 176
-    name: Match.Optional(String),                                                                                    // 177
-    path: Match.Optional(String),                                                                                    // 178
-    template: Match.Optional(String),                                                                                // 179
-    layoutTemplate: Match.Optional(String),                                                                          // 180
-    redirect: Match.Optional(Match.OneOf(String, Match.Where(_.isFunction))),                                        // 181
-};                                                                                                                   // 182
-                                                                                                                     // 183
+FIELD_SUB_PAT = {                                                                                                    // 142
+    "default": Match.Optional(String),                                                                               // 143
+    changePwd: Match.Optional(String),                                                                               // 144
+    enrollAccount: Match.Optional(String),                                                                           // 145
+    forgotPwd: Match.Optional(String),                                                                               // 146
+    resetPwd: Match.Optional(String),                                                                                // 147
+    signIn: Match.Optional(String),                                                                                  // 148
+    signUp: Match.Optional(String),                                                                                  // 149
+};                                                                                                                   // 150
+                                                                                                                     // 151
+                                                                                                                     // 152
+// Field pattern                                                                                                     // 153
+FIELD_PAT = {                                                                                                        // 154
+    _id: String,                                                                                                     // 155
+    type: String,                                                                                                    // 156
+    required: Match.Optional(Boolean),                                                                               // 157
+    displayName: Match.Optional(Match.OneOf(String, FIELD_SUB_PAT)),                                                 // 158
+    placeholder: Match.Optional(Match.OneOf(String, FIELD_SUB_PAT)),                                                 // 159
+    select: Match.Optional([{text: String, value: Match.Any}]),                                                      // 160
+    minLength: Match.Optional(Match.Integer),                                                                        // 161
+    maxLength: Match.Optional(Match.Integer),                                                                        // 162
+    re: Match.Optional(RegExp),                                                                                      // 163
+    func: Match.Optional(Match.Where(_.isFunction)),                                                                 // 164
+    errStr: Match.Optional(String),                                                                                  // 165
+                                                                                                                     // 166
+    // Client-side Validation                                                                                        // 167
+    continuousValidation: Match.Optional(Boolean),                                                                   // 168
+    negativeFeedback: Match.Optional(Boolean),                                                                       // 169
+    negativeValidation: Match.Optional(Boolean),                                                                     // 170
+    positiveValidation: Match.Optional(Boolean),                                                                     // 171
+    positiveFeedback: Match.Optional(Boolean),                                                                       // 172
+                                                                                                                     // 173
+    // Transforms                                                                                                    // 174
+    trim: Match.Optional(Boolean),                                                                                   // 175
+    lowercase: Match.Optional(Boolean),                                                                              // 176
+    uppercase: Match.Optional(Boolean),                                                                              // 177
+    transform: Match.Optional(Match.Where(_.isFunction)),                                                            // 178
+                                                                                                                     // 179
+    // Custom options                                                                                                // 180
+    options: Match.Optional(Object),                                                                                 // 181
+    template: Match.Optional(String),                                                                                // 182
+};                                                                                                                   // 183
                                                                                                                      // 184
-// -----------------------------------------------------------------------------                                     // 185
-                                                                                                                     // 186
-// AccountsTemplates object                                                                                          // 187
-                                                                                                                     // 188
-// -----------------------------------------------------------------------------                                     // 189
-                                                                                                                     // 190
-                                                                                                                     // 191
-                                                                                                                     // 192
-// -------------------                                                                                               // 193
-// Client/Server stuff                                                                                               // 194
-// -------------------                                                                                               // 195
+// Route configuration pattern to be checked with check                                                              // 185
+var ROUTE_PAT = {                                                                                                    // 186
+    name: Match.Optional(String),                                                                                    // 187
+    path: Match.Optional(String),                                                                                    // 188
+    template: Match.Optional(String),                                                                                // 189
+    layoutTemplate: Match.Optional(String),                                                                          // 190
+    redirect: Match.Optional(Match.OneOf(String, Match.Where(_.isFunction))),                                        // 191
+};                                                                                                                   // 192
+                                                                                                                     // 193
+                                                                                                                     // 194
+// -----------------------------------------------------------------------------                                     // 195
                                                                                                                      // 196
-// Constructor                                                                                                       // 197
-AT = function() {                                                                                                    // 198
-                                                                                                                     // 199
-};                                                                                                                   // 200
+// AccountsTemplates object                                                                                          // 197
+                                                                                                                     // 198
+// -----------------------------------------------------------------------------                                     // 199
+                                                                                                                     // 200
                                                                                                                      // 201
                                                                                                                      // 202
-                                                                                                                     // 203
-                                                                                                                     // 204
-/*                                                                                                                   // 205
-    Each field object is represented by the following properties:                                                    // 206
-        _id:         String   (required)  // A unique field"s id / name                                              // 207
-        type:        String   (required)  // Displayed input type                                                    // 208
-        required:    Boolean  (optional)  // Specifies Whether to fail or not when field is left empty               // 209
-        displayName: String   (optional)  // The field"s name to be displayed as a label above the input element     // 210
-        placeholder: String   (optional)  // The placeholder text to be displayed inside the input element           // 211
-        minLength:   Integer  (optional)  // Possibly specifies the minimum allowed length                           // 212
-        maxLength:   Integer  (optional)  // Possibly specifies the maximum allowed length                           // 213
-        re:          RegExp   (optional)  // Regular expression for validation                                       // 214
-        func:        Function (optional)  // Custom function for validation                                          // 215
-        errStr:      String   (optional)  // Error message to be displayed in case re validation fails               // 216
-*/                                                                                                                   // 217
-                                                                                                                     // 218
-                                                                                                                     // 219
-                                                                                                                     // 220
-/*                                                                                                                   // 221
-    Routes configuration can be done by calling AccountsTemplates.configureRoute with the route name and the         // 222
-    following options in a separate object. E.g. AccountsTemplates.configureRoute("gingIn", option);                 // 223
-        name:           String (optional). A unique route"s name to be passed to iron-router                         // 224
-        path:           String (optional). A unique route"s path to be passed to iron-router                         // 225
-        template:       String (optional). The name of the template to be rendered                                   // 226
-        layoutTemplate: String (optional). The name of the layout to be used                                         // 227
-        redirect:       String (optional). The name of the route (or its path) where to redirect after form submit   // 228
-*/                                                                                                                   // 229
+// -------------------                                                                                               // 203
+// Client/Server stuff                                                                                               // 204
+// -------------------                                                                                               // 205
+                                                                                                                     // 206
+// Constructor                                                                                                       // 207
+AT = function() {                                                                                                    // 208
+                                                                                                                     // 209
+};                                                                                                                   // 210
+                                                                                                                     // 211
+                                                                                                                     // 212
+                                                                                                                     // 213
+                                                                                                                     // 214
+/*                                                                                                                   // 215
+    Each field object is represented by the following properties:                                                    // 216
+        _id:         String   (required)  // A unique field"s id / name                                              // 217
+        type:        String   (required)  // Displayed input type                                                    // 218
+        required:    Boolean  (optional)  // Specifies Whether to fail or not when field is left empty               // 219
+        displayName: String   (optional)  // The field"s name to be displayed as a label above the input element     // 220
+        placeholder: String   (optional)  // The placeholder text to be displayed inside the input element           // 221
+        minLength:   Integer  (optional)  // Possibly specifies the minimum allowed length                           // 222
+        maxLength:   Integer  (optional)  // Possibly specifies the maximum allowed length                           // 223
+        re:          RegExp   (optional)  // Regular expression for validation                                       // 224
+        func:        Function (optional)  // Custom function for validation                                          // 225
+        errStr:      String   (optional)  // Error message to be displayed in case re validation fails               // 226
+*/                                                                                                                   // 227
+                                                                                                                     // 228
+                                                                                                                     // 229
                                                                                                                      // 230
-                                                                                                                     // 231
-// Allowed routes along with theirs default configuration values                                                     // 232
-AT.prototype.ROUTE_DEFAULT = {                                                                                       // 233
-    changePwd:      { name: "atChangePwd",      path: "/change-password"},                                           // 234
-    enrollAccount:  { name: "atEnrollAccount",  path: "/enroll-account"},                                            // 235
-    ensureSignedIn: { name: "atEnsureSignedIn", path: null},                                                         // 236
-    forgotPwd:      { name: "atForgotPwd",      path: "/forgot-password"},                                           // 237
-    resetPwd:       { name: "atResetPwd",       path: "/reset-password"},                                            // 238
-    signIn:         { name: "atSignIn",         path: "/sign-in"},                                                   // 239
-    signUp:         { name: "atSignUp",         path: "/sign-up"},                                                   // 240
-    verifyEmail:    { name: "atVerifyEmail",    path: "/verify-email"},                                              // 241
-};                                                                                                                   // 242
-                                                                                                                     // 243
-                                                                                                                     // 244
-                                                                                                                     // 245
-// Allowed input types                                                                                               // 246
-AT.prototype.INPUT_TYPES = [                                                                                         // 247
-    "checkbox",                                                                                                      // 248
-    "email",                                                                                                         // 249
-    "hidden",                                                                                                        // 250
-    "password",                                                                                                      // 251
-    "radio",                                                                                                         // 252
-    "select",                                                                                                        // 253
-    "tel",                                                                                                           // 254
-    "text",                                                                                                          // 255
-    "url",                                                                                                           // 256
-];                                                                                                                   // 257
-                                                                                                                     // 258
-// Current configuration values                                                                                      // 259
-AT.prototype.options = {                                                                                             // 260
-    // Appearance                                                                                                    // 261
-    //defaultLayout: undefined,                                                                                      // 262
-    showAddRemoveServices: false,                                                                                    // 263
-    showForgotPasswordLink: false,                                                                                   // 264
-    showLabels: true,                                                                                                // 265
-    showPlaceholders: true,                                                                                          // 266
-                                                                                                                     // 267
-    // Behaviour                                                                                                     // 268
-    confirmPassword: true,                                                                                           // 269
-    defaultState: "signIn",                                                                                          // 270
-    enablePasswordChange: false,                                                                                     // 271
-    forbidClientAccountCreation: false,                                                                              // 272
-    lowercaseUsername: false,                                                                                        // 273
-    overrideLoginErrors: true,                                                                                       // 274
-    sendVerificationEmail: false,                                                                                    // 275
-    socialLoginStyle: "popup",                                                                                       // 276
-                                                                                                                     // 277
-    // Client-side Validation                                                                                        // 278
-    //continuousValidation: false,                                                                                   // 279
-    //negativeFeedback: false,                                                                                       // 280
-    //negativeValidation: false,                                                                                     // 281
-    //positiveValidation: false,                                                                                     // 282
-    //positiveFeedback: false,                                                                                       // 283
-    //showValidating: false,                                                                                         // 284
-                                                                                                                     // 285
-    // Privacy Policy and Terms of Use                                                                               // 286
-    privacyUrl: undefined,                                                                                           // 287
-    termsUrl: undefined,                                                                                             // 288
+/*                                                                                                                   // 231
+    Routes configuration can be done by calling AccountsTemplates.configureRoute with the route name and the         // 232
+    following options in a separate object. E.g. AccountsTemplates.configureRoute("gingIn", option);                 // 233
+        name:           String (optional). A unique route"s name to be passed to iron-router                         // 234
+        path:           String (optional). A unique route"s path to be passed to iron-router                         // 235
+        template:       String (optional). The name of the template to be rendered                                   // 236
+        layoutTemplate: String (optional). The name of the layout to be used                                         // 237
+        redirect:       String (optional). The name of the route (or its path) where to redirect after form submit   // 238
+*/                                                                                                                   // 239
+                                                                                                                     // 240
+                                                                                                                     // 241
+// Allowed routes along with theirs default configuration values                                                     // 242
+AT.prototype.ROUTE_DEFAULT = {                                                                                       // 243
+    changePwd:      { name: "atChangePwd",      path: "/change-password"},                                           // 244
+    enrollAccount:  { name: "atEnrollAccount",  path: "/enroll-account"},                                            // 245
+    ensureSignedIn: { name: "atEnsureSignedIn", path: null},                                                         // 246
+    forgotPwd:      { name: "atForgotPwd",      path: "/forgot-password"},                                           // 247
+    resetPwd:       { name: "atResetPwd",       path: "/reset-password"},                                            // 248
+    signIn:         { name: "atSignIn",         path: "/sign-in"},                                                   // 249
+    signUp:         { name: "atSignUp",         path: "/sign-up"},                                                   // 250
+    verifyEmail:    { name: "atVerifyEmail",    path: "/verify-email"},                                              // 251
+    resendVerificationEmail: { name: "atResendVerificationEmail", path: "/send-again"},                              // 252
+};                                                                                                                   // 253
+                                                                                                                     // 254
+                                                                                                                     // 255
+                                                                                                                     // 256
+// Allowed input types                                                                                               // 257
+AT.prototype.INPUT_TYPES = [                                                                                         // 258
+    "checkbox",                                                                                                      // 259
+    "email",                                                                                                         // 260
+    "hidden",                                                                                                        // 261
+    "password",                                                                                                      // 262
+    "radio",                                                                                                         // 263
+    "select",                                                                                                        // 264
+    "tel",                                                                                                           // 265
+    "text",                                                                                                          // 266
+    "url",                                                                                                           // 267
+];                                                                                                                   // 268
+                                                                                                                     // 269
+// Current configuration values                                                                                      // 270
+AT.prototype.options = {                                                                                             // 271
+    // Appearance                                                                                                    // 272
+    //defaultLayout: undefined,                                                                                      // 273
+    showAddRemoveServices: false,                                                                                    // 274
+    showForgotPasswordLink: false,                                                                                   // 275
+    showResendVerificationEmailLink: false,                                                                          // 276
+    showLabels: true,                                                                                                // 277
+    showPlaceholders: true,                                                                                          // 278
+                                                                                                                     // 279
+    // Behaviour                                                                                                     // 280
+    confirmPassword: true,                                                                                           // 281
+    defaultState: "signIn",                                                                                          // 282
+    enablePasswordChange: false,                                                                                     // 283
+    forbidClientAccountCreation: false,                                                                              // 284
+    lowercaseUsername: false,                                                                                        // 285
+    overrideLoginErrors: true,                                                                                       // 286
+    sendVerificationEmail: false,                                                                                    // 287
+    socialLoginStyle: "popup",                                                                                       // 288
                                                                                                                      // 289
-    // Redirects                                                                                                     // 290
-    homeRoutePath: "/",                                                                                              // 291
-    redirectTimeout: 2000, // 2 seconds                                                                              // 292
-                                                                                                                     // 293
-    // Hooks                                                                                                         // 294
-    onSubmitHook: undefined,                                                                                         // 295
-};                                                                                                                   // 296
+    // Client-side Validation                                                                                        // 290
+    //continuousValidation: false,                                                                                   // 291
+    //negativeFeedback: false,                                                                                       // 292
+    //negativeValidation: false,                                                                                     // 293
+    //positiveValidation: false,                                                                                     // 294
+    //positiveFeedback: false,                                                                                       // 295
+    //showValidating: false,                                                                                         // 296
                                                                                                                      // 297
-AT.prototype.SPECIAL_FIELDS = [                                                                                      // 298
-    "password_again",                                                                                                // 299
-    "username_and_email",                                                                                            // 300
-];                                                                                                                   // 301
-                                                                                                                     // 302
-// SignIn / SignUp fields                                                                                            // 303
-AT.prototype._fields = [                                                                                             // 304
-    new Field({                                                                                                      // 305
-        _id: "email",                                                                                                // 306
-        type: "email",                                                                                               // 307
-        required: true,                                                                                              // 308
-        lowercase: true,                                                                                             // 309
-        trim: true,                                                                                                  // 310
-        func: function(email){                                                                                       // 311
-            return !_.contains(email, '@');                                                                          // 312
-        },                                                                                                           // 313
-        errStr: 'Invalid email',                                                                                     // 314
-    }),                                                                                                              // 315
-    new Field({                                                                                                      // 316
-        _id: "password",                                                                                             // 317
-        type: "password",                                                                                            // 318
-        required: true,                                                                                              // 319
-        minLength: 6,                                                                                                // 320
-        displayName: {                                                                                               // 321
-            "default": "password",                                                                                   // 322
-            changePwd: "newPassword",                                                                                // 323
-            resetPwd: "newPassword",                                                                                 // 324
-        },                                                                                                           // 325
-        placeholder: {                                                                                               // 326
-            "default": "password",                                                                                   // 327
-            changePwd: "newPassword",                                                                                // 328
-            resetPwd: "newPassword",                                                                                 // 329
-        },                                                                                                           // 330
-    }),                                                                                                              // 331
-];                                                                                                                   // 332
-                                                                                                                     // 333
-// Configured routes                                                                                                 // 334
-AT.prototype.routes = {};                                                                                            // 335
-                                                                                                                     // 336
-AT.prototype._initialized = false;                                                                                   // 337
-                                                                                                                     // 338
-// Input type validation                                                                                             // 339
-AT.prototype._isValidInputType = function(value) {                                                                   // 340
-    return _.indexOf(this.INPUT_TYPES, value) !== -1;                                                                // 341
-};                                                                                                                   // 342
-                                                                                                                     // 343
-AT.prototype.addField = function(field) {                                                                            // 344
-    // Fields can be added only before initialization                                                                // 345
-    if (this._initialized)                                                                                           // 346
-        throw new Error("AccountsTemplates.addField should strictly be called before AccountsTemplates.init!");      // 347
-    field = _.pick(field, _.keys(FIELD_PAT));                                                                        // 348
-    check(field, FIELD_PAT);                                                                                         // 349
-    // Checks there"s currently no field called field._id                                                            // 350
-    if (_.indexOf(_.pluck(this._fields, "_id"), field._id) !== -1)                                                   // 351
-        throw new Error("A field called " + field._id + " already exists!");                                         // 352
-    // Validates field.type                                                                                          // 353
-    if (!this._isValidInputType(field.type))                                                                         // 354
-        throw new Error("field.type is not valid!");                                                                 // 355
-    // Checks field.minLength is strictly positive                                                                   // 356
-    if (typeof field.minLength !== "undefined" && field.minLength <= 0)                                              // 357
-        throw new Error("field.minLength should be greater than zero!");                                             // 358
-    // Checks field.maxLength is strictly positive                                                                   // 359
-    if (typeof field.maxLength !== "undefined" && field.maxLength <= 0)                                              // 360
-        throw new Error("field.maxLength should be greater than zero!");                                             // 361
-    // Checks field.maxLength is greater than field.minLength                                                        // 362
+    // Privacy Policy and Terms of Use                                                                               // 298
+    privacyUrl: undefined,                                                                                           // 299
+    termsUrl: undefined,                                                                                             // 300
+                                                                                                                     // 301
+    // Redirects                                                                                                     // 302
+    homeRoutePath: "/",                                                                                              // 303
+    redirectTimeout: 2000, // 2 seconds                                                                              // 304
+                                                                                                                     // 305
+    // Hooks                                                                                                         // 306
+    onSubmitHook: undefined,                                                                                         // 307
+};                                                                                                                   // 308
+                                                                                                                     // 309
+AT.prototype.texts = {                                                                                               // 310
+    button: {                                                                                                        // 311
+        changePwd: "updateYourPassword",                                                                             // 312
+        //enrollAccount: "createAccount",                                                                            // 313
+        enrollAccount: "signUp",                                                                                     // 314
+        forgotPwd: "emailResetLink",                                                                                 // 315
+        resetPwd: "setPassword",                                                                                     // 316
+        signIn: "signIn",                                                                                            // 317
+        signUp: "signUp",                                                                                            // 318
+        resendVerificationEmail: "Send email again",                                                                 // 319
+    },                                                                                                               // 320
+    errors: {                                                                                                        // 321
+        accountsCreationDisabled: "Client side accounts creation is disabled!!!",                                    // 322
+        cannotRemoveService: "Cannot remove the only active service!",                                               // 323
+        captchaVerification: "Captcha verification failed!",                                                         // 324
+        loginForbidden: "error.accounts.Login forbidden",                                                            // 325
+        mustBeLoggedIn: "error.accounts.Must be logged in",                                                          // 326
+        pwdMismatch: "error.pwdsDontMatch",                                                                          // 327
+        validationErrors: "Validation Errors",                                                                       // 328
+        verifyEmailFirst: "Please verify your email first. Check the email and follow the link!",                    // 329
+    },                                                                                                               // 330
+    navSignIn: 'signIn',                                                                                             // 331
+    navSignOut: 'signOut',                                                                                           // 332
+    info: {                                                                                                          // 333
+        emailSent: "info.emailSent",                                                                                 // 334
+        emailVerified: "info.emailVerified",                                                                         // 335
+        pwdChanged: "info.passwordChanged",                                                                          // 336
+        pwdReset: "info.passwordReset",                                                                              // 337
+        pwdSet: "Password Set",                                                                                      // 338
+        signUpVerifyEmail: "Successful Registration! Please check your email and follow the instructions.",          // 339
+        verificationEmailSent: "A new email has been sent to you. If the email doesn't show up in your inbox, be sure to check your spam folder.",
+    },                                                                                                               // 341
+    inputIcons: {                                                                                                    // 342
+        isValidating: "fa fa-spinner fa-spin",                                                                       // 343
+        hasSuccess: "fa fa-check",                                                                                   // 344
+        hasError: "fa fa-times",                                                                                     // 345
+    },                                                                                                               // 346
+    optionalField: "optional",                                                                                       // 347
+    pwdLink_pre: "",                                                                                                 // 348
+    pwdLink_link: "forgotPassword",                                                                                  // 349
+    pwdLink_suff: "",                                                                                                // 350
+    resendVerificationEmailLink_pre: "Verification email lost?",                                                     // 351
+    resendVerificationEmailLink_link: "Send again",                                                                  // 352
+    resendVerificationEmailLink_suff: "",                                                                            // 353
+    sep: "OR",                                                                                                       // 354
+    signInLink_pre: "ifYouAlreadyHaveAnAccount",                                                                     // 355
+    signInLink_link: "signin",                                                                                       // 356
+    signInLink_suff: "",                                                                                             // 357
+    signUpLink_pre: "dontHaveAnAccount",                                                                             // 358
+    signUpLink_link: "signUp",                                                                                       // 359
+    signUpLink_suff: "",                                                                                             // 360
+    socialAdd: "add",                                                                                                // 361
+    socialConfigure: "configure",                                                                                    // 362
+    socialIcons: {                                                                                                   // 363
+        "meteor-developer": "fa fa-rocket"                                                                           // 364
+    },                                                                                                               // 365
+    socialRemove: "remove",                                                                                          // 366
+    socialSignIn: "signIn",                                                                                          // 367
+    socialSignUp: "signUp",                                                                                          // 368
+    socialWith: "with",                                                                                              // 369
+    termsPreamble: "clickAgree",                                                                                     // 370
+    termsPrivacy: "privacyPolicy",                                                                                   // 371
+    termsAnd: "and",                                                                                                 // 372
+    termsTerms: "terms",                                                                                             // 373
+    title: {                                                                                                         // 374
+        changePwd: "changePassword",                                                                                 // 375
+        enrollAccount: "createAccount",                                                                              // 376
+        forgotPwd: "resetYourPassword",                                                                              // 377
+        resetPwd: "resetYourPassword",                                                                               // 378
+        signIn: "signIn",                                                                                            // 379
+        signUp: "createAccount",                                                                                     // 380
+        verifyEmail: "",                                                                                             // 381
+        resendVerificationEmail: "Send the verification email again",                                                // 382
+    },                                                                                                               // 383
+};                                                                                                                   // 384
+                                                                                                                     // 385
+AT.prototype.SPECIAL_FIELDS = [                                                                                      // 386
+    "password_again",                                                                                                // 387
+    "username_and_email",                                                                                            // 388
+];                                                                                                                   // 389
+                                                                                                                     // 390
+// SignIn / SignUp fields                                                                                            // 391
+AT.prototype._fields = [                                                                                             // 392
+    new Field({                                                                                                      // 393
+        _id: "email",                                                                                                // 394
+        type: "email",                                                                                               // 395
+        required: true,                                                                                              // 396
+        lowercase: true,                                                                                             // 397
+        trim: true,                                                                                                  // 398
+        func: function(email){                                                                                       // 399
+            return !_.contains(email, '@');                                                                          // 400
+        },                                                                                                           // 401
+        errStr: 'Invalid email',                                                                                     // 402
+    }),                                                                                                              // 403
+    new Field({                                                                                                      // 404
+        _id: "password",                                                                                             // 405
+        type: "password",                                                                                            // 406
+        required: true,                                                                                              // 407
+        minLength: 6,                                                                                                // 408
+        displayName: {                                                                                               // 409
+            "default": "password",                                                                                   // 410
+            changePwd: "newPassword",                                                                                // 411
+            resetPwd: "newPassword",                                                                                 // 412
+        },                                                                                                           // 413
+        placeholder: {                                                                                               // 414
+            "default": "password",                                                                                   // 415
+            changePwd: "newPassword",                                                                                // 416
+            resetPwd: "newPassword",                                                                                 // 417
+        },                                                                                                           // 418
+    }),                                                                                                              // 419
+];                                                                                                                   // 420
+                                                                                                                     // 421
+// Configured routes                                                                                                 // 422
+AT.prototype.routes = {};                                                                                            // 423
+                                                                                                                     // 424
+AT.prototype._initialized = false;                                                                                   // 425
+                                                                                                                     // 426
+// Input type validation                                                                                             // 427
+AT.prototype._isValidInputType = function(value) {                                                                   // 428
+    return _.indexOf(this.INPUT_TYPES, value) !== -1;                                                                // 429
+};                                                                                                                   // 430
+                                                                                                                     // 431
+AT.prototype.addField = function(field) {                                                                            // 432
+    // Fields can be added only before initialization                                                                // 433
+    if (this._initialized)                                                                                           // 434
+        throw new Error("AccountsTemplates.addField should strictly be called before AccountsTemplates.init!");      // 435
+    field = _.pick(field, _.keys(FIELD_PAT));                                                                        // 436
+    check(field, FIELD_PAT);                                                                                         // 437
+    // Checks there"s currently no field called field._id                                                            // 438
+    if (_.indexOf(_.pluck(this._fields, "_id"), field._id) !== -1)                                                   // 439
+        throw new Error("A field called " + field._id + " already exists!");                                         // 440
+    // Validates field.type                                                                                          // 441
+    if (!this._isValidInputType(field.type))                                                                         // 442
+        throw new Error("field.type is not valid!");                                                                 // 443
+    // Checks field.minLength is strictly positive                                                                   // 444
+    if (typeof field.minLength !== "undefined" && field.minLength <= 0)                                              // 445
+        throw new Error("field.minLength should be greater than zero!");                                             // 446
+    // Checks field.maxLength is strictly positive                                                                   // 447
+    if (typeof field.maxLength !== "undefined" && field.maxLength <= 0)                                              // 448
+        throw new Error("field.maxLength should be greater than zero!");                                             // 449
+    // Checks field.maxLength is greater than field.minLength                                                        // 450
     if (typeof field.minLength !== "undefined" && typeof field.minLength !== "undefined" && field.maxLength < field.minLength)
-        throw new Error("field.maxLength should be greater than field.maxLength!");                                  // 364
-                                                                                                                     // 365
-    if (!(Meteor.isServer && _.contains(this.SPECIAL_FIELDS, field._id)))                                            // 366
-        this._fields.push(new Field(field));                                                                         // 367
-    return this._fields;                                                                                             // 368
-};                                                                                                                   // 369
-                                                                                                                     // 370
-AT.prototype.addFields = function(fields) {                                                                          // 371
-    var ok;                                                                                                          // 372
-    try { // don"t bother with `typeof` - just access `length` and `catch`                                           // 373
-        ok = fields.length > 0 && "0" in Object(fields);                                                             // 374
-    } catch (e) {                                                                                                    // 375
-        throw new Error("field argument should be an array of valid field objects!");                                // 376
-    }                                                                                                                // 377
-    if (ok) {                                                                                                        // 378
-        _.map(fields, function(field){                                                                               // 379
-            this.addField(field);                                                                                    // 380
-        }, this);                                                                                                    // 381
-    } else                                                                                                           // 382
-        throw new Error("field argument should be an array of valid field objects!");                                // 383
-    return this._fields;                                                                                             // 384
-};                                                                                                                   // 385
-                                                                                                                     // 386
-AT.prototype.configure = function(config) {                                                                          // 387
-    // Configuration options can be set only before initialization                                                   // 388
-    if (this._initialized)                                                                                           // 389
-        throw new Error("Configuration options must be set before AccountsTemplates.init!");                         // 390
-                                                                                                                     // 391
-    // Updates the current configuration                                                                             // 392
-    check(config, CONFIG_PAT);                                                                                       // 393
-    var options = _.omit(config, "texts", "reCaptcha");                                                              // 394
-    this.options = _.defaults(options, this.options);                                                                // 395
-                                                                                                                     // 396
-    // Possibly sets up reCaptcha options                                                                            // 397
-    var reCaptcha = config.reCaptcha;                                                                                // 398
-    if (reCaptcha) {                                                                                                 // 399
-        // Updates the current button object                                                                         // 400
-        this.options.reCaptcha = _.defaults(reCaptcha, this.options.reCaptcha || {});                                // 401
-    }                                                                                                                // 402
-                                                                                                                     // 403
-    if (Meteor.isClient){                                                                                            // 404
-        // Possibly sets up client texts...                                                                          // 405
-        if (config.texts){                                                                                           // 406
-            var texts = config.texts;                                                                                // 407
-            var simpleTexts = _.omit(texts, "button", "errors", "info", "inputIcons", "socialIcons", "title");       // 408
-            this.texts = _.defaults(simpleTexts, this.texts);                                                        // 409
-                                                                                                                     // 410
-            if (texts.button) {                                                                                      // 411
-                // Updates the current button object                                                                 // 412
-                this.texts.button = _.defaults(texts.button, this.texts.button);                                     // 413
-            }                                                                                                        // 414
-            if (texts.errors) {                                                                                      // 415
-                // Updates the current errors object                                                                 // 416
-                this.texts.errors = _.defaults(texts.errors, this.texts.errors);                                     // 417
-            }                                                                                                        // 418
-            if (texts.info) {                                                                                        // 419
-                // Updates the current info object                                                                   // 420
-                this.texts.info = _.defaults(texts.info, this.texts.info);                                           // 421
-            }                                                                                                        // 422
-            if (texts.inputIcons) {                                                                                  // 423
-                // Updates the current inputIcons object                                                             // 424
-                this.texts.inputIcons = _.defaults(texts.inputIcons, this.texts.inputIcons);                         // 425
-            }                                                                                                        // 426
-            if (texts.socialIcons) {                                                                                 // 427
-                // Updates the current socialIcons object                                                            // 428
-                this.texts.socialIcons = _.defaults(texts.socialIcons, this.texts.socialIcons);                      // 429
-            }                                                                                                        // 430
-            if (texts.title) {                                                                                       // 431
-                // Updates the current title object                                                                  // 432
-                this.texts.title = _.defaults(texts.title, this.texts.title);                                        // 433
-            }                                                                                                        // 434
-        }                                                                                                            // 435
-    }                                                                                                                // 436
-};                                                                                                                   // 437
-                                                                                                                     // 438
-AT.prototype.configureRoute = function(route, options) {                                                             // 439
-    check(route, String);                                                                                            // 440
-    check(options, Match.OneOf(undefined, ROUTE_PAT));                                                               // 441
-    options = _.clone(options);                                                                                      // 442
-    // Route Configuration can be done only before initialization                                                    // 443
-    if (this._initialized)                                                                                           // 444
-        throw new Error("Route Configuration can be done only before AccountsTemplates.init!");                      // 445
-    // Only allowed routes can be configured                                                                         // 446
-    if (!(route in this.ROUTE_DEFAULT))                                                                              // 447
-        throw new Error("Unknown Route!");                                                                           // 448
-                                                                                                                     // 449
-    // Possibly adds a initial / to the provided path                                                                // 450
-    if (options && options.path && options.path[0] !== "/")                                                          // 451
-        options.path = "/" + options.path;                                                                           // 452
-    // Updates the current configuration                                                                             // 453
-    options = _.defaults(options || {}, this.ROUTE_DEFAULT[route]);                                                  // 454
-    this.routes[route] = options;                                                                                    // 455
-};                                                                                                                   // 456
-                                                                                                                     // 457
-AT.prototype.hasField = function(fieldId) {                                                                          // 458
-    return !!this.getField(fieldId);                                                                                 // 459
-};                                                                                                                   // 460
-                                                                                                                     // 461
-AT.prototype.getField = function(fieldId) {                                                                          // 462
-    var field = _.filter(this._fields, function(field){                                                              // 463
-        return field._id == fieldId;                                                                                 // 464
-    });                                                                                                              // 465
-    return (field.length === 1) ? field[0] : undefined;                                                              // 466
-};                                                                                                                   // 467
-                                                                                                                     // 468
-AT.prototype.getFields = function() {                                                                                // 469
-    return this._fields;                                                                                             // 470
-};                                                                                                                   // 471
-                                                                                                                     // 472
-AT.prototype.getFieldIds = function() {                                                                              // 473
-    return _.pluck(this._fields, "_id");                                                                             // 474
-};                                                                                                                   // 475
-                                                                                                                     // 476
-AT.prototype.getRouteName = function(route) {                                                                        // 477
-    if (route in this.routes)                                                                                        // 478
-        return this.routes[route].name;                                                                              // 479
-    return null;                                                                                                     // 480
-};                                                                                                                   // 481
-                                                                                                                     // 482
-AT.prototype.getRoutePath = function(route) {                                                                        // 483
-    if (route in this.routes)                                                                                        // 484
-        return this.routes[route].path;                                                                              // 485
-    return "#";                                                                                                      // 486
-};                                                                                                                   // 487
-                                                                                                                     // 488
-AT.prototype.oauthServices = function(){                                                                             // 489
-    // Extracts names of available services                                                                          // 490
-    var names;                                                                                                       // 491
-    if (Meteor.isServer)                                                                                             // 492
-        names = (Accounts.oauth && Accounts.oauth.serviceNames()) || [];                                             // 493
-    else                                                                                                             // 494
-        names = (Accounts.oauth && Accounts.loginServicesConfigured() && Accounts.oauth.serviceNames()) || [];       // 495
-    // Extracts names of configured services                                                                         // 496
-    var configuredServices = [];                                                                                     // 497
-    if (Accounts.loginServiceConfiguration)                                                                          // 498
-        configuredServices = _.pluck(Accounts.loginServiceConfiguration.find().fetch(), "service");                  // 499
-                                                                                                                     // 500
-    // Builds a list of objects containing service name as _id and its configuration status                          // 501
-    var services = _.map(names, function(name){                                                                      // 502
-        return {                                                                                                     // 503
-            _id : name,                                                                                              // 504
-            configured: _.contains(configuredServices, name),                                                        // 505
-        };                                                                                                           // 506
-    });                                                                                                              // 507
-                                                                                                                     // 508
-    // Checks whether there is a UI to configure services...                                                         // 509
-    // XXX: this only works with the accounts-ui package                                                             // 510
-    var showUnconfigured = typeof Accounts._loginButtonsSession !== "undefined";                                     // 511
-                                                                                                                     // 512
-    // Filters out unconfigured services in case they"re not to be displayed                                         // 513
-    if (!showUnconfigured){                                                                                          // 514
-        services = _.filter(services, function(service){                                                             // 515
-            return service.configured;                                                                               // 516
-        });                                                                                                          // 517
-    }                                                                                                                // 518
-                                                                                                                     // 519
-    // Sorts services by name                                                                                        // 520
-    services = _.sortBy(services, function(service){                                                                 // 521
-        return service._id;                                                                                          // 522
-    });                                                                                                              // 523
+        throw new Error("field.maxLength should be greater than field.maxLength!");                                  // 452
+                                                                                                                     // 453
+    if (!(Meteor.isServer && _.contains(this.SPECIAL_FIELDS, field._id)))                                            // 454
+        this._fields.push(new Field(field));                                                                         // 455
+    return this._fields;                                                                                             // 456
+};                                                                                                                   // 457
+                                                                                                                     // 458
+AT.prototype.addFields = function(fields) {                                                                          // 459
+    var ok;                                                                                                          // 460
+    try { // don"t bother with `typeof` - just access `length` and `catch`                                           // 461
+        ok = fields.length > 0 && "0" in Object(fields);                                                             // 462
+    } catch (e) {                                                                                                    // 463
+        throw new Error("field argument should be an array of valid field objects!");                                // 464
+    }                                                                                                                // 465
+    if (ok) {                                                                                                        // 466
+        _.map(fields, function(field){                                                                               // 467
+            this.addField(field);                                                                                    // 468
+        }, this);                                                                                                    // 469
+    } else                                                                                                           // 470
+        throw new Error("field argument should be an array of valid field objects!");                                // 471
+    return this._fields;                                                                                             // 472
+};                                                                                                                   // 473
+                                                                                                                     // 474
+AT.prototype.configure = function(config) {                                                                          // 475
+    // Configuration options can be set only before initialization                                                   // 476
+    if (this._initialized)                                                                                           // 477
+        throw new Error("Configuration options must be set before AccountsTemplates.init!");                         // 478
+                                                                                                                     // 479
+    // Updates the current configuration                                                                             // 480
+    check(config, CONFIG_PAT);                                                                                       // 481
+    var options = _.omit(config, "texts", "reCaptcha");                                                              // 482
+    this.options = _.defaults(options, this.options);                                                                // 483
+                                                                                                                     // 484
+    // Possibly sets up reCaptcha options                                                                            // 485
+    var reCaptcha = config.reCaptcha;                                                                                // 486
+    if (reCaptcha) {                                                                                                 // 487
+        // Updates the current button object                                                                         // 488
+        this.options.reCaptcha = _.defaults(reCaptcha, this.options.reCaptcha || {});                                // 489
+    }                                                                                                                // 490
+                                                                                                                     // 491
+    // Possibly sets up texts...                                                                                     // 492
+    if (config.texts){                                                                                               // 493
+        var texts = config.texts;                                                                                    // 494
+        var simpleTexts = _.omit(texts, "button", "errors", "info", "inputIcons", "socialIcons", "title");           // 495
+        this.texts = _.defaults(simpleTexts, this.texts);                                                            // 496
+                                                                                                                     // 497
+        if (texts.button) {                                                                                          // 498
+            // Updates the current button object                                                                     // 499
+            this.texts.button = _.defaults(texts.button, this.texts.button);                                         // 500
+        }                                                                                                            // 501
+        if (texts.errors) {                                                                                          // 502
+            // Updates the current errors object                                                                     // 503
+            this.texts.errors = _.defaults(texts.errors, this.texts.errors);                                         // 504
+        }                                                                                                            // 505
+        if (texts.info) {                                                                                            // 506
+            // Updates the current info object                                                                       // 507
+            this.texts.info = _.defaults(texts.info, this.texts.info);                                               // 508
+        }                                                                                                            // 509
+        if (texts.inputIcons) {                                                                                      // 510
+            // Updates the current inputIcons object                                                                 // 511
+            this.texts.inputIcons = _.defaults(texts.inputIcons, this.texts.inputIcons);                             // 512
+        }                                                                                                            // 513
+        if (texts.socialIcons) {                                                                                     // 514
+            // Updates the current socialIcons object                                                                // 515
+            this.texts.socialIcons = _.defaults(texts.socialIcons, this.texts.socialIcons);                          // 516
+        }                                                                                                            // 517
+        if (texts.title) {                                                                                           // 518
+            // Updates the current title object                                                                      // 519
+            this.texts.title = _.defaults(texts.title, this.texts.title);                                            // 520
+        }                                                                                                            // 521
+    }                                                                                                                // 522
+};                                                                                                                   // 523
                                                                                                                      // 524
-    return services;                                                                                                 // 525
-};                                                                                                                   // 526
-                                                                                                                     // 527
-AT.prototype.removeField = function(fieldId) {                                                                       // 528
-    // Fields can be removed only before initialization                                                              // 529
+AT.prototype.configureRoute = function(route, options) {                                                             // 525
+    check(route, String);                                                                                            // 526
+    check(options, Match.OneOf(undefined, ROUTE_PAT));                                                               // 527
+    options = _.clone(options);                                                                                      // 528
+    // Route Configuration can be done only before initialization                                                    // 529
     if (this._initialized)                                                                                           // 530
-        throw new Error("AccountsTemplates.removeField should strictly be called before AccountsTemplates.init!");   // 531
-    // Tries to look up the field with given _id                                                                     // 532
-    var index = _.indexOf(_.pluck(this._fields, "_id"), fieldId);                                                    // 533
-    if (index !== -1)                                                                                                // 534
-        return this._fields.splice(index, 1)[0];                                                                     // 535
-    else                                                                                                             // 536
-        if (!(Meteor.isServer && _.contains(this.SPECIAL_FIELDS, fieldId)))                                          // 537
-            throw new Error("A field called " + fieldId + " does not exist!");                                       // 538
-};                                                                                                                   // 539
-                                                                                                                     // 540
-AT.prototype.setupRoutes = function() {                                                                              // 541
-    if (Meteor.isServer){                                                                                            // 542
-        // Possibly prints a warning in case showForgotPasswordLink is set to true but the route is not configured   // 543
-        if (AccountsTemplates.options.showForgotPasswordLink && !("forgotPwd" in  AccountsTemplates.routes))         // 544
-            console.warn("[AccountsTemplates] WARNING: showForgotPasswordLink set to true, but forgotPwd route is not configured!");
-        // Configures "reset password" email link                                                                    // 546
-        if ("resetPwd" in AccountsTemplates.routes){                                                                 // 547
-            var resetPwdPath = AccountsTemplates.routes["resetPwd"].path.substr(1);                                  // 548
-            Accounts.urls.resetPassword = function(token){                                                           // 549
-                return Meteor.absoluteUrl(resetPwdPath + "/" + token);                                               // 550
-            };                                                                                                       // 551
-        }                                                                                                            // 552
-        // Configures "enroll account" email link                                                                    // 553
-        if ("enrollAccount" in AccountsTemplates.routes){                                                            // 554
-            var enrollAccountPath = AccountsTemplates.routes["enrollAccount"].path.substr(1);                        // 555
-            Accounts.urls.enrollAccount = function(token){                                                           // 556
-                return Meteor.absoluteUrl(enrollAccountPath + "/" + token);                                          // 557
-            };                                                                                                       // 558
-        }                                                                                                            // 559
-        // Configures "verify email" email link                                                                      // 560
-        if ("verifyEmail" in AccountsTemplates.routes){                                                              // 561
-            var verifyEmailPath = AccountsTemplates.routes["verifyEmail"].path.substr(1);                            // 562
-            Accounts.urls.verifyEmail = function(token){                                                             // 563
-                return Meteor.absoluteUrl(verifyEmailPath + "/" + token);                                            // 564
-            };                                                                                                       // 565
-        }                                                                                                            // 566
-    }                                                                                                                // 567
+        throw new Error("Route Configuration can be done only before AccountsTemplates.init!");                      // 531
+    // Only allowed routes can be configured                                                                         // 532
+    if (!(route in this.ROUTE_DEFAULT))                                                                              // 533
+        throw new Error("Unknown Route!");                                                                           // 534
+                                                                                                                     // 535
+    // Possibly adds a initial / to the provided path                                                                // 536
+    if (options && options.path && options.path[0] !== "/")                                                          // 537
+        options.path = "/" + options.path;                                                                           // 538
+    // Updates the current configuration                                                                             // 539
+    options = _.defaults(options || {}, this.ROUTE_DEFAULT[route]);                                                  // 540
+    this.routes[route] = options;                                                                                    // 541
+};                                                                                                                   // 542
+                                                                                                                     // 543
+AT.prototype.hasField = function(fieldId) {                                                                          // 544
+    return !!this.getField(fieldId);                                                                                 // 545
+};                                                                                                                   // 546
+                                                                                                                     // 547
+AT.prototype.getField = function(fieldId) {                                                                          // 548
+    var field = _.filter(this._fields, function(field){                                                              // 549
+        return field._id == fieldId;                                                                                 // 550
+    });                                                                                                              // 551
+    return (field.length === 1) ? field[0] : undefined;                                                              // 552
+};                                                                                                                   // 553
+                                                                                                                     // 554
+AT.prototype.getFields = function() {                                                                                // 555
+    return this._fields;                                                                                             // 556
+};                                                                                                                   // 557
+                                                                                                                     // 558
+AT.prototype.getFieldIds = function() {                                                                              // 559
+    return _.pluck(this._fields, "_id");                                                                             // 560
+};                                                                                                                   // 561
+                                                                                                                     // 562
+AT.prototype.getRouteName = function(route) {                                                                        // 563
+    if (route in this.routes)                                                                                        // 564
+        return this.routes[route].name;                                                                              // 565
+    return null;                                                                                                     // 566
+};                                                                                                                   // 567
                                                                                                                      // 568
-    // Determines the default layout to be used in case no specific one is specified for single routes               // 569
-    var defaultLayout = AccountsTemplates.options.defaultLayout || Router.options.layoutTemplate;                    // 570
-                                                                                                                     // 571
-    _.each(AccountsTemplates.routes, function(options, route){                                                       // 572
-        if (route === "ensureSignedIn")                                                                              // 573
-            return;                                                                                                  // 574
-        if (route === "changePwd" && !AccountsTemplates.options.enablePasswordChange)                                // 575
-            throw new Error("changePwd route configured but enablePasswordChange set to false!");                    // 576
-        if (route === "forgotPwd" && !AccountsTemplates.options.showForgotPasswordLink)                              // 577
-            throw new Error("forgotPwd route configured but showForgotPasswordLink set to false!");                  // 578
-        if (route === "signUp" && AccountsTemplates.options.forbidClientAccountCreation)                             // 579
-            throw new Error("signUp route configured but forbidClientAccountCreation set to true!");                 // 580
-        // Possibly prints a warning in case the MAIL_URL environment variable was not set                           // 581
-        //if (Meteor.isServer && route === "forgotPwd" && (!process.env.MAIL_URL || ! Package["email"])){            // 582
+AT.prototype.getRoutePath = function(route) {                                                                        // 569
+    if (route in this.routes)                                                                                        // 570
+        return this.routes[route].path;                                                                              // 571
+    return "#";                                                                                                      // 572
+};                                                                                                                   // 573
+                                                                                                                     // 574
+AT.prototype.oauthServices = function(){                                                                             // 575
+    // Extracts names of available services                                                                          // 576
+    var names;                                                                                                       // 577
+    if (Meteor.isServer)                                                                                             // 578
+        names = (Accounts.oauth && Accounts.oauth.serviceNames()) || [];                                             // 579
+    else                                                                                                             // 580
+        names = (Accounts.oauth && Accounts.loginServicesConfigured() && Accounts.oauth.serviceNames()) || [];       // 581
+    // Extracts names of configured services                                                                         // 582
+    var configuredServices = [];                                                                                     // 583
+    if (Accounts.loginServiceConfiguration)                                                                          // 584
+        configuredServices = _.pluck(Accounts.loginServiceConfiguration.find().fetch(), "service");                  // 585
+                                                                                                                     // 586
+    // Builds a list of objects containing service name as _id and its configuration status                          // 587
+    var services = _.map(names, function(name){                                                                      // 588
+        return {                                                                                                     // 589
+            _id : name,                                                                                              // 590
+            configured: _.contains(configuredServices, name),                                                        // 591
+        };                                                                                                           // 592
+    });                                                                                                              // 593
+                                                                                                                     // 594
+    // Checks whether there is a UI to configure services...                                                         // 595
+    // XXX: this only works with the accounts-ui package                                                             // 596
+    var showUnconfigured = typeof Accounts._loginButtonsSession !== "undefined";                                     // 597
+                                                                                                                     // 598
+    // Filters out unconfigured services in case they"re not to be displayed                                         // 599
+    if (!showUnconfigured){                                                                                          // 600
+        services = _.filter(services, function(service){                                                             // 601
+            return service.configured;                                                                               // 602
+        });                                                                                                          // 603
+    }                                                                                                                // 604
+                                                                                                                     // 605
+    // Sorts services by name                                                                                        // 606
+    services = _.sortBy(services, function(service){                                                                 // 607
+        return service._id;                                                                                          // 608
+    });                                                                                                              // 609
+                                                                                                                     // 610
+    return services;                                                                                                 // 611
+};                                                                                                                   // 612
+                                                                                                                     // 613
+AT.prototype.removeField = function(fieldId) {                                                                       // 614
+    // Fields can be removed only before initialization                                                              // 615
+    if (this._initialized)                                                                                           // 616
+        throw new Error("AccountsTemplates.removeField should strictly be called before AccountsTemplates.init!");   // 617
+    // Tries to look up the field with given _id                                                                     // 618
+    var index = _.indexOf(_.pluck(this._fields, "_id"), fieldId);                                                    // 619
+    if (index !== -1)                                                                                                // 620
+        return this._fields.splice(index, 1)[0];                                                                     // 621
+    else                                                                                                             // 622
+        if (!(Meteor.isServer && _.contains(this.SPECIAL_FIELDS, fieldId)))                                          // 623
+            throw new Error("A field called " + fieldId + " does not exist!");                                       // 624
+};                                                                                                                   // 625
+                                                                                                                     // 626
+AT.prototype.setupRoutes = function() {                                                                              // 627
+    if (Meteor.isServer){                                                                                            // 628
+        // Possibly prints a warning in case showForgotPasswordLink is set to true but the route is not configured   // 629
+        if (AccountsTemplates.options.showForgotPasswordLink && !("forgotPwd" in  AccountsTemplates.routes))         // 630
+            console.warn("[AccountsTemplates] WARNING: showForgotPasswordLink set to true, but forgotPwd route is not configured!");
+        // Configures "reset password" email link                                                                    // 632
+        if ("resetPwd" in AccountsTemplates.routes){                                                                 // 633
+            var resetPwdPath = AccountsTemplates.routes["resetPwd"].path.substr(1);                                  // 634
+            Accounts.urls.resetPassword = function(token){                                                           // 635
+                return Meteor.absoluteUrl(resetPwdPath + "/" + token);                                               // 636
+            };                                                                                                       // 637
+        }                                                                                                            // 638
+        // Configures "enroll account" email link                                                                    // 639
+        if ("enrollAccount" in AccountsTemplates.routes){                                                            // 640
+            var enrollAccountPath = AccountsTemplates.routes["enrollAccount"].path.substr(1);                        // 641
+            Accounts.urls.enrollAccount = function(token){                                                           // 642
+                return Meteor.absoluteUrl(enrollAccountPath + "/" + token);                                          // 643
+            };                                                                                                       // 644
+        }                                                                                                            // 645
+        // Configures "verify email" email link                                                                      // 646
+        if ("verifyEmail" in AccountsTemplates.routes){                                                              // 647
+            var verifyEmailPath = AccountsTemplates.routes["verifyEmail"].path.substr(1);                            // 648
+            Accounts.urls.verifyEmail = function(token){                                                             // 649
+                return Meteor.absoluteUrl(verifyEmailPath + "/" + token);                                            // 650
+            };                                                                                                       // 651
+        }                                                                                                            // 652
+    }                                                                                                                // 653
+                                                                                                                     // 654
+    // Determines the default layout to be used in case no specific one is specified for single routes               // 655
+    var defaultLayout = AccountsTemplates.options.defaultLayout || Router.options.layoutTemplate;                    // 656
+                                                                                                                     // 657
+    _.each(AccountsTemplates.routes, function(options, route){                                                       // 658
+        if (route === "ensureSignedIn")                                                                              // 659
+            return;                                                                                                  // 660
+        if (route === "changePwd" && !AccountsTemplates.options.enablePasswordChange)                                // 661
+            throw new Error("changePwd route configured but enablePasswordChange set to false!");                    // 662
+        if (route === "forgotPwd" && !AccountsTemplates.options.showForgotPasswordLink)                              // 663
+            throw new Error("forgotPwd route configured but showForgotPasswordLink set to false!");                  // 664
+        if (route === "signUp" && AccountsTemplates.options.forbidClientAccountCreation)                             // 665
+            throw new Error("signUp route configured but forbidClientAccountCreation set to true!");                 // 666
+        // Possibly prints a warning in case the MAIL_URL environment variable was not set                           // 667
+        //if (Meteor.isServer && route === "forgotPwd" && (!process.env.MAIL_URL || ! Package["email"])){            // 668
         //    console.warn("[AccountsTemplates] WARNING: showForgotPasswordLink set to true, but MAIL_URL is not configured!");
-        //}                                                                                                          // 584
-                                                                                                                     // 585
-        var name = options.name; // Default provided...                                                              // 586
-        var path = options.path; // Default provided...                                                              // 587
-        var template = options.template || "fullPageAtForm";                                                         // 588
-        var layoutTemplate = options.layoutTemplate || defaultLayout;                                                // 589
-                                                                                                                     // 590
-        // Possibly adds token parameter                                                                             // 591
-        if (_.contains(["enrollAccount", "resetPwd", "verifyEmail"], route)){                                        // 592
-            path += "/:paramToken";                                                                                  // 593
-            if (route === "verifyEmail")                                                                             // 594
-                Router.route(path, {                                                                                 // 595
-                    name: name,                                                                                      // 596
-                    template: template,                                                                              // 597
-                    layoutTemplate: layoutTemplate,                                                                  // 598
-                    onRun: function() {                                                                              // 599
-                        AccountsTemplates.setState(route);                                                           // 600
-                        AccountsTemplates.setDisabled(true);                                                         // 601
-                        var token = this.params.paramToken;                                                          // 602
-                        Accounts.verifyEmail(token, function(error){                                                 // 603
-                            AccountsTemplates.setDisabled(false);                                                    // 604
-                            AccountsTemplates.submitCallback(error, route, function(){                               // 605
+        //}                                                                                                          // 670
+                                                                                                                     // 671
+        var name = options.name; // Default provided...                                                              // 672
+        var path = options.path; // Default provided...                                                              // 673
+        var template = options.template || "fullPageAtForm";                                                         // 674
+        var layoutTemplate = options.layoutTemplate || defaultLayout;                                                // 675
+                                                                                                                     // 676
+        // Possibly adds token parameter                                                                             // 677
+        if (_.contains(["enrollAccount", "resetPwd", "verifyEmail"], route)){                                        // 678
+            path += "/:paramToken";                                                                                  // 679
+            if (route === "verifyEmail")                                                                             // 680
+                Router.route(path, {                                                                                 // 681
+                    name: name,                                                                                      // 682
+                    template: template,                                                                              // 683
+                    layoutTemplate: layoutTemplate,                                                                  // 684
+                    onRun: function() {                                                                              // 685
+                        AccountsTemplates.setState(route);                                                           // 686
+                        AccountsTemplates.setDisabled(true);                                                         // 687
+                        var token = this.params.paramToken;                                                          // 688
+                        Accounts.verifyEmail(token, function(error){                                                 // 689
+                            AccountsTemplates.setDisabled(false);                                                    // 690
+                            AccountsTemplates.submitCallback(error, route, function(){                               // 691
                                 AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.emailVerified);
-                            });                                                                                      // 607
-                        });                                                                                          // 608
-                                                                                                                     // 609
-                        this.next();                                                                                 // 610
-                    },                                                                                               // 611
-                    onStop: function() {                                                                             // 612
-                        AccountsTemplates.clearState();                                                              // 613
-                    },                                                                                               // 614
-                });                                                                                                  // 615
-            else                                                                                                     // 616
-                Router.route(path, {                                                                                 // 617
-                    name: name,                                                                                      // 618
-                    template: template,                                                                              // 619
-                    layoutTemplate: layoutTemplate,                                                                  // 620
-                    onRun: function() {                                                                              // 621
-                        AccountsTemplates.paramToken = this.params.paramToken;                                       // 622
-                        this.next();                                                                                 // 623
-                    },                                                                                               // 624
-                    onBeforeAction: function() {                                                                     // 625
-                        AccountsTemplates.setState(route);                                                           // 626
-                        this.next();                                                                                 // 627
-                    },                                                                                               // 628
-                    onStop: function() {                                                                             // 629
-                        AccountsTemplates.clearState();                                                              // 630
-                        AccountsTemplates.paramToken = null;                                                         // 631
-                    }                                                                                                // 632
-                });                                                                                                  // 633
-        }                                                                                                            // 634
-        else                                                                                                         // 635
-            Router.route(path, {                                                                                     // 636
-                name: name,                                                                                          // 637
-                template: template,                                                                                  // 638
-                layoutTemplate: layoutTemplate,                                                                      // 639
-                onBeforeAction: function() {                                                                         // 640
-                    var redirect = false;                                                                            // 641
-                    if (route === 'changePwd') {                                                                     // 642
-                      if (!Meteor.loggingIn() && !Meteor.userId()) {                                                 // 643
-                        redirect = true;                                                                             // 644
-                      }                                                                                              // 645
-                    }                                                                                                // 646
-                    else if (Meteor.userId()) {                                                                      // 647
-                        redirect = true;                                                                             // 648
-                    }                                                                                                // 649
-                    if (redirect) {                                                                                  // 650
-                        AccountsTemplates.postSubmitRedirect(route);                                                 // 651
-                    }                                                                                                // 652
-                    else {                                                                                           // 653
-                        AccountsTemplates.setState(route);                                                           // 654
-                        this.next();                                                                                 // 655
-                    }                                                                                                // 656
-                },                                                                                                   // 657
-                onStop: function() {                                                                                 // 658
-                    AccountsTemplates.clearState();                                                                  // 659
-                }                                                                                                    // 660
-            });                                                                                                      // 661
-    });                                                                                                              // 662
-};                                                                                                                   // 663
-                                                                                                                     // 664
+                            });                                                                                      // 693
+                        });                                                                                          // 694
+                                                                                                                     // 695
+                        this.next();                                                                                 // 696
+                    },                                                                                               // 697
+                    onStop: function() {                                                                             // 698
+                        AccountsTemplates.clearState();                                                              // 699
+                    },                                                                                               // 700
+                });                                                                                                  // 701
+            else                                                                                                     // 702
+                Router.route(path, {                                                                                 // 703
+                    name: name,                                                                                      // 704
+                    template: template,                                                                              // 705
+                    layoutTemplate: layoutTemplate,                                                                  // 706
+                    onRun: function() {                                                                              // 707
+                        AccountsTemplates.paramToken = this.params.paramToken;                                       // 708
+                        this.next();                                                                                 // 709
+                    },                                                                                               // 710
+                    onBeforeAction: function() {                                                                     // 711
+                        AccountsTemplates.setState(route);                                                           // 712
+                        this.next();                                                                                 // 713
+                    },                                                                                               // 714
+                    onStop: function() {                                                                             // 715
+                        AccountsTemplates.clearState();                                                              // 716
+                        AccountsTemplates.paramToken = null;                                                         // 717
+                    }                                                                                                // 718
+                });                                                                                                  // 719
+        }                                                                                                            // 720
+        else                                                                                                         // 721
+            Router.route(path, {                                                                                     // 722
+                name: name,                                                                                          // 723
+                template: template,                                                                                  // 724
+                layoutTemplate: layoutTemplate,                                                                      // 725
+                onBeforeAction: function() {                                                                         // 726
+                    var redirect = false;                                                                            // 727
+                    if (route === 'changePwd') {                                                                     // 728
+                      if (!Meteor.loggingIn() && !Meteor.userId()) {                                                 // 729
+                        redirect = true;                                                                             // 730
+                      }                                                                                              // 731
+                    }                                                                                                // 732
+                    else if (Meteor.userId()) {                                                                      // 733
+                        redirect = true;                                                                             // 734
+                    }                                                                                                // 735
+                    if (redirect) {                                                                                  // 736
+                        AccountsTemplates.postSubmitRedirect(route);                                                 // 737
+                        this.stop();                                                                                 // 738
+                    }                                                                                                // 739
+                    else {                                                                                           // 740
+                        AccountsTemplates.setState(route);                                                           // 741
+                        this.next();                                                                                 // 742
+                    }                                                                                                // 743
+                },                                                                                                   // 744
+                onStop: function() {                                                                                 // 745
+                    AccountsTemplates.clearState();                                                                  // 746
+                }                                                                                                    // 747
+            });                                                                                                      // 748
+    });                                                                                                              // 749
+};                                                                                                                   // 750
+                                                                                                                     // 751
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1003,602 +1090,554 @@ AT.prototype.STATES = [                                                         
     "signIn", // Sign In                                                                                             // 8
     "signUp", // Sign Up                                                                                             // 9
     "verifyEmail", // Email verification                                                                             // 10
-];                                                                                                                   // 11
-                                                                                                                     // 12
-AT.prototype._loginType = "";                                                                                        // 13
-                                                                                                                     // 14
-// Previous path used for redirect after form submit                                                                 // 15
-AT.prototype._prevPath = null;                                                                                       // 16
-                                                                                                                     // 17
-// Flag telling whether the whole form should appear disabled                                                        // 18
-AT.prototype._disabled = false;                                                                                      // 19
-                                                                                                                     // 20
-// Flag used to avoid redirecting to previous route when signing in/up                                               // 21
-// as a results of a call to ensureSignedIn                                                                          // 22
-AT.prototype.avoidRedirect = false;                                                                                  // 23
-                                                                                                                     // 24
-// Possibly keeps reference to the handle for the timed out redirect set on some routes                              // 25
-AT.prototype.timedOutRedirect = null;                                                                                // 26
-                                                                                                                     // 27
-AT.prototype.texts = {                                                                                               // 28
-    button: {                                                                                                        // 29
-        changePwd: "updateYourPassword",                                                                             // 30
-        //enrollAccount: "createAccount",                                                                            // 31
-        enrollAccount: "signUp",                                                                                     // 32
-        forgotPwd: "emailResetLink",                                                                                 // 33
-        resetPwd: "setPassword",                                                                                     // 34
-        signIn: "signIn",                                                                                            // 35
-        signUp: "signUp",                                                                                            // 36
-    },                                                                                                               // 37
-    errors: {                                                                                                        // 38
-        mustBeLoggedIn: "error.accounts.Must be logged in",                                                          // 39
-        pwdMismatch: "error.pwdsDontMatch",                                                                          // 40
-    },                                                                                                               // 41
-    navSignIn: 'signIn',                                                                                             // 42
-    navSignOut: 'signOut',                                                                                           // 43
-    info: {                                                                                                          // 44
-        emailSent: "info.emailSent",                                                                                 // 45
-        emailVerified: "info.emailVerified",                                                                         // 46
-        pwdChanged: "info.passwordChanged",                                                                          // 47
-        pwdReset: "info.passwordReset",                                                                              // 48
-        pwdSet: "Password Set",                                                                                      // 49
-        signUpVerifyEmail: "Successful Registration! Please check your email and follow the instructions.",          // 50
-    },                                                                                                               // 51
-    inputIcons: {                                                                                                    // 52
-        isValidating: "fa fa-spinner fa-spin",                                                                       // 53
-        hasSuccess: "fa fa-check",                                                                                   // 54
-        hasError: "fa fa-times",                                                                                     // 55
-    },                                                                                                               // 56
-    optionalField: "optional",                                                                                       // 57
-    pwdLink_pre: "",                                                                                                 // 58
-    pwdLink_link: "forgotPassword",                                                                                  // 59
-    pwdLink_suff: "",                                                                                                // 60
-    sep: "OR",                                                                                                       // 61
-    signInLink_pre: "ifYouAlreadyHaveAnAccount",                                                                     // 62
-    signInLink_link: "signin",                                                                                       // 63
-    signInLink_suff: "",                                                                                             // 64
-    signUpLink_pre: "dontHaveAnAccount",                                                                             // 65
-    signUpLink_link: "signUp",                                                                                       // 66
-    signUpLink_suff: "",                                                                                             // 67
-    socialAdd: "add",                                                                                                // 68
-    socialConfigure: "configure",                                                                                    // 69
-    socialIcons: {                                                                                                   // 70
-        "meteor-developer": "fa fa-rocket"                                                                           // 71
-    },                                                                                                               // 72
-    socialRemove: "remove",                                                                                          // 73
-    socialSignIn: "signIn",                                                                                          // 74
-    socialSignUp: "signUp",                                                                                          // 75
-    socialWith: "with",                                                                                              // 76
-    termsPreamble: "clickAgree",                                                                                     // 77
-    termsPrivacy: "privacyPolicy",                                                                                   // 78
-    termsAnd: "and",                                                                                                 // 79
-    termsTerms: "terms",                                                                                             // 80
-    title: {                                                                                                         // 81
-        changePwd: "changePassword",                                                                                 // 82
-        enrollAccount: "createAccount",                                                                              // 83
-        forgotPwd: "resetYourPassword",                                                                              // 84
-        resetPwd: "resetYourPassword",                                                                               // 85
-        signIn: "signIn",                                                                                            // 86
-        signUp: "createAccount",                                                                                     // 87
-    },                                                                                                               // 88
-};                                                                                                                   // 89
-                                                                                                                     // 90
-// Known routes used to filter out previous path for redirects...                                                    // 91
-AT.prototype.knownRoutes = [];                                                                                       // 92
-                                                                                                                     // 93
-// Token provided for routes like reset-password and enroll-account                                                  // 94
-AT.prototype.paramToken = null;                                                                                      // 95
-                                                                                                                     // 96
-// Current Internal (client-side) State (to be among allowed ones, see STATES)                                       // 97
-//AT.prototype.state = "signIn";                                                                                     // 98
-                                                                                                                     // 99
-// State validation                                                                                                  // 100
-AT.prototype._isValidState = function(value) {                                                                       // 101
-    return _.contains(this.STATES, value);                                                                           // 102
-};                                                                                                                   // 103
-                                                                                                                     // 104
-AT.prototype.loginType = function () {                                                                               // 105
-    return this._loginType;                                                                                          // 106
-};                                                                                                                   // 107
-                                                                                                                     // 108
-// Getter for previous route"s path                                                                                  // 109
-AT.prototype.getPrevPath = function() {                                                                              // 110
-    return this._prevPath;                                                                                           // 111
-};                                                                                                                   // 112
-                                                                                                                     // 113
-// Setter for previous route"s path                                                                                  // 114
-AT.prototype.setPrevPath = function(newPath) {                                                                       // 115
-    check(newPath, String);                                                                                          // 116
-    this._prevPath = newPath;                                                                                        // 117
-};                                                                                                                   // 118
-                                                                                                                     // 119
-// Getter for current state                                                                                          // 120
-AT.prototype.getState = function() {                                                                                 // 121
-    return this.state.form.get("state");                                                                             // 122
-};                                                                                                                   // 123
-                                                                                                                     // 124
-// Getter for disabled state                                                                                         // 125
-AT.prototype.disabled = function() {                                                                                 // 126
-    return this.state.form.equals("disabled", true) ? "disabled" : undefined;                                        // 127
-};                                                                                                                   // 128
-                                                                                                                     // 129
-// Setter for disabled state                                                                                         // 130
-AT.prototype.setDisabled = function(value) {                                                                         // 131
-    check(value, Boolean);                                                                                           // 132
-    return this.state.form.set("disabled", value);                                                                   // 133
-};                                                                                                                   // 134
-                                                                                                                     // 135
-// Setter for current state                                                                                          // 136
-AT.prototype.setState = function(state, callback) {                                                                  // 137
-    check(state, String);                                                                                            // 138
-    if (!this._isValidState(state))                                                                                  // 139
+    "resendVerificationEmail", // Resend verification email                                                          // 11
+];                                                                                                                   // 12
+                                                                                                                     // 13
+AT.prototype._loginType = "";                                                                                        // 14
+                                                                                                                     // 15
+// Previous path used for redirect after form submit                                                                 // 16
+AT.prototype._prevPath = null;                                                                                       // 17
+                                                                                                                     // 18
+// Flag telling whether the whole form should appear disabled                                                        // 19
+AT.prototype._disabled = false;                                                                                      // 20
+                                                                                                                     // 21
+// Flag used to avoid redirecting to previous route when signing in/up                                               // 22
+// as a results of a call to ensureSignedIn                                                                          // 23
+AT.prototype.avoidRedirect = false;                                                                                  // 24
+                                                                                                                     // 25
+// Possibly keeps reference to the handle for the timed out redirect set on some routes                              // 26
+AT.prototype.timedOutRedirect = null;                                                                                // 27
+                                                                                                                     // 28
+// Known routes used to filter out previous path for redirects...                                                    // 29
+AT.prototype.knownRoutes = [];                                                                                       // 30
+                                                                                                                     // 31
+// Token provided for routes like reset-password and enroll-account                                                  // 32
+AT.prototype.paramToken = null;                                                                                      // 33
+                                                                                                                     // 34
+// Current Internal (client-side) State (to be among allowed ones, see STATES)                                       // 35
+//AT.prototype.state = "signIn";                                                                                     // 36
+                                                                                                                     // 37
+// State validation                                                                                                  // 38
+AT.prototype._isValidState = function(value) {                                                                       // 39
+    return _.contains(this.STATES, value);                                                                           // 40
+};                                                                                                                   // 41
+                                                                                                                     // 42
+AT.prototype.loginType = function () {                                                                               // 43
+    return this._loginType;                                                                                          // 44
+};                                                                                                                   // 45
+                                                                                                                     // 46
+// Getter for previous route"s path                                                                                  // 47
+AT.prototype.getPrevPath = function() {                                                                              // 48
+    return this._prevPath;                                                                                           // 49
+};                                                                                                                   // 50
+                                                                                                                     // 51
+// Setter for previous route"s path                                                                                  // 52
+AT.prototype.setPrevPath = function(newPath) {                                                                       // 53
+    check(newPath, String);                                                                                          // 54
+    this._prevPath = newPath;                                                                                        // 55
+};                                                                                                                   // 56
+                                                                                                                     // 57
+// Getter for current state                                                                                          // 58
+AT.prototype.getState = function() {                                                                                 // 59
+    return this.state.form.get("state");                                                                             // 60
+};                                                                                                                   // 61
+                                                                                                                     // 62
+// Getter for disabled state                                                                                         // 63
+AT.prototype.disabled = function() {                                                                                 // 64
+    return this.state.form.equals("disabled", true) ? "disabled" : undefined;                                        // 65
+};                                                                                                                   // 66
+                                                                                                                     // 67
+// Setter for disabled state                                                                                         // 68
+AT.prototype.setDisabled = function(value) {                                                                         // 69
+    check(value, Boolean);                                                                                           // 70
+    return this.state.form.set("disabled", value);                                                                   // 71
+};                                                                                                                   // 72
+                                                                                                                     // 73
+// Setter for current state                                                                                          // 74
+AT.prototype.setState = function(state, callback) {                                                                  // 75
+    check(state, String);                                                                                            // 76
+    if (!this._isValidState(state))                                                                                  // 77
         throw new Meteor.Error(500, "Internal server error", "accounts-templates-core package got an invalid state value!");
-    this.state.form.set("state", state);                                                                             // 141
-    this.clearState();                                                                                               // 142
-    if (_.isFunction(callback))                                                                                      // 143
-        callback();                                                                                                  // 144
-};                                                                                                                   // 145
-                                                                                                                     // 146
-AT.prototype.clearState = function() {                                                                               // 147
-    _.each(this._fields, function(field){                                                                            // 148
-        field.clearStatus();                                                                                         // 149
-    });                                                                                                              // 150
-    var form = this.state.form;                                                                                      // 151
-    form.set("error", null);                                                                                         // 152
-    form.set("result", null);                                                                                        // 153
+    this.state.form.set("state", state);                                                                             // 79
+    this.clearState();                                                                                               // 80
+    if (_.isFunction(callback))                                                                                      // 81
+        callback();                                                                                                  // 82
+};                                                                                                                   // 83
+                                                                                                                     // 84
+AT.prototype.clearState = function() {                                                                               // 85
+    _.each(this._fields, function(field){                                                                            // 86
+        field.clearStatus();                                                                                         // 87
+    });                                                                                                              // 88
+    var form = this.state.form;                                                                                      // 89
+    form.set("error", null);                                                                                         // 90
+    form.set("result", null);                                                                                        // 91
+    form.set("message", null);                                                                                       // 92
+                                                                                                                     // 93
+    AccountsTemplates.setDisabled(false);                                                                            // 94
+                                                                                                                     // 95
+    // Possibly clears timed out redirects                                                                           // 96
+    if (AccountsTemplates.timedOutRedirect !== null) {                                                               // 97
+        Meteor.clearTimeout(AccountsTemplates.timedOutRedirect);                                                     // 98
+        AccountsTemplates.timedOutRedirect = null;                                                                   // 99
+    }                                                                                                                // 100
+};                                                                                                                   // 101
+                                                                                                                     // 102
+AT.prototype.clearError = function() {                                                                               // 103
+    form.set("error", null);                                                                                         // 104
+};                                                                                                                   // 105
+                                                                                                                     // 106
+AT.prototype.clearResult = function() {                                                                              // 107
+    form.set("result", null);                                                                                        // 108
+};                                                                                                                   // 109
+                                                                                                                     // 110
+AT.prototype.clearMessage = function() {                                                                             // 111
+    form.set("message", null);                                                                                       // 112
+};                                                                                                                   // 113
+                                                                                                                     // 114
+var ensureSignedIn = function() {                                                                                    // 115
+  if (!Meteor.userId()) {                                                                                            // 116
+      Tracker.nonreactive(function () {                                                                              // 117
+        AccountsTemplates.setPrevPath(Router.current().url);                                                         // 118
+      });                                                                                                            // 119
+      AccountsTemplates.setState(AccountsTemplates.options.defaultState, function(){                                 // 120
+          var err = AccountsTemplates.texts.errors.mustBeLoggedIn;                                                   // 121
+          AccountsTemplates.state.form.set("error", [err]);                                                          // 122
+      });                                                                                                            // 123
+      AccountsTemplates.avoidRedirect = true;                                                                        // 124
+      // render the login template but keep the url in the browser the same                                          // 125
+                                                                                                                     // 126
+      var options = AccountsTemplates.routes["ensureSignedIn"];                                                      // 127
+                                                                                                                     // 128
+      // Determines the template to be rendered in case no specific one was configured for ensureSignedIn            // 129
+      var signInRouteTemplate = AccountsTemplates.routes.signIn && AccountsTemplates.routes.signIn.template;         // 130
+      var template = (options && options.template) || signInRouteTemplate || "fullPageAtForm";                       // 131
+                                                                                                                     // 132
+      // Determines the layout to be used in case no specific one was configured for ensureSignedIn                  // 133
+      var defaultLayout = AccountsTemplates.options.defaultLayout || Router.options.layoutTemplate;                  // 134
+      var layoutTemplate = (options && options.layoutTemplate) || defaultLayout;                                     // 135
+                                                                                                                     // 136
+      this.layout(layoutTemplate);                                                                                   // 137
+      this.render(template);                                                                                         // 138
+      this.renderRegions();                                                                                          // 139
+  } else {                                                                                                           // 140
+      AccountsTemplates.clearError();                                                                                // 141
+      this.next();                                                                                                   // 142
+  }                                                                                                                  // 143
+};                                                                                                                   // 144
+                                                                                                                     // 145
+AT.prototype.ensureSignedIn = function() {                                                                           // 146
+  console.warn(                                                                                                      // 147
+    "[UserAccounts] AccountsTemplates.ensureSignedIn will be deprecated soon, please use the plugin version\n" +     // 148
+    "               see https://github.com/meteor-useraccounts/core/blob/master/Guide.md#content-protection"         // 149
+  );                                                                                                                 // 150
+  ensureSignedIn.call(this);                                                                                         // 151
+};                                                                                                                   // 152
+                                                                                                                     // 153
                                                                                                                      // 154
-    AccountsTemplates.setDisabled(false);                                                                            // 155
-                                                                                                                     // 156
-    // Possibly clears timed out redirects                                                                           // 157
-    if (AccountsTemplates.timedOutRedirect !== null) {                                                               // 158
-        Meteor.clearTimeout(AccountsTemplates.timedOutRedirect);                                                     // 159
-        AccountsTemplates.timedOutRedirect = null;                                                                   // 160
-    }                                                                                                                // 161
-};                                                                                                                   // 162
-                                                                                                                     // 163
-AT.prototype.clearError = function() {                                                                               // 164
-    form.set("error", null);                                                                                         // 165
-};                                                                                                                   // 166
-                                                                                                                     // 167
-AT.prototype.clearResult = function() {                                                                              // 168
-    form.set("result", null);                                                                                        // 169
-};                                                                                                                   // 170
+Iron.Router.plugins.ensureSignedIn = function (router, options) {                                                    // 155
+  // this loading plugin just creates an onBeforeAction hook                                                         // 156
+  router.onRun(function(){                                                                                           // 157
+    if (Meteor.loggingIn()) {                                                                                        // 158
+        this.renderRegions();                                                                                        // 159
+    } else {                                                                                                         // 160
+        this.next();                                                                                                 // 161
+    }                                                                                                                // 162
+  }, options);                                                                                                       // 163
+                                                                                                                     // 164
+  router.onBeforeAction(                                                                                             // 165
+    ensureSignedIn,                                                                                                  // 166
+    options                                                                                                          // 167
+  );                                                                                                                 // 168
+};                                                                                                                   // 169
+                                                                                                                     // 170
                                                                                                                      // 171
-var ensureSignedIn = function() {                                                                                    // 172
-  if (!Meteor.userId()) {                                                                                            // 173
-      Tracker.nonreactive(function () {                                                                              // 174
-        AccountsTemplates.setPrevPath(Router.current().url);                                                         // 175
-      });                                                                                                            // 176
-      AccountsTemplates.setState(AccountsTemplates.options.defaultState, function(){                                 // 177
-          var err = AccountsTemplates.texts.errors.mustBeLoggedIn;                                                   // 178
-          AccountsTemplates.state.form.set("error", [err]);                                                          // 179
-      });                                                                                                            // 180
-      AccountsTemplates.avoidRedirect = true;                                                                        // 181
-      // render the login template but keep the url in the browser the same                                          // 182
-                                                                                                                     // 183
-      var options = AccountsTemplates.routes["ensureSignedIn"];                                                      // 184
-                                                                                                                     // 185
-      // Determines the template to be rendered in case no specific one was configured for ensureSignedIn            // 186
-      var signInRouteTemplate = AccountsTemplates.routes.signIn && AccountsTemplates.routes.signIn.template;         // 187
-      var template = (options && options.template) || signInRouteTemplate || "fullPageAtForm";                       // 188
-                                                                                                                     // 189
-      // Determines the layout to be used in case no specific one was configured for ensureSignedIn                  // 190
-      var defaultLayout = AccountsTemplates.options.defaultLayout || Router.options.layoutTemplate;                  // 191
-      var layoutTemplate = (options && options.layoutTemplate) || defaultLayout;                                     // 192
-                                                                                                                     // 193
-      this.layout(layoutTemplate);                                                                                   // 194
-      this.render(template);                                                                                         // 195
-      this.renderRegions();                                                                                          // 196
-  } else {                                                                                                           // 197
-      this.next();                                                                                                   // 198
-  }                                                                                                                  // 199
-};                                                                                                                   // 200
-                                                                                                                     // 201
-AT.prototype.ensureSignedIn = function() {                                                                           // 202
-  console.warn(                                                                                                      // 203
-    "[UserAccounts] AccountsTemplates.ensureSignedIn will be deprecated soon, please use the plugin version\n" +     // 204
-    "               see https://github.com/meteor-useraccounts/core/blob/master/Guide.md#content-protection"         // 205
-  );                                                                                                                 // 206
-  ensureSignedIn.call(this);                                                                                         // 207
-};                                                                                                                   // 208
-                                                                                                                     // 209
-                                                                                                                     // 210
-Iron.Router.plugins.ensureSignedIn = function (router, options) {                                                    // 211
-  // this loading plugin just creates an onBeforeAction hook                                                         // 212
-  router.onRun(function(){                                                                                           // 213
-    if (Meteor.loggingIn()) {                                                                                        // 214
-        this.renderRegions();                                                                                        // 215
-    } else {                                                                                                         // 216
-        this.next();                                                                                                 // 217
-    }                                                                                                                // 218
-  }, options);                                                                                                       // 219
-                                                                                                                     // 220
-  router.onBeforeAction(                                                                                             // 221
-    ensureSignedIn,                                                                                                  // 222
-    options                                                                                                          // 223
-  );                                                                                                                 // 224
-};                                                                                                                   // 225
-                                                                                                                     // 226
-                                                                                                                     // 227
-// Initialization                                                                                                    // 228
-AT.prototype.init = function() {                                                                                     // 229
+// Initialization                                                                                                    // 172
+AT.prototype.init = function() {                                                                                     // 173
     console.warn("[AccountsTemplates] There is no more need to call AccountsTemplates.init()! Simply remove the call ;-)");
-};                                                                                                                   // 231
-                                                                                                                     // 232
-AT.prototype._init = function() {                                                                                    // 233
-    if (this._initialized)                                                                                           // 234
-        return;                                                                                                      // 235
-                                                                                                                     // 236
-    var usernamePresent = this.hasField("username");                                                                 // 237
-    var emailPresent = this.hasField("email");                                                                       // 238
-    if (usernamePresent && emailPresent){                                                                            // 239
-        this._loginType = "username_and_email";                                                                      // 240
-    }                                                                                                                // 241
-    else{                                                                                                            // 242
-        if (usernamePresent)                                                                                         // 243
-            this._loginType = "username";                                                                            // 244
-        else                                                                                                         // 245
-            this._loginType = "email";                                                                               // 246
-    }                                                                                                                // 247
-                                                                                                                     // 248
-    if (this._loginType === "username_and_email"){                                                                   // 249
-        // Possibly adds the field username_and_email in case                                                        // 250
-        // it was not configured                                                                                     // 251
-        if (!this.hasField("username_and_email"))                                                                    // 252
-            this.addField({                                                                                          // 253
-                _id: "username_and_email",                                                                           // 254
-                type: "text",                                                                                        // 255
-                displayName: "usernameOrEmail",                                                                      // 256
-                placeholder: "usernameOrEmail",                                                                      // 257
-                required: true,                                                                                      // 258
-            });                                                                                                      // 259
-    }                                                                                                                // 260
-                                                                                                                     // 261
-    // Only in case password confirmation is required                                                                // 262
-    if (this.options.confirmPassword){                                                                               // 263
-        // Possibly adds the field password_again in case                                                            // 264
-        // it was not configured                                                                                     // 265
-        if (!this.hasField("password_again")){                                                                       // 266
-            var pwdAgain = _.clone(this.getField("password"));                                                       // 267
-            pwdAgain._id = "password_again";                                                                         // 268
-            pwdAgain.displayName = {                                                                                 // 269
-                "default": "passwordAgain",                                                                          // 270
-                changePwd: "newPasswordAgain",                                                                       // 271
-                resetPwd: "newPasswordAgain",                                                                        // 272
-            };                                                                                                       // 273
-            pwdAgain.placeholder = {                                                                                 // 274
-                "default": "passwordAgain",                                                                          // 275
-                changePwd: "newPasswordAgain",                                                                       // 276
-                resetPwd: "newPasswordAgain",                                                                        // 277
-            };                                                                                                       // 278
-            this.addField(pwdAgain);                                                                                 // 279
-        }                                                                                                            // 280
-    }                                                                                                                // 281
-    else{                                                                                                            // 282
-        if (this.hasField("password_again"))                                                                         // 283
+};                                                                                                                   // 175
+                                                                                                                     // 176
+AT.prototype._init = function() {                                                                                    // 177
+    if (this._initialized)                                                                                           // 178
+        return;                                                                                                      // 179
+                                                                                                                     // 180
+    var usernamePresent = this.hasField("username");                                                                 // 181
+    var emailPresent = this.hasField("email");                                                                       // 182
+    if (usernamePresent && emailPresent){                                                                            // 183
+        this._loginType = "username_and_email";                                                                      // 184
+    }                                                                                                                // 185
+    else{                                                                                                            // 186
+        if (usernamePresent)                                                                                         // 187
+            this._loginType = "username";                                                                            // 188
+        else                                                                                                         // 189
+            this._loginType = "email";                                                                               // 190
+    }                                                                                                                // 191
+                                                                                                                     // 192
+    if (this._loginType === "username_and_email"){                                                                   // 193
+        // Possibly adds the field username_and_email in case                                                        // 194
+        // it was not configured                                                                                     // 195
+        if (!this.hasField("username_and_email"))                                                                    // 196
+            this.addField({                                                                                          // 197
+                _id: "username_and_email",                                                                           // 198
+                type: "text",                                                                                        // 199
+                displayName: "usernameOrEmail",                                                                      // 200
+                placeholder: "usernameOrEmail",                                                                      // 201
+                required: true,                                                                                      // 202
+            });                                                                                                      // 203
+    }                                                                                                                // 204
+                                                                                                                     // 205
+    // Only in case password confirmation is required                                                                // 206
+    if (this.options.confirmPassword){                                                                               // 207
+        // Possibly adds the field password_again in case                                                            // 208
+        // it was not configured                                                                                     // 209
+        if (!this.hasField("password_again")){                                                                       // 210
+            var pwdAgain = _.clone(this.getField("password"));                                                       // 211
+            pwdAgain._id = "password_again";                                                                         // 212
+            pwdAgain.displayName = {                                                                                 // 213
+                "default": "passwordAgain",                                                                          // 214
+                changePwd: "newPasswordAgain",                                                                       // 215
+                resetPwd: "newPasswordAgain",                                                                        // 216
+            };                                                                                                       // 217
+            pwdAgain.placeholder = {                                                                                 // 218
+                "default": "passwordAgain",                                                                          // 219
+                changePwd: "newPasswordAgain",                                                                       // 220
+                resetPwd: "newPasswordAgain",                                                                        // 221
+            };                                                                                                       // 222
+            this.addField(pwdAgain);                                                                                 // 223
+        }                                                                                                            // 224
+    }                                                                                                                // 225
+    else{                                                                                                            // 226
+        if (this.hasField("password_again"))                                                                         // 227
             throw new Error("AccountsTemplates: a field password_again was added but confirmPassword is set to false!");
-    }                                                                                                                // 285
-                                                                                                                     // 286
-    // Possibly adds the field current_password in case                                                              // 287
-    // it was not configured                                                                                         // 288
-    if (this.options.enablePasswordChange){                                                                          // 289
-        if (!this.hasField("current_password"))                                                                      // 290
-            this.addField({                                                                                          // 291
-                _id: "current_password",                                                                             // 292
-                type: "password",                                                                                    // 293
-                displayName: "currentPassword",                                                                      // 294
-                placeholder: "currentPassword",                                                                      // 295
-                required: true,                                                                                      // 296
-            });                                                                                                      // 297
-    }                                                                                                                // 298
+    }                                                                                                                // 229
+                                                                                                                     // 230
+    // Possibly adds the field current_password in case                                                              // 231
+    // it was not configured                                                                                         // 232
+    if (this.options.enablePasswordChange){                                                                          // 233
+        if (!this.hasField("current_password"))                                                                      // 234
+            this.addField({                                                                                          // 235
+                _id: "current_password",                                                                             // 236
+                type: "password",                                                                                    // 237
+                displayName: "currentPassword",                                                                      // 238
+                placeholder: "currentPassword",                                                                      // 239
+                required: true,                                                                                      // 240
+            });                                                                                                      // 241
+    }                                                                                                                // 242
+                                                                                                                     // 243
+    // Ensuser the right order of special fields                                                                     // 244
+    var moveFieldAfter = function(field_name, reference_field_name) {                                                // 245
+        var fieldIds = AccountsTemplates.getFieldIds();                                                              // 246
+        var refFieldId = _.indexOf(fieldIds, reference_field_name);                                                  // 247
+        // In case the reference field is not present, just return...                                                // 248
+        if (refFieldId === -1)                                                                                       // 249
+            return;                                                                                                  // 250
+        var fieldId = _.indexOf(fieldIds, field_name);                                                               // 251
+        // In case the sought field is not present, just return...                                                   // 252
+        if (fieldId === -1)                                                                                          // 253
+            return;                                                                                                  // 254
+        if (fieldId !== -1 && fieldId !== (refFieldId + 1)){                                                         // 255
+            // removes the field                                                                                     // 256
+            var field = AccountsTemplates._fields.splice(fieldId, 1)[0];                                             // 257
+            // push the field right after the reference field position                                               // 258
+            var new_fieldIds = AccountsTemplates.getFieldIds();                                                      // 259
+            var new_refFieldId = _.indexOf(new_fieldIds, reference_field_name);                                      // 260
+            AccountsTemplates._fields.splice(new_refFieldId + 1, 0, field);                                          // 261
+        }                                                                                                            // 262
+    };                                                                                                               // 263
+                                                                                                                     // 264
+    // Ensuser the right order of special fields                                                                     // 265
+    var moveFieldBefore = function(field_name, reference_field_name) {                                               // 266
+        var fieldIds = AccountsTemplates.getFieldIds();                                                              // 267
+        var refFieldId = _.indexOf(fieldIds, reference_field_name);                                                  // 268
+        // In case the reference field is not present, just return...                                                // 269
+        if (refFieldId === -1)                                                                                       // 270
+            return;                                                                                                  // 271
+        var fieldId = _.indexOf(fieldIds, field_name);                                                               // 272
+        // In case the sought field is not present, just return...                                                   // 273
+        if (fieldId === -1)                                                                                          // 274
+            return;                                                                                                  // 275
+        if (fieldId !== -1 && fieldId !== (refFieldId - 1)){                                                         // 276
+            // removes the field                                                                                     // 277
+            var field = AccountsTemplates._fields.splice(fieldId, 1)[0];                                             // 278
+            // push the field right after the reference field position                                               // 279
+            var new_fieldIds = AccountsTemplates.getFieldIds();                                                      // 280
+            var new_refFieldId = _.indexOf(new_fieldIds, reference_field_name);                                      // 281
+            AccountsTemplates._fields.splice(new_refFieldId, 0, field);                                              // 282
+        }                                                                                                            // 283
+    };                                                                                                               // 284
+                                                                                                                     // 285
+    // The final order should be something like:                                                                     // 286
+    // - username                                                                                                    // 287
+    // - email                                                                                                       // 288
+    // - username_and_email                                                                                          // 289
+    // - password                                                                                                    // 290
+    // - password_again                                                                                              // 291
+    //                                                                                                               // 292
+    // ...so lets do it in reverse order...                                                                          // 293
+    moveFieldAfter("username_and_email", "username");                                                                // 294
+    moveFieldAfter("username_and_email", "email");                                                                   // 295
+    moveFieldBefore("current_password", "password");                                                                 // 296
+    moveFieldAfter("password", "current_password");                                                                  // 297
+    moveFieldAfter("password_again", "password");                                                                    // 298
                                                                                                                      // 299
-    // Ensuser the right order of special fields                                                                     // 300
-    var moveFieldAfter = function(field_name, reference_field_name) {                                                // 301
-        var fieldIds = AccountsTemplates.getFieldIds();                                                              // 302
-        var refFieldId = _.indexOf(fieldIds, reference_field_name);                                                  // 303
-        // In case the reference field is not present, just return...                                                // 304
-        if (refFieldId === -1)                                                                                       // 305
-            return;                                                                                                  // 306
-        var fieldId = _.indexOf(fieldIds, field_name);                                                               // 307
-        // In case the sought field is not present, just return...                                                   // 308
-        if (fieldId === -1)                                                                                          // 309
-            return;                                                                                                  // 310
-        if (fieldId !== -1 && fieldId !== (refFieldId + 1)){                                                         // 311
-            // removes the field                                                                                     // 312
-            var field = AccountsTemplates._fields.splice(fieldId, 1)[0];                                             // 313
-            // push the field right after the reference field position                                               // 314
-            var new_fieldIds = AccountsTemplates.getFieldIds();                                                      // 315
-            var new_refFieldId = _.indexOf(new_fieldIds, reference_field_name);                                      // 316
-            AccountsTemplates._fields.splice(new_refFieldId + 1, 0, field);                                          // 317
-        }                                                                                                            // 318
-    };                                                                                                               // 319
-                                                                                                                     // 320
-    // Ensuser the right order of special fields                                                                     // 321
-    var moveFieldBefore = function(field_name, reference_field_name) {                                               // 322
-        var fieldIds = AccountsTemplates.getFieldIds();                                                              // 323
-        var refFieldId = _.indexOf(fieldIds, reference_field_name);                                                  // 324
-        // In case the reference field is not present, just return...                                                // 325
-        if (refFieldId === -1)                                                                                       // 326
-            return;                                                                                                  // 327
-        var fieldId = _.indexOf(fieldIds, field_name);                                                               // 328
-        // In case the sought field is not present, just return...                                                   // 329
-        if (fieldId === -1)                                                                                          // 330
-            return;                                                                                                  // 331
-        if (fieldId !== -1 && fieldId !== (refFieldId - 1)){                                                         // 332
-            // removes the field                                                                                     // 333
-            var field = AccountsTemplates._fields.splice(fieldId, 1)[0];                                             // 334
-            // push the field right after the reference field position                                               // 335
-            var new_fieldIds = AccountsTemplates.getFieldIds();                                                      // 336
-            var new_refFieldId = _.indexOf(new_fieldIds, reference_field_name);                                      // 337
-            AccountsTemplates._fields.splice(new_refFieldId, 0, field);                                              // 338
-        }                                                                                                            // 339
-    };                                                                                                               // 340
-                                                                                                                     // 341
-    // The final order should be something like:                                                                     // 342
-    // - username                                                                                                    // 343
-    // - email                                                                                                       // 344
-    // - username_and_email                                                                                          // 345
-    // - password                                                                                                    // 346
-    // - password_again                                                                                              // 347
-    //                                                                                                               // 348
-    // ...so lets do it in reverse order...                                                                          // 349
-    moveFieldAfter("username_and_email", "username");                                                                // 350
-    moveFieldAfter("username_and_email", "email");                                                                   // 351
-    moveFieldBefore("current_password", "password");                                                                 // 352
-    moveFieldAfter("password", "current_password");                                                                  // 353
-    moveFieldAfter("password_again", "password");                                                                    // 354
-                                                                                                                     // 355
-                                                                                                                     // 356
-    // Sets visibility condition and validation flags for each field                                                 // 357
-    var gPositiveValidation = !!AccountsTemplates.options.positiveValidation;                                        // 358
-    var gNegativeValidation = !!AccountsTemplates.options.negativeValidation;                                        // 359
-    var gShowValidating = !!AccountsTemplates.options.showValidating;                                                // 360
-    var gContinuousValidation = !!AccountsTemplates.options.continuousValidation;                                    // 361
-    var gNegativeFeedback = !!AccountsTemplates.options.negativeFeedback;                                            // 362
-    var gPositiveFeedback = !!AccountsTemplates.options.positiveFeedback;                                            // 363
-    _.each(this._fields, function(field){                                                                            // 364
-        // Visibility                                                                                                // 365
-        switch(field._id) {                                                                                          // 366
-            case "current_password":                                                                                 // 367
-                field.visible = ["changePwd"];                                                                       // 368
-                break;                                                                                               // 369
-            case "email":                                                                                            // 370
-                field.visible = ["forgotPwd", "signUp"];                                                             // 371
-                if (AccountsTemplates.loginType() === "email")                                                       // 372
-                    field.visible.push("signIn");                                                                    // 373
-                break;                                                                                               // 374
-            case "password":                                                                                         // 375
-                field.visible = ["changePwd", "enrollAccount", "resetPwd", "signIn", "signUp"];                      // 376
-                break;                                                                                               // 377
-            case "password_again":                                                                                   // 378
-                field.visible = ["changePwd", "enrollAccount", "resetPwd", "signUp"];                                // 379
-                break;                                                                                               // 380
-            case "username":                                                                                         // 381
-                field.visible = ["signUp"];                                                                          // 382
-                if (AccountsTemplates.loginType() === "username")                                                    // 383
-                    field.visible.push("signIn");                                                                    // 384
-                break;                                                                                               // 385
-            case "username_and_email":                                                                               // 386
-                field.visible = [];                                                                                  // 387
-                if (AccountsTemplates.loginType() === "username_and_email")                                          // 388
-                    field.visible.push("signIn");                                                                    // 389
-                break;                                                                                               // 390
-            default:                                                                                                 // 391
-                field.visible = ["signUp"];                                                                          // 392
-        }                                                                                                            // 393
-                                                                                                                     // 394
-        // Validation                                                                                                // 395
-        var positiveValidation = field.positiveValidation;                                                           // 396
-        if (positiveValidation === undefined)                                                                        // 397
-            field.positiveValidation = gPositiveValidation;                                                          // 398
-        var negativeValidation = field.negativeValidation;                                                           // 399
-        if (negativeValidation === undefined)                                                                        // 400
-            field.negativeValidation = gNegativeValidation;                                                          // 401
-        field.validation = field.positiveValidation || field.negativeValidation;                                     // 402
-        if (field.continuousValidation === undefined)                                                                // 403
-            field.continuousValidation = gContinuousValidation;                                                      // 404
-        field.continuousValidation = field.validation && field.continuousValidation;                                 // 405
-        if (field.negativeFeedback === undefined)                                                                    // 406
-            field.negativeFeedback = gNegativeFeedback;                                                              // 407
-        if (field.positiveFeedback === undefined)                                                                    // 408
-            field.positiveFeedback = gPositiveFeedback;                                                              // 409
-        field.feedback = field.negativeFeedback || field.positiveFeedback;                                           // 410
-        // Validating icon                                                                                           // 411
-        var showValidating = field.showValidating;                                                                   // 412
-        if (showValidating === undefined)                                                                            // 413
-            field.showValidating = gShowValidating;                                                                  // 414
-                                                                                                                     // 415
-        // Custom Template                                                                                           // 416
-        if (field.template) {                                                                                        // 417
-          if (field.template in Template) {                                                                          // 418
-            Template[field.template].helpers(AccountsTemplates.atInputHelpers);                                      // 419
-          }                                                                                                          // 420
-          else {                                                                                                     // 421
-            console.warn(                                                                                            // 422
-              "[UserAccounts] Warning no template " + field.template + " found!"                                     // 423
-            );                                                                                                       // 424
-          }                                                                                                          // 425
-        }                                                                                                            // 426
-    });                                                                                                              // 427
-                                                                                                                     // 428
-    // Initializes reactive states                                                                                   // 429
-    form = new ReactiveDict();                                                                                       // 430
-    form.set("disabled", false);                                                                                     // 431
-    form.set("state", "signIn");                                                                                     // 432
-    form.set("result", null);                                                                                        // 433
-    form.set("error", null);                                                                                         // 434
-    this.state = {                                                                                                   // 435
-        form: form,                                                                                                  // 436
-    };                                                                                                               // 437
-                                                                                                                     // 438
-    // Possibly subscribes to extended user data (to get the list of registered services...)                         // 439
-    if (this.options.showAddRemoveServices){                                                                         // 440
-        Meteor.subscribe("userRegisteredServices");                                                                  // 441
-    }                                                                                                                // 442
-                                                                                                                     // 443
-    //Check that reCaptcha site keys are available and no secret keys visible                                        // 444
-    if (this.options.showReCaptcha) {                                                                                // 445
-        var atSiteKey = null, atSecretKey = null, settingsSiteKey = null, settingsSecretKey = null;                  // 446
-                                                                                                                     // 447
-                                                                                                                     // 448
-        if (AccountsTemplates.options.reCaptcha) {                                                                   // 449
-            atSiteKey = AccountsTemplates.options.reCaptcha.siteKey;                                                 // 450
-            atSecretKey = AccountsTemplates.options.reCaptcha.secretKey;                                             // 451
-        }                                                                                                            // 452
-        if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.reCaptcha) {                         // 453
-          settingsSiteKey = Meteor.settings.public.reCaptcha.siteKey;                                                // 454
-          settingsSecretKey = Meteor.settings.public.reCaptcha.secretKey;                                            // 455
-        }                                                                                                            // 456
-                                                                                                                     // 457
-        if (atSecretKey || settingsSecretKey) {                                                                      // 458
-            //erase the secret key                                                                                   // 459
-            if (atSecretKey) {                                                                                       // 460
-                AccountsTemplates.options.reCaptcha.secretKey = null;                                                // 461
-            }                                                                                                        // 462
-            if (settingsSecretKey) {                                                                                 // 463
-                Meteor.settings.public.reCaptcha.secretKey = null;                                                   // 464
-            }                                                                                                        // 465
-                                                                                                                     // 466
-            var loc = atSecretKey ? "User Accounts configuration!" : "Meteor settings!";                             // 467
-            throw new Meteor.Error(401, "User Accounts: DANGER - reCaptcha private key leaked to client from " + loc // 468
-            + " Provide the key in server settings ONLY.");                                                          // 469
-        }                                                                                                            // 470
-                                                                                                                     // 471
-        if (!atSiteKey && !settingsSiteKey) {                                                                        // 472
+                                                                                                                     // 300
+    // Sets visibility condition and validation flags for each field                                                 // 301
+    var gPositiveValidation = !!AccountsTemplates.options.positiveValidation;                                        // 302
+    var gNegativeValidation = !!AccountsTemplates.options.negativeValidation;                                        // 303
+    var gShowValidating = !!AccountsTemplates.options.showValidating;                                                // 304
+    var gContinuousValidation = !!AccountsTemplates.options.continuousValidation;                                    // 305
+    var gNegativeFeedback = !!AccountsTemplates.options.negativeFeedback;                                            // 306
+    var gPositiveFeedback = !!AccountsTemplates.options.positiveFeedback;                                            // 307
+    _.each(this._fields, function(field){                                                                            // 308
+        // Visibility                                                                                                // 309
+        switch(field._id) {                                                                                          // 310
+            case "current_password":                                                                                 // 311
+                field.visible = ["changePwd"];                                                                       // 312
+                break;                                                                                               // 313
+            case "email":                                                                                            // 314
+                field.visible = ["forgotPwd", "signUp", "resendVerificationEmail"];                                  // 315
+                if (AccountsTemplates.loginType() === "email")                                                       // 316
+                    field.visible.push("signIn");                                                                    // 317
+                break;                                                                                               // 318
+            case "password":                                                                                         // 319
+                field.visible = ["changePwd", "enrollAccount", "resetPwd", "signIn", "signUp"];                      // 320
+                break;                                                                                               // 321
+            case "password_again":                                                                                   // 322
+                field.visible = ["changePwd", "enrollAccount", "resetPwd", "signUp"];                                // 323
+                break;                                                                                               // 324
+            case "username":                                                                                         // 325
+                field.visible = ["signUp"];                                                                          // 326
+                if (AccountsTemplates.loginType() === "username")                                                    // 327
+                    field.visible.push("signIn");                                                                    // 328
+                break;                                                                                               // 329
+            case "username_and_email":                                                                               // 330
+                field.visible = [];                                                                                  // 331
+                if (AccountsTemplates.loginType() === "username_and_email")                                          // 332
+                    field.visible.push("signIn");                                                                    // 333
+                break;                                                                                               // 334
+            default:                                                                                                 // 335
+                field.visible = ["signUp"];                                                                          // 336
+        }                                                                                                            // 337
+                                                                                                                     // 338
+        // Validation                                                                                                // 339
+        var positiveValidation = field.positiveValidation;                                                           // 340
+        if (positiveValidation === undefined)                                                                        // 341
+            field.positiveValidation = gPositiveValidation;                                                          // 342
+        var negativeValidation = field.negativeValidation;                                                           // 343
+        if (negativeValidation === undefined)                                                                        // 344
+            field.negativeValidation = gNegativeValidation;                                                          // 345
+        field.validation = field.positiveValidation || field.negativeValidation;                                     // 346
+        if (field.continuousValidation === undefined)                                                                // 347
+            field.continuousValidation = gContinuousValidation;                                                      // 348
+        field.continuousValidation = field.validation && field.continuousValidation;                                 // 349
+        if (field.negativeFeedback === undefined)                                                                    // 350
+            field.negativeFeedback = gNegativeFeedback;                                                              // 351
+        if (field.positiveFeedback === undefined)                                                                    // 352
+            field.positiveFeedback = gPositiveFeedback;                                                              // 353
+        field.feedback = field.negativeFeedback || field.positiveFeedback;                                           // 354
+        // Validating icon                                                                                           // 355
+        var showValidating = field.showValidating;                                                                   // 356
+        if (showValidating === undefined)                                                                            // 357
+            field.showValidating = gShowValidating;                                                                  // 358
+                                                                                                                     // 359
+        // Custom Template                                                                                           // 360
+        if (field.template) {                                                                                        // 361
+          if (field.template in Template) {                                                                          // 362
+            Template[field.template].helpers(AccountsTemplates.atInputHelpers);                                      // 363
+          }                                                                                                          // 364
+          else {                                                                                                     // 365
+            console.warn(                                                                                            // 366
+              "[UserAccounts] Warning no template " + field.template + " found!"                                     // 367
+            );                                                                                                       // 368
+          }                                                                                                          // 369
+        }                                                                                                            // 370
+    });                                                                                                              // 371
+                                                                                                                     // 372
+    // Initializes reactive states                                                                                   // 373
+    form = new ReactiveDict();                                                                                       // 374
+    form.set("disabled", false);                                                                                     // 375
+    form.set("state", "signIn");                                                                                     // 376
+    form.set("result", null);                                                                                        // 377
+    form.set("error", null);                                                                                         // 378
+    form.set("message", null);                                                                                       // 379
+    this.state = {                                                                                                   // 380
+        form: form,                                                                                                  // 381
+    };                                                                                                               // 382
+                                                                                                                     // 383
+    // Possibly subscribes to extended user data (to get the list of registered services...)                         // 384
+    if (this.options.showAddRemoveServices){                                                                         // 385
+        Meteor.subscribe("userRegisteredServices");                                                                  // 386
+    }                                                                                                                // 387
+                                                                                                                     // 388
+    //Check that reCaptcha site keys are available and no secret keys visible                                        // 389
+    if (this.options.showReCaptcha) {                                                                                // 390
+        var atSiteKey = null, atSecretKey = null, settingsSiteKey = null, settingsSecretKey = null;                  // 391
+                                                                                                                     // 392
+                                                                                                                     // 393
+        if (AccountsTemplates.options.reCaptcha) {                                                                   // 394
+            atSiteKey = AccountsTemplates.options.reCaptcha.siteKey;                                                 // 395
+            atSecretKey = AccountsTemplates.options.reCaptcha.secretKey;                                             // 396
+        }                                                                                                            // 397
+        if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.reCaptcha) {                         // 398
+          settingsSiteKey = Meteor.settings.public.reCaptcha.siteKey;                                                // 399
+          settingsSecretKey = Meteor.settings.public.reCaptcha.secretKey;                                            // 400
+        }                                                                                                            // 401
+                                                                                                                     // 402
+        if (atSecretKey || settingsSecretKey) {                                                                      // 403
+            //erase the secret key                                                                                   // 404
+            if (atSecretKey) {                                                                                       // 405
+                AccountsTemplates.options.reCaptcha.secretKey = null;                                                // 406
+            }                                                                                                        // 407
+            if (settingsSecretKey) {                                                                                 // 408
+                Meteor.settings.public.reCaptcha.secretKey = null;                                                   // 409
+            }                                                                                                        // 410
+                                                                                                                     // 411
+            var loc = atSecretKey ? "User Accounts configuration!" : "Meteor settings!";                             // 412
+            throw new Meteor.Error(401, "User Accounts: DANGER - reCaptcha private key leaked to client from " + loc // 413
+            + " Provide the key in server settings ONLY.");                                                          // 414
+        }                                                                                                            // 415
+                                                                                                                     // 416
+        if (!atSiteKey && !settingsSiteKey) {                                                                        // 417
             throw new Meteor.Error(401, "User Accounts: reCaptcha site key not found! Please provide it or set showReCaptcha to false.");
-        }                                                                                                            // 474
-    }                                                                                                                // 475
-                                                                                                                     // 476
-    // ------------                                                                                                  // 477
-    // Routing Stuff                                                                                                 // 478
-    // ------------                                                                                                  // 479
-                                                                                                                     // 480
-    // Known routes are used to filter out previous path for redirects...                                            // 481
-    this.knownRoutes = _.pluck(_.values(this.routes), "path");                                                       // 482
-                                                                                                                     // 483
-    // Stores previous path on path change...                                                                        // 484
-    Router.onStop(function() {                                                                                       // 485
-        Tracker.nonreactive(function () {                                                                            // 486
-            var currentPath = Router.current().url;                                                                  // 487
-            var currentPathClean = currentPath.replace(/^\/+|\/+$/gm,'')                                             // 488
-            var isKnownRoute = _.map(AccountsTemplates.knownRoutes, function(path){                                  // 489
-              if (!path) {                                                                                           // 490
-                return false;                                                                                        // 491
-              }                                                                                                      // 492
-              path = path.replace(/^\/+|\/+$/gm,'');                                                                 // 493
-              var known = RegExp(path).test(currentPathClean)                                                        // 494
-              return known;                                                                                          // 495
-            });                                                                                                      // 496
-            if (!_.some(isKnownRoute)) {                                                                             // 497
-                AccountsTemplates.setPrevPath(currentPath);                                                          // 498
-            }                                                                                                        // 499
-            AccountsTemplates.avoidRedirect = false;                                                                 // 500
-        });                                                                                                          // 501
-    });                                                                                                              // 502
+        }                                                                                                            // 419
+    }                                                                                                                // 420
+                                                                                                                     // 421
+    // ------------                                                                                                  // 422
+    // Routing Stuff                                                                                                 // 423
+    // ------------                                                                                                  // 424
+                                                                                                                     // 425
+    // Known routes are used to filter out previous path for redirects...                                            // 426
+    this.knownRoutes = _.pluck(_.values(this.routes), "path");                                                       // 427
+                                                                                                                     // 428
+    // Stores previous path on path change...                                                                        // 429
+    Router.onStop(function() {                                                                                       // 430
+        Tracker.nonreactive(function () {                                                                            // 431
+            var currentPath = Router.current().url;                                                                  // 432
+            var currentPathClean = currentPath.replace(/^\/+|\/+$/gm,'')                                             // 433
+            var isKnownRoute = _.map(AccountsTemplates.knownRoutes, function(path){                                  // 434
+              if (!path) {                                                                                           // 435
+                return false;                                                                                        // 436
+              }                                                                                                      // 437
+              path = path.replace(/^\/+|\/+$/gm,'');                                                                 // 438
+              var known = RegExp(path).test(currentPathClean)                                                        // 439
+              return known;                                                                                          // 440
+            });                                                                                                      // 441
+            if (!_.some(isKnownRoute)) {                                                                             // 442
+                AccountsTemplates.setPrevPath(currentPath);                                                          // 443
+            }                                                                                                        // 444
+            AccountsTemplates.avoidRedirect = false;                                                                 // 445
+        });                                                                                                          // 446
+    });                                                                                                              // 447
+                                                                                                                     // 448
+    // Sets up configured routes                                                                                     // 449
+    AccountsTemplates.setupRoutes();                                                                                 // 450
+                                                                                                                     // 451
+    // Marks AccountsTemplates as initialized                                                                        // 452
+    this._initialized = true;                                                                                        // 453
+};                                                                                                                   // 454
+                                                                                                                     // 455
+AT.prototype.linkClick = function(route){                                                                            // 456
+    if (AccountsTemplates.disabled())                                                                                // 457
+        return;                                                                                                      // 458
+    var path = AccountsTemplates.getRoutePath(route);                                                                // 459
+    if (path === "#" || AccountsTemplates.avoidRedirect || path === Router.current().route.path())                   // 460
+        AccountsTemplates.setState(route);                                                                           // 461
+    else                                                                                                             // 462
+        Meteor.defer(function(){                                                                                     // 463
+            Router.go(AccountsTemplates.getRouteName(route));                                                        // 464
+        });                                                                                                          // 465
+};                                                                                                                   // 466
+                                                                                                                     // 467
+AT.prototype.logout = function(){                                                                                    // 468
+    var onLogoutHook = AccountsTemplates.options.onLogoutHook;                                                       // 469
+    var homeRoutePath = AccountsTemplates.options.homeRoutePath;                                                     // 470
+    Meteor.logout(function(){                                                                                        // 471
+        if (onLogoutHook)                                                                                            // 472
+          onLogoutHook();                                                                                            // 473
+        else if (homeRoutePath)                                                                                      // 474
+            Router.go(homeRoutePath);                                                                                // 475
+    });                                                                                                              // 476
+};                                                                                                                   // 477
+                                                                                                                     // 478
+AT.prototype.postSubmitRedirect = function(route){                                                                   // 479
+    if (AccountsTemplates.avoidRedirect)                                                                             // 480
+        AccountsTemplates.avoidRedirect = false;                                                                     // 481
+    else{                                                                                                            // 482
+        var nextPath = AccountsTemplates.routes[route] && AccountsTemplates.routes[route].redirect;                  // 483
+        if (nextPath){                                                                                               // 484
+            if (_.isFunction(nextPath))                                                                              // 485
+                nextPath();                                                                                          // 486
+            else                                                                                                     // 487
+                Router.go(nextPath);                                                                                 // 488
+        }else{                                                                                                       // 489
+            var previousPath = AccountsTemplates.getPrevPath();                                                      // 490
+            if (previousPath)                                                                                        // 491
+                Router.go(previousPath);                                                                             // 492
+            else{                                                                                                    // 493
+                var homeRoutePath = AccountsTemplates.options.homeRoutePath;                                         // 494
+                if (homeRoutePath)                                                                                   // 495
+                    Router.go(homeRoutePath);                                                                        // 496
+            }                                                                                                        // 497
+        }                                                                                                            // 498
+    }                                                                                                                // 499
+};                                                                                                                   // 500
+                                                                                                                     // 501
+AT.prototype.submitCallback = function(error, state, onSuccess){                                                     // 502
                                                                                                                      // 503
-    // Sets up configured routes                                                                                     // 504
-    AccountsTemplates.setupRoutes();                                                                                 // 505
-                                                                                                                     // 506
-    // Marks AccountsTemplates as initialized                                                                        // 507
-    this._initialized = true;                                                                                        // 508
-};                                                                                                                   // 509
-                                                                                                                     // 510
-AT.prototype.linkClick = function(route){                                                                            // 511
-    if (AccountsTemplates.disabled())                                                                                // 512
-        return;                                                                                                      // 513
-    var path = AccountsTemplates.getRoutePath(route);                                                                // 514
-    if (path === "#" || AccountsTemplates.avoidRedirect || path === Router.current().route.path())                   // 515
-        AccountsTemplates.setState(route);                                                                           // 516
-    else                                                                                                             // 517
-        Meteor.defer(function(){                                                                                     // 518
-            Router.go(AccountsTemplates.getRouteName(route));                                                        // 519
-        });                                                                                                          // 520
-};                                                                                                                   // 521
-                                                                                                                     // 522
-AT.prototype.logout = function(){                                                                                    // 523
-    var onLogoutHook = AccountsTemplates.options.onLogoutHook;                                                       // 524
-    var homeRoutePath = AccountsTemplates.options.homeRoutePath;                                                     // 525
-    Meteor.logout(function(){                                                                                        // 526
-        if (onLogoutHook)                                                                                            // 527
-          onLogoutHook();                                                                                            // 528
-        else if (homeRoutePath)                                                                                      // 529
-            Router.go(homeRoutePath);                                                                                // 530
-    });                                                                                                              // 531
-};                                                                                                                   // 532
-                                                                                                                     // 533
-AT.prototype.postSubmitRedirect = function(route){                                                                   // 534
-    if (AccountsTemplates.avoidRedirect)                                                                             // 535
-        AccountsTemplates.avoidRedirect = false;                                                                     // 536
-    else{                                                                                                            // 537
-        var nextPath = AccountsTemplates.routes[route] && AccountsTemplates.routes[route].redirect;                  // 538
-        if (nextPath){                                                                                               // 539
-            if (_.isFunction(nextPath))                                                                              // 540
-                nextPath();                                                                                          // 541
-            else                                                                                                     // 542
-                Router.go(nextPath);                                                                                 // 543
-        }else{                                                                                                       // 544
-            var previousPath = AccountsTemplates.getPrevPath();                                                      // 545
-            if (previousPath)                                                                                        // 546
-                Router.go(previousPath);                                                                             // 547
-            else{                                                                                                    // 548
-                var homeRoutePath = AccountsTemplates.options.homeRoutePath;                                         // 549
-                if (homeRoutePath)                                                                                   // 550
-                    Router.go(homeRoutePath);                                                                        // 551
-            }                                                                                                        // 552
-        }                                                                                                            // 553
-    }                                                                                                                // 554
-};                                                                                                                   // 555
-                                                                                                                     // 556
-AT.prototype.submitCallback = function(error, state, onSuccess){                                                     // 557
+    var onSubmitHook = AccountsTemplates.options.onSubmitHook;                                                       // 504
+    if(onSubmitHook)                                                                                                 // 505
+        onSubmitHook(error, state);                                                                                  // 506
+                                                                                                                     // 507
+    if (error) {                                                                                                     // 508
+        if(_.isObject(error.details)) {                                                                              // 509
+            // If error.details is an object, we may try to set fields errors from it                                // 510
+            _.each(error.details, function(error, fieldId){                                                          // 511
+                AccountsTemplates.getField(fieldId).setError(error);                                                 // 512
+            });                                                                                                      // 513
+        }                                                                                                            // 514
+        else {                                                                                                       // 515
+            var err = "error.accounts.Unknown error";                                                                // 516
+            if (error.reason) {                                                                                      // 517
+              err = error.reason;                                                                                    // 518
+            }                                                                                                        // 519
+            if (err.substring(0, 15) !== "error.accounts.") {                                                        // 520
+              err = "error.accounts." + err;                                                                         // 521
+            }                                                                                                        // 522
+            AccountsTemplates.state.form.set("error", [err]);                                                        // 523
+        }                                                                                                            // 524
+        AccountsTemplates.setDisabled(false);                                                                        // 525
+        // Possibly resets reCaptcha form                                                                            // 526
+        if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                         // 527
+            grecaptcha.reset();                                                                                      // 528
+        }                                                                                                            // 529
+    }                                                                                                                // 530
+    else{                                                                                                            // 531
+        if (onSuccess)                                                                                               // 532
+            onSuccess()                                                                                              // 533
+                                                                                                                     // 534
+        if (_.contains(["enrollAccount", "forgotPwd", "resetPwd", "verifyEmail"], state)){                           // 535
+            var redirectTimeout = AccountsTemplates.options.redirectTimeout;                                         // 536
+            if (redirectTimeout > 0)                                                                                 // 537
+                AccountsTemplates.timedOutRedirect = Meteor.setTimeout(function(){                                   // 538
+                    AccountsTemplates.timedOutRedirect = null;                                                       // 539
+                    AccountsTemplates.setDisabled(false);                                                            // 540
+                    AccountsTemplates.postSubmitRedirect(state);                                                     // 541
+                }, redirectTimeout);                                                                                 // 542
+        }                                                                                                            // 543
+        else if (state){                                                                                             // 544
+            AccountsTemplates.setDisabled(false);                                                                    // 545
+            AccountsTemplates.postSubmitRedirect(state);                                                             // 546
+        }                                                                                                            // 547
+    }                                                                                                                // 548
+};                                                                                                                   // 549
+                                                                                                                     // 550
+AccountsTemplates = new AT();                                                                                        // 551
+                                                                                                                     // 552
+                                                                                                                     // 553
+// Initialization                                                                                                    // 554
+Meteor.startup(function(){                                                                                           // 555
+    AccountsTemplates._init();                                                                                       // 556
+});                                                                                                                  // 557
                                                                                                                      // 558
-    var onSubmitHook = AccountsTemplates.options.onSubmitHook;                                                       // 559
-    if(onSubmitHook)                                                                                                 // 560
-        onSubmitHook(error, state);                                                                                  // 561
-                                                                                                                     // 562
-    if (error) {                                                                                                     // 563
-        if(_.isObject(error.details))                                                                                // 564
-            // If error.details is an object, we may try to set fields errors from it                                // 565
-            _.each(error.details, function(error, fieldId){                                                          // 566
-                AccountsTemplates.getField(fieldId).setError(error);                                                 // 567
-            });                                                                                                      // 568
-        else{                                                                                                        // 569
-            var err = error.reason ? "error.accounts." + error.reason : "error.accounts.Unknown error";              // 570
-            AccountsTemplates.state.form.set("error", [err]);                                                        // 571
-        }                                                                                                            // 572
-        AccountsTemplates.setDisabled(false);                                                                        // 573
-        // Possibly resets reCaptcha form                                                                            // 574
-        if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                         // 575
-          grecaptcha.reset();                                                                                        // 576
-        }                                                                                                            // 577
-    }                                                                                                                // 578
-    else{                                                                                                            // 579
-        if (onSuccess)                                                                                               // 580
-            onSuccess()                                                                                              // 581
-                                                                                                                     // 582
-        if (_.contains(["enrollAccount", "forgotPwd", "resetPwd", "verifyEmail"], state)){                           // 583
-            var redirectTimeout = AccountsTemplates.options.redirectTimeout;                                         // 584
-            if (redirectTimeout > 0)                                                                                 // 585
-                AccountsTemplates.timedOutRedirect = Meteor.setTimeout(function(){                                   // 586
-                    AccountsTemplates.timedOutRedirect = null;                                                       // 587
-                    AccountsTemplates.setDisabled(false);                                                            // 588
-                    AccountsTemplates.postSubmitRedirect(state);                                                     // 589
-                }, redirectTimeout);                                                                                 // 590
-        }                                                                                                            // 591
-        else if (state){                                                                                             // 592
-            AccountsTemplates.setDisabled(false);                                                                    // 593
-            AccountsTemplates.postSubmitRedirect(state);                                                             // 594
-        }                                                                                                            // 595
-    }                                                                                                                // 596
-};                                                                                                                   // 597
-                                                                                                                     // 598
-AccountsTemplates = new AT();                                                                                        // 599
-                                                                                                                     // 600
-                                                                                                                     // 601
-// Initialization                                                                                                    // 602
-Meteor.startup(function(){                                                                                           // 603
-    AccountsTemplates._init();                                                                                       // 604
-});                                                                                                                  // 605
-                                                                                                                     // 606
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1667,74 +1706,83 @@ AT.prototype.atFormHelpers = {                                                  
     },                                                                                                               // 5
     showTitle: function(next_state){                                                                                 // 6
         var state = next_state || this.state || AccountsTemplates.getState();                                        // 7
-        if (state === "verifyEmail" || (Meteor.userId() && state === "signIn"))                                      // 8
-            return false;                                                                                            // 9
-        return true;                                                                                                 // 10
-        //return !(state === "signIn" && AccountsTemplates.oauthServices().length);                                  // 11
-    },                                                                                                               // 12
-    showOauthServices: function(next_state){                                                                         // 13
-        var state = next_state || this.state || AccountsTemplates.getState();                                        // 14
-        if (!(state === "signIn" || state === "signUp"))                                                             // 15
-            return false;                                                                                            // 16
-        var services = AccountsTemplates.oauthServices();                                                            // 17
-        if (!services.length)                                                                                        // 18
-            return false;                                                                                            // 19
-        if (Meteor.userId())                                                                                         // 20
-            return AccountsTemplates.options.showAddRemoveServices;                                                  // 21
-        return true;                                                                                                 // 22
-    },                                                                                                               // 23
-    showServicesSeparator: function(next_state){                                                                     // 24
-        var pwdService = Package["accounts-password"] !== undefined;                                                 // 25
-        var state = next_state || this.state || AccountsTemplates.getState();                                        // 26
-        var rightState = (state === "signIn" || state === "signUp");                                                 // 27
-        return rightState && !Meteor.userId() && pwdService && AccountsTemplates.oauthServices().length;             // 28
-    },                                                                                                               // 29
-    showError: function(next_state) {                                                                                // 30
-        return !!AccountsTemplates.state.form.get("error");                                                          // 31
-    },                                                                                                               // 32
-    showResult: function(next_state) {                                                                               // 33
-        return !!AccountsTemplates.state.form.get("result");                                                         // 34
-    },                                                                                                               // 35
-    showPwdForm: function(next_state) {                                                                              // 36
-        if (Package["accounts-password"] === undefined)                                                              // 37
-            return false;                                                                                            // 38
-        var state = next_state || this.state || AccountsTemplates.getState();                                        // 39
-        if ((state === "verifyEmail") || (state === "signIn" && Meteor.userId()))                                    // 40
-            return false;                                                                                            // 41
-        return true;                                                                                                 // 42
-    },                                                                                                               // 43
-    showSignInLink: function(next_state){                                                                            // 44
-        if (AccountsTemplates.options.hideSignInLink)                                                                // 45
-            return false;                                                                                            // 46
-        var state = next_state || this.state || AccountsTemplates.getState();                                        // 47
-        if (AccountsTemplates.options.forbidClientAccountCreation && state === "forgotPwd")                          // 48
-            return true;                                                                                             // 49
-        return state === "signUp";                                                                                   // 50
-    },                                                                                                               // 51
-    showSignUpLink: function(next_state){                                                                            // 52
-        if  (AccountsTemplates.options.hideSignUpLink)                                                               // 53
-            return false;                                                                                            // 54
-        var state = next_state || this.state || AccountsTemplates.getState();                                        // 55
+        if (Meteor.userId() && state === "signIn")                                                                   // 8
+          return false;                                                                                              // 9
+        return !!AccountsTemplates.texts.title[state];                                                               // 10
+    },                                                                                                               // 11
+    showOauthServices: function(next_state){                                                                         // 12
+        var state = next_state || this.state || AccountsTemplates.getState();                                        // 13
+        if (!(state === "signIn" || state === "signUp"))                                                             // 14
+            return false;                                                                                            // 15
+        var services = AccountsTemplates.oauthServices();                                                            // 16
+        if (!services.length)                                                                                        // 17
+            return false;                                                                                            // 18
+        if (Meteor.userId())                                                                                         // 19
+            return AccountsTemplates.options.showAddRemoveServices;                                                  // 20
+        return true;                                                                                                 // 21
+    },                                                                                                               // 22
+    showServicesSeparator: function(next_state){                                                                     // 23
+        var pwdService = Package["accounts-password"] !== undefined;                                                 // 24
+        var state = next_state || this.state || AccountsTemplates.getState();                                        // 25
+        var rightState = (state === "signIn" || state === "signUp");                                                 // 26
+        return rightState && !Meteor.userId() && pwdService && AccountsTemplates.oauthServices().length;             // 27
+    },                                                                                                               // 28
+    showError: function(next_state) {                                                                                // 29
+        return !!AccountsTemplates.state.form.get("error");                                                          // 30
+    },                                                                                                               // 31
+    showResult: function(next_state) {                                                                               // 32
+        return !!AccountsTemplates.state.form.get("result");                                                         // 33
+    },                                                                                                               // 34
+    showMessage: function(next_state) {                                                                              // 35
+        return !!AccountsTemplates.state.form.get("message");                                                        // 36
+    },                                                                                                               // 37
+    showPwdForm: function(next_state) {                                                                              // 38
+        if (Package["accounts-password"] === undefined)                                                              // 39
+            return false;                                                                                            // 40
+        var state = next_state || this.state || AccountsTemplates.getState();                                        // 41
+        if ((state === "verifyEmail") || (state === "signIn" && Meteor.userId()))                                    // 42
+            return false;                                                                                            // 43
+        return true;                                                                                                 // 44
+    },                                                                                                               // 45
+    showSignInLink: function(next_state){                                                                            // 46
+        if (AccountsTemplates.options.hideSignInLink)                                                                // 47
+            return false;                                                                                            // 48
+        var state = next_state || this.state || AccountsTemplates.getState();                                        // 49
+        if (AccountsTemplates.options.forbidClientAccountCreation && state === "forgotPwd")                          // 50
+            return true;                                                                                             // 51
+        return state === "signUp";                                                                                   // 52
+    },                                                                                                               // 53
+    showSignUpLink: function(next_state){                                                                            // 54
+        if  (AccountsTemplates.options.hideSignUpLink)                                                               // 55
+            return false;                                                                                            // 56
+        var state = next_state || this.state || AccountsTemplates.getState();                                        // 57
         return ((state === "signIn" && !Meteor.userId()) || state === "forgotPwd") && !AccountsTemplates.options.forbidClientAccountCreation;
-    },                                                                                                               // 57
-    showTermsLink: function(next_state){                                                                             // 58
-        if (!!AccountsTemplates.options.privacyUrl || !!AccountsTemplates.options.termsUrl) {                        // 59
-            var state = next_state || this.state || AccountsTemplates.getState();                                    // 60
-            if (state === "signUp" || state === "enrollAccount" ) {                                                  // 61
-              return true;                                                                                           // 62
-            }                                                                                                        // 63
-        }                                                                                                            // 64
-        /*                                                                                                           // 65
-        if (state === "signIn"){                                                                                     // 66
-            var pwdService = Package["accounts-password"] !== undefined;                                             // 67
-            if (!pwdService)                                                                                         // 68
-                return true;                                                                                         // 69
-        }                                                                                                            // 70
-        */                                                                                                           // 71
-        return false;                                                                                                // 72
-    },                                                                                                               // 73
-};                                                                                                                   // 74
-                                                                                                                     // 75
+    },                                                                                                               // 59
+    showTermsLink: function(next_state){                                                                             // 60
+        //TODO: Add privacyRoute and termsRoute as alternatives (the point of named routes is                        // 61
+        // being able to change the url in one place only)                                                           // 62
+        if (!!AccountsTemplates.options.privacyUrl || !!AccountsTemplates.options.termsUrl) {                        // 63
+            var state = next_state || this.state || AccountsTemplates.getState();                                    // 64
+            if (state === "signUp" || state === "enrollAccount" ) {                                                  // 65
+              return true;                                                                                           // 66
+            }                                                                                                        // 67
+        }                                                                                                            // 68
+        /*                                                                                                           // 69
+        if (state === "signIn"){                                                                                     // 70
+            var pwdService = Package["accounts-password"] !== undefined;                                             // 71
+            if (!pwdService)                                                                                         // 72
+                return true;                                                                                         // 73
+        }                                                                                                            // 74
+        */                                                                                                           // 75
+        return false;                                                                                                // 76
+    },                                                                                                               // 77
+    showResendVerificationEmailLink: function(){                                                                     // 78
+        var parentData = Template.currentData();                                                                     // 79
+        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 80
+        return (state === "signIn" || state === "forgotPwd") && AccountsTemplates.options.showResendVerificationEmailLink;
+    },                                                                                                               // 82
+};                                                                                                                   // 83
+                                                                                                                     // 84
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1754,116 +1802,117 @@ AT.prototype.atFormHelpers = {                                                  
                                                                                                                      //
 AT.prototype.atInputRendered = function(){                                                                           // 1
     var fieldId = this.data._id;                                                                                     // 2
-    var inputQueryVal = Router.current().params.query[fieldId];                                                      // 3
-    if (inputQueryVal)                                                                                               // 4
-        this.$("input#at-field-" + fieldId).val(inputQueryVal);                                                      // 5
-};                                                                                                                   // 6
-                                                                                                                     // 7
-AT.prototype.atInputHelpers = {                                                                                      // 8
-    disabled: function() {                                                                                           // 9
-        return AccountsTemplates.disabled();                                                                         // 10
-    },                                                                                                               // 11
-    showLabels: function() {                                                                                         // 12
-        return AccountsTemplates.options.showLabels;                                                                 // 13
-    },                                                                                                               // 14
-    displayName: function() {                                                                                        // 15
-        var parentData = Template.parentData();                                                                      // 16
-        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 17
-        var displayName = this.getDisplayName(state);                                                                // 18
-        return T9n.get(displayName, markIfMissing=false);                                                            // 19
-    },                                                                                                               // 20
-    optionalText: function(){                                                                                        // 21
-        return "(" + T9n.get(AccountsTemplates.texts.optionalField, markIfMissing=false) + ")";                      // 22
-    },                                                                                                               // 23
-    templateName: function() {                                                                                       // 24
-        if (this.template)                                                                                           // 25
-            return this.template;                                                                                    // 26
-        if (this.type === "checkbox")                                                                                // 27
-            return "atCheckboxInput";                                                                                // 28
-        if (this.type === "select")                                                                                  // 29
-            return "atSelectInput";                                                                                  // 30
-        if (this.type === "radio")                                                                                   // 31
-            return "atRadioInput";                                                                                   // 32
-        if (this.type === "hidden")                                                                                  // 33
-            return "atHiddenInput";                                                                                  // 34
-        return "atTextInput";                                                                                        // 35
-    },                                                                                                               // 36
-    values: function(){                                                                                              // 37
-        var id = this._id;                                                                                           // 38
-        return _.map(this.select, function(select){                                                                  // 39
-            var s = _.clone(select);                                                                                 // 40
-            s._id = id + "-" + select.value;                                                                         // 41
-            s.id = id;                                                                                               // 42
-            return s;                                                                                                // 43
-        });                                                                                                          // 44
-    },                                                                                                               // 45
-    errorText: function() {                                                                                          // 46
-        var err = this.getStatus();                                                                                  // 47
-        return T9n.get(err, markIfMissing=false);                                                                    // 48
-    },                                                                                                               // 49
-    placeholder: function() {                                                                                        // 50
-        if (AccountsTemplates.options.showPlaceholders) {                                                            // 51
-            var parentData = Template.parentData();                                                                  // 52
-            var state = (parentData && parentData.state) || AccountsTemplates.getState();                            // 53
-            var placeholder = this.getPlaceholder(state);                                                            // 54
-            return T9n.get(placeholder, markIfMissing=false);                                                        // 55
-        }                                                                                                            // 56
-    },                                                                                                               // 57
-};                                                                                                                   // 58
-                                                                                                                     // 59
-AT.prototype.atInputEvents = {                                                                                       // 60
-    "focusin input": function(event, t){                                                                             // 61
-        this.clearStatus();                                                                                          // 62
-    },                                                                                                               // 63
-    "focusout input": function(event, t){                                                                            // 64
-        var fieldId = this._id;                                                                                      // 65
-        var rawValue = this.getValue(t);                                                                             // 66
-        var value = this.fixValue(rawValue);                                                                         // 67
-        // Possibly updates the input value                                                                          // 68
-        if (value !== rawValue) {                                                                                    // 69
-            this.setValue(t, value);                                                                                 // 70
-        }                                                                                                            // 71
-                                                                                                                     // 72
-        // Client-side only validation                                                                               // 73
-        if (!this.validation)                                                                                        // 74
-            return;                                                                                                  // 75
-        var parentData = Template.parentData();                                                                      // 76
-        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 77
-        // No validation during signIn                                                                               // 78
-        if (state === "signIn")                                                                                      // 79
-            return;                                                                                                  // 80
-        // Special case for password confirmation                                                                    // 81
-        if (value && fieldId === "password_again"){                                                                  // 82
-            if (value !== $("#at-field-password").val())                                                             // 83
-                return this.setError(AccountsTemplates.texts.errors.pwdMismatch);                                    // 84
-        }                                                                                                            // 85
-        this.validate(value);                                                                                        // 86
-    },                                                                                                               // 87
-    "keyup input": function(event, t){                                                                               // 88
-        // Client-side only continuous validation                                                                    // 89
-        if (!this.continuousValidation)                                                                              // 90
-            return;                                                                                                  // 91
-        var parentData = Template.parentData();                                                                      // 92
-        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 93
-        // No validation during signIn                                                                               // 94
-        if (state === "signIn")                                                                                      // 95
-            return;                                                                                                  // 96
-        var fieldId = this._id;                                                                                      // 97
-        var rawValue = this.getValue(t);                                                                             // 98
-        var value = this.fixValue(rawValue);                                                                         // 99
-        // Possibly updates the input value                                                                          // 100
-        if (value !== rawValue) {                                                                                    // 101
-            this.setValue(t, value);                                                                                 // 102
-        }                                                                                                            // 103
-        // Special case for password confirmation                                                                    // 104
-        if (value && fieldId === "password_again"){                                                                  // 105
-            if (value !== $("#at-field-password").val())                                                             // 106
-                return this.setError(AccountsTemplates.texts.errors.pwdMismatch);                                    // 107
-        }                                                                                                            // 108
-        this.validate(value);                                                                                        // 109
-    },                                                                                                               // 110
-};                                                                                                                   // 111
-                                                                                                                     // 112
+    var queryKey = this.data.options && this.data.options.queryKey || this.data._id;                                 // 3
+    var inputQueryVal = Router.current().params.query[queryKey];                                                     // 4
+    if (inputQueryVal)                                                                                               // 5
+        this.$("input#at-field-" + fieldId).val(inputQueryVal);                                                      // 6
+};                                                                                                                   // 7
+                                                                                                                     // 8
+AT.prototype.atInputHelpers = {                                                                                      // 9
+    disabled: function() {                                                                                           // 10
+        return AccountsTemplates.disabled();                                                                         // 11
+    },                                                                                                               // 12
+    showLabels: function() {                                                                                         // 13
+        return AccountsTemplates.options.showLabels;                                                                 // 14
+    },                                                                                                               // 15
+    displayName: function() {                                                                                        // 16
+        var parentData = Template.parentData();                                                                      // 17
+        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 18
+        var displayName = this.getDisplayName(state);                                                                // 19
+        return T9n.get(displayName, markIfMissing=false);                                                            // 20
+    },                                                                                                               // 21
+    optionalText: function(){                                                                                        // 22
+        return "(" + T9n.get(AccountsTemplates.texts.optionalField, markIfMissing=false) + ")";                      // 23
+    },                                                                                                               // 24
+    templateName: function() {                                                                                       // 25
+        if (this.template)                                                                                           // 26
+            return this.template;                                                                                    // 27
+        if (this.type === "checkbox")                                                                                // 28
+            return "atCheckboxInput";                                                                                // 29
+        if (this.type === "select")                                                                                  // 30
+            return "atSelectInput";                                                                                  // 31
+        if (this.type === "radio")                                                                                   // 32
+            return "atRadioInput";                                                                                   // 33
+        if (this.type === "hidden")                                                                                  // 34
+            return "atHiddenInput";                                                                                  // 35
+        return "atTextInput";                                                                                        // 36
+    },                                                                                                               // 37
+    values: function(){                                                                                              // 38
+        var id = this._id;                                                                                           // 39
+        return _.map(this.select, function(select){                                                                  // 40
+            var s = _.clone(select);                                                                                 // 41
+            s._id = id + "-" + select.value;                                                                         // 42
+            s.id = id;                                                                                               // 43
+            return s;                                                                                                // 44
+        });                                                                                                          // 45
+    },                                                                                                               // 46
+    errorText: function() {                                                                                          // 47
+        var err = this.getStatus();                                                                                  // 48
+        return T9n.get(err, markIfMissing=false);                                                                    // 49
+    },                                                                                                               // 50
+    placeholder: function() {                                                                                        // 51
+        if (AccountsTemplates.options.showPlaceholders) {                                                            // 52
+            var parentData = Template.parentData();                                                                  // 53
+            var state = (parentData && parentData.state) || AccountsTemplates.getState();                            // 54
+            var placeholder = this.getPlaceholder(state);                                                            // 55
+            return T9n.get(placeholder, markIfMissing=false);                                                        // 56
+        }                                                                                                            // 57
+    },                                                                                                               // 58
+};                                                                                                                   // 59
+                                                                                                                     // 60
+AT.prototype.atInputEvents = {                                                                                       // 61
+    "focusin input": function(event, t){                                                                             // 62
+        this.clearStatus();                                                                                          // 63
+    },                                                                                                               // 64
+    "focusout input": function(event, t){                                                                            // 65
+        var fieldId = this._id;                                                                                      // 66
+        var rawValue = this.getValue(t);                                                                             // 67
+        var value = this.fixValue(rawValue);                                                                         // 68
+        // Possibly updates the input value                                                                          // 69
+        if (value !== rawValue) {                                                                                    // 70
+            this.setValue(t, value);                                                                                 // 71
+        }                                                                                                            // 72
+                                                                                                                     // 73
+        // Client-side only validation                                                                               // 74
+        if (!this.validation)                                                                                        // 75
+            return;                                                                                                  // 76
+        var parentData = Template.parentData();                                                                      // 77
+        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 78
+        // No validation during signIn                                                                               // 79
+        if (state === "signIn")                                                                                      // 80
+            return;                                                                                                  // 81
+        // Special case for password confirmation                                                                    // 82
+        if (value && fieldId === "password_again"){                                                                  // 83
+            if (value !== $("#at-field-password").val())                                                             // 84
+                return this.setError(AccountsTemplates.texts.errors.pwdMismatch);                                    // 85
+        }                                                                                                            // 86
+        this.validate(value);                                                                                        // 87
+    },                                                                                                               // 88
+    "keyup input": function(event, t){                                                                               // 89
+        // Client-side only continuous validation                                                                    // 90
+        if (!this.continuousValidation)                                                                              // 91
+            return;                                                                                                  // 92
+        var parentData = Template.parentData();                                                                      // 93
+        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 94
+        // No validation during signIn                                                                               // 95
+        if (state === "signIn")                                                                                      // 96
+            return;                                                                                                  // 97
+        var fieldId = this._id;                                                                                      // 98
+        var rawValue = this.getValue(t);                                                                             // 99
+        var value = this.fixValue(rawValue);                                                                         // 100
+        // Possibly updates the input value                                                                          // 101
+        if (value !== rawValue) {                                                                                    // 102
+            this.setValue(t, value);                                                                                 // 103
+        }                                                                                                            // 104
+        // Special case for password confirmation                                                                    // 105
+        if (value && fieldId === "password_again"){                                                                  // 106
+            if (value !== $("#at-field-password").val())                                                             // 107
+                return this.setError(AccountsTemplates.texts.errors.pwdMismatch);                                    // 108
+        }                                                                                                            // 109
+        this.validate(value);                                                                                        // 110
+    },                                                                                                               // 111
+};                                                                                                                   // 112
+                                                                                                                     // 113
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -2024,213 +2073,228 @@ AT.prototype.atPwdFormEvents = {                                                
         // Clears error and result                                                                                   // 85
         AccountsTemplates.clearError();                                                                              // 86
         AccountsTemplates.clearResult();                                                                             // 87
-        // Possibly sets errors                                                                                      // 88
-        if (someError){                                                                                              // 89
-            if (errList.length)                                                                                      // 90
-                AccountsTemplates.state.form.set("error", errList);                                                  // 91
-            AccountsTemplates.setDisabled(false);                                                                    // 92
-            //reset reCaptcha form                                                                                   // 93
-            if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                     // 94
-                grecaptcha.reset();                                                                                  // 95
-            }                                                                                                        // 96
-            return;                                                                                                  // 97
-        }                                                                                                            // 98
-                                                                                                                     // 99
-        // Extracts username, email, and pwds                                                                        // 100
-        var current_password = formData.current_password;                                                            // 101
-        var email = formData.email;                                                                                  // 102
-        var password = formData.password;                                                                            // 103
-        var password_again = formData.password_again;                                                                // 104
-        var username = formData.username;                                                                            // 105
-        var username_and_email = formData.username_and_email;                                                        // 106
-        // Clears profile data removing username, email, and pwd                                                     // 107
-        delete formData.current_password;                                                                            // 108
-        delete formData.email;                                                                                       // 109
-        delete formData.password;                                                                                    // 110
-        delete formData.password_again;                                                                              // 111
-        delete formData.username;                                                                                    // 112
-        delete formData.username_and_email;                                                                          // 113
-                                                                                                                     // 114
-        if (AccountsTemplates.options.confirmPassword){                                                              // 115
-            // Checks passwords for correct match                                                                    // 116
-            if (password_again && password !== password_again){                                                      // 117
-                var pwd_again = AccountsTemplates.getField("password_again");                                        // 118
-                if (pwd_again.negativeValidation)                                                                    // 119
-                    pwd_again.setError(AccountsTemplates.texts.errors.pwdMismatch);                                  // 120
-                else                                                                                                 // 121
-                    AccountsTemplates.state.form.set("error", [{                                                     // 122
-                        field: pwd_again.getDisplayName(),                                                           // 123
-                        err: AccountsTemplates.texts.errors.pwdMismatch                                              // 124
-                    }]);                                                                                             // 125
-                AccountsTemplates.setDisabled(false);                                                                // 126
-                //reset reCaptcha form                                                                               // 127
-                if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                 // 128
-                  grecaptcha.reset();                                                                                // 129
-                }                                                                                                    // 130
-                return;                                                                                              // 131
-            }                                                                                                        // 132
-        }                                                                                                            // 133
-                                                                                                                     // 134
-        // -------                                                                                                   // 135
-        // Sign In                                                                                                   // 136
-        // -------                                                                                                   // 137
-        if (state === "signIn") {                                                                                    // 138
-            var pwdOk = !!password;                                                                                  // 139
-            var userOk = true;                                                                                       // 140
-            var loginSelector;                                                                                       // 141
-            if (email) {                                                                                             // 142
-                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 143
-                  email = toLowercaseUsername(email);                                                                // 144
-                }                                                                                                    // 145
-                                                                                                                     // 146
-                loginSelector = {email: email};                                                                      // 147
-            }                                                                                                        // 148
-            else if (username) {                                                                                     // 149
-                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 150
-                  username = toLowercaseUsername(username);                                                          // 151
-                }                                                                                                    // 152
-                loginSelector = {username: username};                                                                // 153
-            }                                                                                                        // 154
-            else if (username_and_email) {                                                                           // 155
-                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 156
-                  username_and_email = toLowercaseUsername(username_and_email);                                      // 157
-                }                                                                                                    // 158
-                loginSelector = username_and_email;                                                                  // 159
-            }                                                                                                        // 160
-            else                                                                                                     // 161
-                userOk = false;                                                                                      // 162
-                                                                                                                     // 163
-            // Possibly exits if not both 'password' and 'username' are non-empty...                                 // 164
-            if (!pwdOk || !userOk){                                                                                  // 165
-                AccountsTemplates.state.form.set("error", ["error.accounts.Login forbidden"]);                       // 166
-                AccountsTemplates.setDisabled(false);                                                                // 167
-                return;                                                                                              // 168
-            }                                                                                                        // 169
-                                                                                                                     // 170
-            return Meteor.loginWithPassword(loginSelector, password, function(error) {                               // 171
-                AccountsTemplates.submitCallback(error, state);                                                      // 172
-            });                                                                                                      // 173
-        }                                                                                                            // 174
-                                                                                                                     // 175
-        // -------                                                                                                   // 176
-        // Sign Up                                                                                                   // 177
-        // -------                                                                                                   // 178
-        if (state === "signUp") {                                                                                    // 179
-            // Possibly gets reCaptcha response                                                                      // 180
-            if (AccountsTemplates.options.showReCaptcha) {                                                           // 181
-              formData.reCaptchaResponse = grecaptcha.getResponse();                                                 // 182
-            }                                                                                                        // 183
-                                                                                                                     // 184
-            var hash = Accounts._hashPassword(password);                                                             // 185
-            return Meteor.call("ATCreateUserServer", {                                                               // 186
-                username: username,                                                                                  // 187
-                email: email,                                                                                        // 188
-                password: hash,                                                                                      // 189
-                profile: formData,                                                                                   // 190
-            }, function(error){                                                                                      // 191
-                AccountsTemplates.submitCallback(error, undefined, function(){                                       // 192
+        AccountsTemplates.clearMessage();                                                                            // 88
+        // Possibly sets errors                                                                                      // 89
+        if (someError){                                                                                              // 90
+            if (errList.length)                                                                                      // 91
+                AccountsTemplates.state.form.set("error", errList);                                                  // 92
+            AccountsTemplates.setDisabled(false);                                                                    // 93
+            //reset reCaptcha form                                                                                   // 94
+            if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                     // 95
+                grecaptcha.reset();                                                                                  // 96
+            }                                                                                                        // 97
+            return;                                                                                                  // 98
+        }                                                                                                            // 99
+                                                                                                                     // 100
+        // Extracts username, email, and pwds                                                                        // 101
+        var current_password = formData.current_password;                                                            // 102
+        var email = formData.email;                                                                                  // 103
+        var password = formData.password;                                                                            // 104
+        var password_again = formData.password_again;                                                                // 105
+        var username = formData.username;                                                                            // 106
+        var username_and_email = formData.username_and_email;                                                        // 107
+        // Clears profile data removing username, email, and pwd                                                     // 108
+        delete formData.current_password;                                                                            // 109
+        delete formData.email;                                                                                       // 110
+        delete formData.password;                                                                                    // 111
+        delete formData.password_again;                                                                              // 112
+        delete formData.username;                                                                                    // 113
+        delete formData.username_and_email;                                                                          // 114
+                                                                                                                     // 115
+        if (AccountsTemplates.options.confirmPassword){                                                              // 116
+            // Checks passwords for correct match                                                                    // 117
+            if (password_again && password !== password_again){                                                      // 118
+                var pwd_again = AccountsTemplates.getField("password_again");                                        // 119
+                if (pwd_again.negativeValidation)                                                                    // 120
+                    pwd_again.setError(AccountsTemplates.texts.errors.pwdMismatch);                                  // 121
+                else                                                                                                 // 122
+                    AccountsTemplates.state.form.set("error", [{                                                     // 123
+                        field: pwd_again.getDisplayName(),                                                           // 124
+                        err: AccountsTemplates.texts.errors.pwdMismatch                                              // 125
+                    }]);                                                                                             // 126
+                AccountsTemplates.setDisabled(false);                                                                // 127
+                //reset reCaptcha form                                                                               // 128
+                if (state === "signUp" && AccountsTemplates.options.showReCaptcha) {                                 // 129
+                  grecaptcha.reset();                                                                                // 130
+                }                                                                                                    // 131
+                return;                                                                                              // 132
+            }                                                                                                        // 133
+        }                                                                                                            // 134
+                                                                                                                     // 135
+        // -------                                                                                                   // 136
+        // Sign In                                                                                                   // 137
+        // -------                                                                                                   // 138
+        if (state === "signIn") {                                                                                    // 139
+            var pwdOk = !!password;                                                                                  // 140
+            var userOk = true;                                                                                       // 141
+            var loginSelector;                                                                                       // 142
+            if (email) {                                                                                             // 143
+                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 144
+                  email = toLowercaseUsername(email);                                                                // 145
+                }                                                                                                    // 146
+                                                                                                                     // 147
+                loginSelector = {email: email};                                                                      // 148
+            }                                                                                                        // 149
+            else if (username) {                                                                                     // 150
+                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 151
+                  username = toLowercaseUsername(username);                                                          // 152
+                }                                                                                                    // 153
+                loginSelector = {username: username};                                                                // 154
+            }                                                                                                        // 155
+            else if (username_and_email) {                                                                           // 156
+                if (AccountsTemplates.options.lowercaseUsername) {                                                   // 157
+                  username_and_email = toLowercaseUsername(username_and_email);                                      // 158
+                }                                                                                                    // 159
+                loginSelector = username_and_email;                                                                  // 160
+            }                                                                                                        // 161
+            else                                                                                                     // 162
+                userOk = false;                                                                                      // 163
+                                                                                                                     // 164
+            // Possibly exits if not both 'password' and 'username' are non-empty...                                 // 165
+            if (!pwdOk || !userOk){                                                                                  // 166
+                AccountsTemplates.state.form.set("error", [AccountsTemplates.texts.errors.loginForbidden]);          // 167
+                AccountsTemplates.setDisabled(false);                                                                // 168
+                return;                                                                                              // 169
+            }                                                                                                        // 170
+                                                                                                                     // 171
+            return Meteor.loginWithPassword(loginSelector, password, function(error) {                               // 172
+                AccountsTemplates.submitCallback(error, state);                                                      // 173
+            });                                                                                                      // 174
+        }                                                                                                            // 175
+                                                                                                                     // 176
+        // -------                                                                                                   // 177
+        // Sign Up                                                                                                   // 178
+        // -------                                                                                                   // 179
+        if (state === "signUp") {                                                                                    // 180
+            // Possibly gets reCaptcha response                                                                      // 181
+            if (AccountsTemplates.options.showReCaptcha) {                                                           // 182
+              formData.reCaptchaResponse = grecaptcha.getResponse();                                                 // 183
+            }                                                                                                        // 184
+                                                                                                                     // 185
+            var hash = Accounts._hashPassword(password);                                                             // 186
+            return Meteor.call("ATCreateUserServer", {                                                               // 187
+                username: username,                                                                                  // 188
+                email: email,                                                                                        // 189
+                password: hash,                                                                                      // 190
+                profile: formData,                                                                                   // 191
+            }, function(error){                                                                                      // 192
+                AccountsTemplates.submitCallback(error, undefined, function(){                                       // 193
                     if (AccountsTemplates.options.sendVerificationEmail && AccountsTemplates.options.enforceEmailVerification){
-                        AccountsTemplates.submitCallback(error, state, function () {                                 // 194
+                        AccountsTemplates.submitCallback(error, state, function () {                                 // 195
                             AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.signUpVerifyEmail);
-                            // Cleans up input fields' content                                                       // 196
-                            _.each(AccountsTemplates.getFields(), function(field){                                   // 197
-                                // Considers only visible fields...                                                  // 198
-                                if (!_.contains(field.visible, state))                                               // 199
-                                    return;                                                                          // 200
-                                                                                                                     // 201
-                                var elem = t.$("#at-field-" + field._id);                                            // 202
-                                                                                                                     // 203
-                                // Naïve reset                                                                       // 204
-                                if (field.type === "checkbox") elem.prop('checked', false);                          // 205
-                                else elem.val("");                                                                   // 206
-                                                                                                                     // 207
-                            });                                                                                      // 208
-                            AccountsTemplates.setDisabled(false);                                                    // 209
-                            AccountsTemplates.avoidRedirect = true;                                                  // 210
-                        });                                                                                          // 211
-                    }                                                                                                // 212
-                    else {                                                                                           // 213
-                        var loginSelector;                                                                           // 214
-                                                                                                                     // 215
-                        if (email) {                                                                                 // 216
-                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 217
-                              email = toLowercaseUsername(email);                                                    // 218
-                            }                                                                                        // 219
-                                                                                                                     // 220
-                            loginSelector = {email: email};                                                          // 221
-                        }                                                                                            // 222
-                        else if (username) {                                                                         // 223
-                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 224
-                              username = toLowercaseUsername(username);                                              // 225
-                            }                                                                                        // 226
-                            loginSelector = {username: username};                                                    // 227
-                        }                                                                                            // 228
-                        else {                                                                                       // 229
-                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 230
-                              username_and_email = toLowercaseUsername(username_and_email);                          // 231
-                            }                                                                                        // 232
-                            loginSelector = username_and_email;                                                      // 233
-                        }                                                                                            // 234
-                                                                                                                     // 235
-                        Meteor.loginWithPassword(loginSelector, password, function(error) {                          // 236
-                            AccountsTemplates.submitCallback(error, state, function(){                               // 237
-                                AccountsTemplates.setState("signIn");                                                // 238
-                            });                                                                                      // 239
-                        });                                                                                          // 240
-                    }                                                                                                // 241
-                });                                                                                                  // 242
-            });                                                                                                      // 243
-        }                                                                                                            // 244
-                                                                                                                     // 245
-        //----------------                                                                                           // 246
-        // Forgot Password                                                                                           // 247
-        //----------------                                                                                           // 248
-        if (state === "forgotPwd"){                                                                                  // 249
-            return Accounts.forgotPassword({                                                                         // 250
-                email: email                                                                                         // 251
-            }, function(error) {                                                                                     // 252
-                AccountsTemplates.submitCallback(error, state, function(){                                           // 253
-                    AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.emailSent);              // 254
-                    t.$("#at-field-email").val("");                                                                  // 255
-                });                                                                                                  // 256
-            });                                                                                                      // 257
-        }                                                                                                            // 258
-                                                                                                                     // 259
-        //--------------------------------                                                                           // 260
-        // Reset Password / Enroll Account                                                                           // 261
-        //--------------------------------                                                                           // 262
-        if (state === "resetPwd" || state === "enrollAccount") {                                                     // 263
-            return Accounts.resetPassword(AccountsTemplates.paramToken, password, function(error) {                  // 264
-                AccountsTemplates.submitCallback(error, state, function(){                                           // 265
-                    var pwd_field_id;                                                                                // 266
-                    if (state === "resetPwd")                                                                        // 267
-                        AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdReset);           // 268
-                    else // Enroll Account                                                                           // 269
-                        AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdSet);             // 270
-                    t.$("#at-field-password").val("");                                                               // 271
-                    if (AccountsTemplates.options.confirmPassword)                                                   // 272
-                        t.$("#at-field-password_again").val("");                                                     // 273
-                });                                                                                                  // 274
-            });                                                                                                      // 275
-        }                                                                                                            // 276
-                                                                                                                     // 277
-        //----------------                                                                                           // 278
-        // Change Password                                                                                           // 279
-        //----------------                                                                                           // 280
-        if (state === "changePwd"){                                                                                  // 281
-            return Accounts.changePassword(current_password, password, function(error) {                             // 282
-                AccountsTemplates.submitCallback(error, state, function(){                                           // 283
-                    AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdChanged);             // 284
-                    t.$("#at-field-current_password").val("");                                                       // 285
-                    t.$("#at-field-password").val("");                                                               // 286
-                    if (AccountsTemplates.options.confirmPassword)                                                   // 287
-                        t.$("#at-field-password_again").val("");                                                     // 288
-                });                                                                                                  // 289
-            });                                                                                                      // 290
-        }                                                                                                            // 291
-    },                                                                                                               // 292
-};                                                                                                                   // 293
-                                                                                                                     // 294
+                            // Cleans up input fields' content                                                       // 197
+                            _.each(AccountsTemplates.getFields(), function(field){                                   // 198
+                                // Considers only visible fields...                                                  // 199
+                                if (!_.contains(field.visible, state))                                               // 200
+                                    return;                                                                          // 201
+                                                                                                                     // 202
+                                var elem = t.$("#at-field-" + field._id);                                            // 203
+                                                                                                                     // 204
+                                // Naïve reset                                                                       // 205
+                                if (field.type === "checkbox") elem.prop('checked', false);                          // 206
+                                else elem.val("");                                                                   // 207
+                                                                                                                     // 208
+                            });                                                                                      // 209
+                            AccountsTemplates.setDisabled(false);                                                    // 210
+                            AccountsTemplates.avoidRedirect = true;                                                  // 211
+                        });                                                                                          // 212
+                    }                                                                                                // 213
+                    else {                                                                                           // 214
+                        var loginSelector;                                                                           // 215
+                                                                                                                     // 216
+                        if (email) {                                                                                 // 217
+                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 218
+                              email = toLowercaseUsername(email);                                                    // 219
+                            }                                                                                        // 220
+                                                                                                                     // 221
+                            loginSelector = {email: email};                                                          // 222
+                        }                                                                                            // 223
+                        else if (username) {                                                                         // 224
+                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 225
+                              username = toLowercaseUsername(username);                                              // 226
+                            }                                                                                        // 227
+                            loginSelector = {username: username};                                                    // 228
+                        }                                                                                            // 229
+                        else {                                                                                       // 230
+                            if (AccountsTemplates.options.lowercaseUsername) {                                       // 231
+                              username_and_email = toLowercaseUsername(username_and_email);                          // 232
+                            }                                                                                        // 233
+                            loginSelector = username_and_email;                                                      // 234
+                        }                                                                                            // 235
+                                                                                                                     // 236
+                        Meteor.loginWithPassword(loginSelector, password, function(error) {                          // 237
+                            AccountsTemplates.submitCallback(error, state, function(){                               // 238
+                                AccountsTemplates.setState("signIn");                                                // 239
+                            });                                                                                      // 240
+                        });                                                                                          // 241
+                    }                                                                                                // 242
+                });                                                                                                  // 243
+            });                                                                                                      // 244
+        }                                                                                                            // 245
+                                                                                                                     // 246
+        //----------------                                                                                           // 247
+        // Forgot Password                                                                                           // 248
+        //----------------                                                                                           // 249
+        if (state === "forgotPwd"){                                                                                  // 250
+            return Accounts.forgotPassword({                                                                         // 251
+                email: email                                                                                         // 252
+            }, function(error) {                                                                                     // 253
+                AccountsTemplates.submitCallback(error, state, function(){                                           // 254
+                    AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.emailSent);              // 255
+                    t.$("#at-field-email").val("");                                                                  // 256
+                });                                                                                                  // 257
+            });                                                                                                      // 258
+        }                                                                                                            // 259
+                                                                                                                     // 260
+        //--------------------------------                                                                           // 261
+        // Reset Password / Enroll Account                                                                           // 262
+        //--------------------------------                                                                           // 263
+        if (state === "resetPwd" || state === "enrollAccount") {                                                     // 264
+            return Accounts.resetPassword(AccountsTemplates.paramToken, password, function(error) {                  // 265
+                AccountsTemplates.submitCallback(error, state, function(){                                           // 266
+                    var pwd_field_id;                                                                                // 267
+                    if (state === "resetPwd")                                                                        // 268
+                        AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdReset);           // 269
+                    else // Enroll Account                                                                           // 270
+                        AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdSet);             // 271
+                    t.$("#at-field-password").val("");                                                               // 272
+                    if (AccountsTemplates.options.confirmPassword)                                                   // 273
+                        t.$("#at-field-password_again").val("");                                                     // 274
+                });                                                                                                  // 275
+            });                                                                                                      // 276
+        }                                                                                                            // 277
+                                                                                                                     // 278
+        //----------------                                                                                           // 279
+        // Change Password                                                                                           // 280
+        //----------------                                                                                           // 281
+        if (state === "changePwd"){                                                                                  // 282
+            return Accounts.changePassword(current_password, password, function(error) {                             // 283
+                AccountsTemplates.submitCallback(error, state, function(){                                           // 284
+                    AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.pwdChanged);             // 285
+                    t.$("#at-field-current_password").val("");                                                       // 286
+                    t.$("#at-field-password").val("");                                                               // 287
+                    if (AccountsTemplates.options.confirmPassword)                                                   // 288
+                        t.$("#at-field-password_again").val("");                                                     // 289
+                });                                                                                                  // 290
+            });                                                                                                      // 291
+        }                                                                                                            // 292
+                                                                                                                     // 293
+        //----------------                                                                                           // 294
+        // Resend Verification E-mail                                                                                // 295
+        //----------------                                                                                           // 296
+        if (state === "resendVerificationEmail"){                                                                    // 297
+            return Meteor.call("ATResendVerificationEmail", email, function (error) {                                // 298
+                AccountsTemplates.submitCallback(error, state, function(){                                           // 299
+                    AccountsTemplates.state.form.set("result", AccountsTemplates.texts.info.verificationEmailSent);  // 300
+                    t.$("#at-field-email").val("");                                                                  // 301
+                                                                                                                     // 302
+                    AccountsTemplates.avoidRedirect = true;                                                          // 303
+                });                                                                                                  // 304
+            });                                                                                                      // 305
+        }                                                                                                            // 306
+    },                                                                                                               // 307
+};                                                                                                                   // 308
+                                                                                                                     // 309
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -2345,6 +2409,47 @@ AT.prototype.atReCaptchaHelpers = {                                             
     },                                                                                                               // 18
 };                                                                                                                   // 19
                                                                                                                      // 20
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function () {
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                   //
+// packages/useraccounts:core/lib/templates_helpers/at_resend_verification_email_link.js                             //
+//                                                                                                                   //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                     //
+AT.prototype.atResendVerificationEmailLinkHelpers = {                                                                // 1
+    disabled: function () {                                                                                          // 2
+        return AccountsTemplates.disabled();                                                                         // 3
+    },                                                                                                               // 4
+    resendVerificationEmailLink: function () {                                                                       // 5
+        return AccountsTemplates.getRoutePath("resendVerificationEmail");                                            // 6
+    },                                                                                                               // 7
+    preText: function(){                                                                                             // 8
+        return T9n.get(AccountsTemplates.texts.resendVerificationEmailLink_pre, markIfMissing=false);                // 9
+    },                                                                                                               // 10
+    linkText: function(){                                                                                            // 11
+        return T9n.get(AccountsTemplates.texts.resendVerificationEmailLink_link, markIfMissing=false);               // 12
+    },                                                                                                               // 13
+    suffText: function(){                                                                                            // 14
+        return T9n.get(AccountsTemplates.texts.resendVerificationEmailLink_suff, markIfMissing=false);               // 15
+    },                                                                                                               // 16
+};                                                                                                                   // 17
+                                                                                                                     // 18
+AT.prototype.atResendVerificationEmailLinkEvents = {                                                                 // 19
+    "click #at-resend-verification-email": function(event, t) {                                                      // 20
+        event.preventDefault();                                                                                      // 21
+        AccountsTemplates.linkClick('resendVerificationEmail');                                                      // 22
+    },                                                                                                               // 23
+};                                                                                                                   // 24
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -2664,13 +2769,37 @@ AT.prototype.atTermsLinkEvents = {                                              
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                      //
 AT.prototype.atTitleHelpers = {                                                                                      // 1
-    title: function(){                                                                                               // 2
-        var parentData = Template.currentData();                                                                     // 3
-        var state = (parentData && parentData.state) || AccountsTemplates.getState();                                // 4
-        return T9n.get(AccountsTemplates.texts.title[state], markIfMissing=false);                                   // 5
-    },                                                                                                               // 6
+  title: function() {                                                                                                // 2
+    var parentData = Template.currentData();                                                                         // 3
+    var state = (parentData && parentData.state) || AccountsTemplates.getState();                                    // 4
+    return T9n.get(AccountsTemplates.texts.title[state], markIfMissing = false);                                     // 5
+  },                                                                                                                 // 6
 };                                                                                                                   // 7
                                                                                                                      // 8
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function () {
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                   //
+// packages/useraccounts:core/lib/templates_helpers/at_message.js                                                    //
+//                                                                                                                   //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                     //
+AT.prototype.atMessageHelpers = {                                                                                    // 1
+    message: function() {                                                                                            // 2
+        var messageText = AccountsTemplates.state.form.get("message");                                               // 3
+        if (messageText)                                                                                             // 4
+            return T9n.get(messageText, markIfMissing=false);                                                        // 5
+    },                                                                                                               // 6
+};                                                                                                                   // 7
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -2696,7 +2825,7 @@ Meteor.methods({                                                                
             var user = Meteor.users.findOne(userId);                                                                 // 6
             var numServices = _.keys(user.services).length; // including "resume"                                    // 7
             if (numServices === 2)                                                                                   // 8
-                throw new Meteor.Error(403, "Cannot remove the only active service!", {});                           // 9
+                throw new Meteor.Error(403, AccountsTemplates.texts.errors.cannotRemoveService, {});                 // 9
             var unset = {};                                                                                          // 10
             unset["services." + service_name] = "";                                                                  // 11
             Meteor.users.update(userId, {$unset: unset});                                                            // 12
@@ -2709,7 +2838,7 @@ if (Meteor.isServer) {                                                          
     Meteor.methods({                                                                                                 // 19
         ATCreateUserServer: function(options){                                                                       // 20
             if (AccountsTemplates.options.forbidClientAccountCreation)                                               // 21
-                throw new Meteor.Error(403, "Client side accounts creation is disabled!!!");                         // 22
+                throw new Meteor.Error(403, AccountsTemplates.texts.errors.accountsCreationDisabled);                // 22
             // createUser() does more checking.                                                                      // 23
             check(options, Object);                                                                                  // 24
             var allFieldIds = AccountsTemplates.getFieldIds();                                                       // 25
@@ -2779,13 +2908,13 @@ if (Meteor.isServer) {                                                          
                 }).data;                                                                                             // 89
                                                                                                                      // 90
                 if (!apiResponse.success) {                                                                          // 91
-                    throw new Meteor.Error(403, "Captcha verification failed!",                                      // 92
+                    throw new Meteor.Error(403, AccountsTemplates.texts.errors.captchaVerification,                  // 92
                       apiResponse['error-codes'] ? apiResponse['error-codes'].join(", ") : "Unknown Error.");        // 93
                 }                                                                                                    // 94
             }                                                                                                        // 95
                                                                                                                      // 96
             if (someError)                                                                                           // 97
-                throw new Meteor.Error(403, "Validation Errors", validationErrors);                                  // 98
+                throw new Meteor.Error(403, AccountsTemplates.texts.errors.validationErrors, validationErrors);      // 98
                                                                                                                      // 99
             // Possibly removes the profile field                                                                    // 100
             if (_.isEmpty(options.profile))                                                                          // 101
@@ -2803,9 +2932,29 @@ if (Meteor.isServer) {                                                          
             if (options.email && AccountsTemplates.options.sendVerificationEmail)                                    // 113
                 Accounts.sendVerificationEmail(userId, options.email);                                               // 114
         },                                                                                                           // 115
-    });                                                                                                              // 116
-}                                                                                                                    // 117
-                                                                                                                     // 118
+                                                                                                                     // 116
+        // Resend a user's verification e-mail                                                                       // 117
+        ATResendVerificationEmail: function (email) {                                                                // 118
+            check(email, String);                                                                                    // 119
+                                                                                                                     // 120
+            var user = Meteor.users.findOne({ "emails.address": email });                                            // 121
+                                                                                                                     // 122
+            // Send the standard error back to the client if no user exist with this e-mail                          // 123
+            if (!user)                                                                                               // 124
+                throw new Meteor.Error(403, "User not found");                                                       // 125
+                                                                                                                     // 126
+            try {                                                                                                    // 127
+                Accounts.sendVerificationEmail(user._id);                                                            // 128
+            }                                                                                                        // 129
+            catch (error) {                                                                                          // 130
+                // Handle error when email already verified                                                          // 131
+                // https://github.com/dwinston/send-verification-email-bug                                           // 132
+                throw new Meteor.Error(403, "Already verified");                                                     // 133
+            }                                                                                                        // 134
+        },                                                                                                           // 135
+    });                                                                                                              // 136
+}                                                                                                                    // 137
+                                                                                                                     // 138
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

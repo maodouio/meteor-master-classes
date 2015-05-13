@@ -16,6 +16,11 @@ Router.map(function() {
     path: '/',
     action: function() {
       this.render('lists');
+    },
+    waitOn: function() {
+      return [
+        Meteor.subscribe('Posts')
+      ];
     }
   });
   this.route('actionSheet');
@@ -28,7 +33,7 @@ Router.map(function() {
     }
   });
   this.route('headersFooters');
-  this.route('lists');
+  // this.route('lists');
   this.route('loading');
   this.route('modal');
   this.route('navigation');
@@ -47,11 +52,13 @@ Router.map(function() {
 
   this.route('postView', {
     path: '/postView/:_id',
-    subscriptions: function() {
-      Meteor.subscribe('post', this.params._id);
-    },
     data: function() {
       return Posts.findOne(this.params._id);
+    },
+    waitOn: function() {
+      return [
+        Meteor.subscribe('post', this.params._id)
+      ];
     }
   });
 
@@ -59,8 +66,10 @@ Router.map(function() {
 
   this.route('editPost', {
     path: '/editPost/:_id',
-    subscriptions: function() {
-      Meteor.subscribe('post', this.params._id);
+    waitOn: function() {
+      return [
+        Meteor.subscribe('post', this.params._id)
+      ];
     },
     data: function() {
       return Posts.findOne(this.params._id);
