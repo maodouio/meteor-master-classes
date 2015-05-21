@@ -100,7 +100,7 @@ Git 和 Github
 发布与订阅
 ----------
 
-1.  延迟补偿 latency compensation 是什么意思？http://docs.meteor.com/#sevenprinciples
+1.  延迟补偿 latency compensation 是什么意思？
 
 2.  DDP 是什么的缩写？（Distributed Data Protocol or Dynamic Data Protocol？）
 
@@ -110,14 +110,14 @@ Git 和 Github
 
 5.  如何只发布指定的部分字段？
 
-6.  [Meteor 的重要特性有一条是数据库无处不在，这句话你怎么理解？](<http://docs.meteor.com/#sevenprinciples>)
+6.  Meteor 的重要特性有一条是数据库无处不在，这句话你怎么理解？
 
  
 
 路由
 ----
 
-1.  [Iron Router 是Meteor系统内部的，还是第三方的包？](<https://github.com/EventedMind/iron-router>)
+1.  Iron Router 是Meteor系统内部的，还是第三方的包？
 
 2.  {{> spinner}} 这个是干什么的？
 
