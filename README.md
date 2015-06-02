@@ -2,7 +2,7 @@
 First meteor master classes 
 
 ## What you will learn
-* https://github.com/maodouio/meteor-master-classes/blob/master/Outline.md
+* https://github.com/maodouio/meteor-master-classes/blob/master/outline.md
 
 ## How to add good resourses
 * https://github.com/maodouio/meteor-master-classes/wiki
