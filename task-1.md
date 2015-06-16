@@ -28,6 +28,7 @@
 * 修改首页，显示右上角登陆后的提示信息
   - client/templates/lists/lists.html
   - {{#if currentUser}}
+  - 提示：/userAccounts 链接下可以进行用户的登录和注册，登录和注册成功之后，在首页右上角显示登录用户的信息（email，username）
 * 测试并提交部署后的网址
   - http://welog-xxx.meteor.com
   - 在 moxtra 讨论组中的相关任务中，增添留言提交作业网址
